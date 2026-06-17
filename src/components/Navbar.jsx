@@ -15,13 +15,13 @@ const projects = [
     label: 'Jóvenes Caficultores',
     to:    '/proyectos/jovenes-caficultores',
     color: '#2E7D32',
-    logo:  '/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES POSITIVO.png',
+    logo:  '/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES NEGATIVO.webp',
   },
   {
     label: 'Bosques del Mañana',
     to:    '/proyectos/bosques-del-manana',
     color: '#1B5E20',
-    logo:  '/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.png',
+    logo:  '/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp',
   },
   {
     label: 'RS GOLD',
@@ -33,7 +33,7 @@ const projects = [
     label: 'Espacios Seguros',
     to:    '/proyectos/derechos-humanos',
     color: '#1565C0',
-    logo:  '/imagenes/logos/Logos Generales/Logo_EspaciosSeguros.png',
+    logo:  '/imagenes/logos/Logos Generales/Logo_EspaciosSeguros.webp',
     logoWhite: true,
   },
   {
@@ -46,7 +46,7 @@ const projects = [
     label: 'Nespresso AAA',
     to:    '/proyectos/nespresso-aaa',
     color: '#F57F17',
-    logo:  '/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.png',
+    logo:  '/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp',
   },
 ]
 
@@ -129,8 +129,8 @@ export default function Navbar() {
             <motion.img
               src={
                 (isColored || isHome || scrolled)
-                  ? '/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ NEGATIVO.png'
-                  : '/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ COLOR.png'
+                  ? '/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ NEGATIVO.webp'
+                  : '/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ COLOR.webp'
               }
               alt="Fundación COHONDUCAFÉ"
               className="h-[106px] w-auto object-contain group-hover:brightness-110 transition-all duration-200"
@@ -143,7 +143,7 @@ export default function Navbar() {
 
             {/* Nestlé */}
             <motion.img
-              src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.png"
+              src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
               alt="Nestlé"
               className="h-[80px] w-auto object-contain group-hover:brightness-110 transition-all duration-200 hidden sm:block"
               style={{ filter: 'brightness(0) invert(1)' }}
@@ -156,7 +156,7 @@ export default function Navbar() {
 
             {/* Plan Nescafé */}
             <motion.img
-              src="/imagenes/logos/Logos Generales/LOGO PLAN NESCAFÉ NEGATIVO.png"
+              src="/imagenes/logos/Logos Generales/LOGO PLAN NESCAFÉ NEGATIVO.webp"
               alt="Plan Nescafé"
               className="h-[80px] w-auto object-contain group-hover:brightness-110 transition-all duration-200 hidden sm:block"
               initial={false}
@@ -294,12 +294,12 @@ export default function Navbar() {
               {/* Logos en mobile */}
               <div className="flex items-center gap-3 pb-5 mb-3 border-b border-white/10 flex-wrap">
                 <img
-                  src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ COLOR.png"
+                  src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ COLOR.webp"
                   alt="COHONDUCAFÉ" className="h-10 w-auto object-contain"
                 />
                 <SeparadorX />
                 <img
-                  src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.png"
+                  src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
                   alt="Nestlé" className="h-8 w-auto object-contain"
                 />
                 {/* Logo proyecto activo en mobile */}

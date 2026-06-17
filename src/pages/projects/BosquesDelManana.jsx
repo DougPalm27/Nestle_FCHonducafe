@@ -147,7 +147,7 @@ export default function BosquesDelManana() {
       {/* ── HERO ───────────────────────────────────────────── */}
       <ProjectHero
         title="Bosques del Mañana"
-        logo="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.png"
+        logo="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp"
         subtitle="Reforestación con sistemas agroforestales"
         description="Más de 4 millones de árboles plantados en sistemas agroforestales junto al café. Generando empleo, ingresos y biodiversidad en Honduras y Panamá."
         color={COLOR}
@@ -606,7 +606,7 @@ export default function BosquesDelManana() {
             >
               <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-10 text-center border border-white/25 shadow-2xl">
                 <motion.img
-                  src="/imagenes/logos/Logos Generales/LOGO-AI-CARBONO-NEUTRO.png"
+                  src="/imagenes/logos/Logos Generales/LOGO-AI-CARBONO-NEUTRO.webp"
                   alt="Carbono Neutro"
                   className="h-28 w-auto mx-auto mb-6 object-contain drop-shadow-xl"
                   style={{ willChange: 'transform' }}

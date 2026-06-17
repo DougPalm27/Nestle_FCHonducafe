@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-5">
               <img
-                src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ NEGATIVO.png"
+                src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ NEGATIVO.webp"
                 alt="Fundación COHONDUCAFÉ"
                 className="h-20 w-auto object-contain"
               />
@@ -45,12 +45,12 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-3 flex-wrap">
               <span className="text-white/50 text-xs">En alianza con</span>
               <img
-                src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.png"
+                src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
                 alt="Nestlé"
                 className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
               />
               <img
-                src="/imagenes/logos/Logos Generales/LOGO PLAN NESCAFÉ NEGATIVO.png"
+                src="/imagenes/logos/Logos Generales/LOGO PLAN NESCAFÉ NEGATIVO.webp"
                 alt="Plan Nescafé"
                 className="h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
               />

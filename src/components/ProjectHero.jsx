@@ -33,7 +33,7 @@ export default function ProjectHero({
           ref={imgRef}
           src={imageSrc || `https://picsum.photos/seed/${imageId}/1600/900`}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover will-change-transform"
+          className="absolute inset-0 w-full h-full object-cover object-bottom will-change-transform"
           loading="eager"
         />
         {/* Gradient overlay */}

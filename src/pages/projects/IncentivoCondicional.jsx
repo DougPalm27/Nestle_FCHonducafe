@@ -162,7 +162,7 @@ export default function IncentivoCondicional() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp}>
               <div className="mb-4">
-                <img src="/imagenes/logos/Logos Generales/LOGO ECOLLUVIA COLOR.png"
+                <img src="/imagenes/logos/Logos Generales/LOGO ECOLLUVIA COLOR.webp"
                      alt="Ecolluvía" className="h-20 w-auto object-contain drop-shadow-sm" />
               </div>
               <h2 className="text-4xl font-black text-cafe mb-4">Sistema Ecolluvía</h2>
@@ -269,7 +269,7 @@ export default function IncentivoCondicional() {
                 </p>
               </div>
               <img
-                src="/imagenes/logos/Logos Generales/LOGOS GENERAL APICULTURA.png"
+                src="/imagenes/logos/Logos Generales/LOGOS GENERAL APICULTURA.webp"
                 alt="Apicultura"
                 className="h-16 w-auto object-contain flex-shrink-0 self-center sm:self-end"
               />

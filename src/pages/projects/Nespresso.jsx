@@ -136,7 +136,7 @@ export default function Nespresso() {
         description="Programa AAA de sostenibilidad en el Clúster COHONDUCAFÉ, con enfoque en inclusividad, productividad y calidad de vida de 421 productores en Copán y Ocotepeque."
         color={COLOR}
         imageSrc="/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.webp"
-        logo="/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.png"
+        logo="/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp"
         tag="Sostenibilidad AAA"
         collaborators={5}
       />

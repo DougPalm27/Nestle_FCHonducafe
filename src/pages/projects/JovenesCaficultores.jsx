@@ -16,7 +16,7 @@ const AULA = [
   '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-03.webp',
 ]
 const VIRTUAL = [
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa1.webp.jpg',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa1.jpeg.webp',
   '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa2.webp',
   '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa3.webp',
   '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/iniciativa4.webp',
@@ -128,7 +128,7 @@ export default function JovenesCaficultores() {
         description="Mejora la calidad de vida de jóvenes caficultores a través de orientación, capacitación y agro emprendimiento. Evita la migración del país."
         color={COLOR}
         imageSrc="/imagenes/proyectos/jovenes-caficultores/aulaMovil/hero.webp"
-        logo="/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES POSITIVO.png"
+        logo="/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES NEGATIVO.webp"
         tag="Educación & Desarrollo"
         collaborators={8}
       />
@@ -249,8 +249,8 @@ export default function JovenesCaficultores() {
                       <p className="font-bold text-cafe mb-4 text-sm">Participación por género</p>
                       <div className="space-y-3">
                         {[
-                          { label: 'Mujeres jóvenes', pct: 52, v: '12,003' },
-                          { label: 'Hombres jóvenes', pct: 48, v: '10,969' },
+                          { label: 'Mujeres jóvenes', pct: 55, v: '19,956' },
+                          { label: 'Hombres jóvenes', pct: 45, v: '16,495' },
                         ].map((g, i) => (
                           <div key={i}>
                             <div className="flex justify-between mb-1">
@@ -607,7 +607,7 @@ export default function JovenesCaficultores() {
                     { icon: ICONS.monitor, title: 'Cursos Virtuales',   desc: 'Plataforma digital en 23 países con más de 1,600 horas en vivo y +300 TB consumidos.', img: VIRTUAL[0] },
                     { icon: ICONS.truck,   title: 'Aula Móvil',          desc: 'Unidad educativa itinerante que lleva formación técnica directamente a comunidades rurales.', img: AULA[1] },
                     { icon: ICONS.coffee,  title: 'Barismo',             desc: '80 jóvenes certificados como baristas, abriendo puertas en el sector del café de especialidad.', img: AULA[2] },
-                    { icon: ICONS.scale,   title: 'Liderazgo, emprendimiento e innovación en la cadena de valor del café',    desc: '61 jóvenes líderes en gobernanza, emprendimiento e innovación dentro de la cadena de valor del café.', img: VIRTUAL[2] },
+                    { icon: ICONS.scale,   title: 'Liderazgo, emprendimiento e innovación en la cadena de valor del café',    desc: '250 jóvenes líderes en gobernanza, emprendimiento e innovación dentro de la cadena de valor del café.', img: VIRTUAL[2] },
                   ].map((step, i) => (
                     <motion.div
                       key={i}
