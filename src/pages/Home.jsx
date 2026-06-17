@@ -128,7 +128,7 @@ const PROJECTS = [
     color:   '#2E7D32',
     light:   '#81C784',
     tag:     'Educación & Juventud',
-    image:   '/imagenes/inicio/03-proyectos/Inicio_JovenesCaficultores.png',
+    image:   '/imagenes/inicio/03-proyectos/Inicio_JovenesCaficultores.webp',
     desc:    'Orientación vocacional, capacitación técnica y agro emprendimiento para jóvenes de comunidades caficultoras. Prevenimos la migración generando oportunidades reales en el campo.',
     impact:  [
       { label: 'Jóvenes capacitados', value: '4,771+' },
@@ -142,7 +142,7 @@ const PROJECTS = [
     color:   '#1B5E20',
     light:   '#A5D6A7',
     tag:     'Reforestación',
-    image:   '/imagenes/inicio/03-proyectos/Inicio_Bosques.png',
+    image:   '/imagenes/inicio/03-proyectos/Inicio_Bosques.webp',
     desc:    'Reforestación estratégica con más de 4 millones de árboles integrados en sistemas agroforestales junto al cultivo de café. Restauramos ecosistemas y fortalecemos la resiliencia climática.',
     impact:  [
       { label: 'Árboles plantados',   value: '4M+'    },
@@ -156,7 +156,7 @@ const PROJECTS = [
     color:   '#B71C1C',
     light:   '#EF9A9A',
     tag:     'Agricultura Regenerativa',
-    image:   '/imagenes/proyectos/rs-gold/Variedades_MLT_1.png',
+    image:   '/imagenes/proyectos/rs-gold/Variedades_MLT_1.webp',
     desc:    'Garantizamos café responsable bajo agricultura regenerativa y resiliente en la cadena RS Gold de Nescafé. Captura de carbono, trazabilidad total y certificación 4C para 1,620 caficultores.',
     impact:  [
       { label: 'Caficultores',        value: '1,620'  },
@@ -170,7 +170,7 @@ const PROJECTS = [
     color:   '#1565C0',
     light:   '#90CAF9',
     tag:     'Impacto Social',
-    image:   '/imagenes/inicio/03-proyectos/Inicio_EspaciosSeguros.png',
+    image:   '/imagenes/inicio/03-proyectos/Inicio_EspaciosSeguros.webp',
     desc:    'Fortalecemos los derechos humanos y prevenimos el trabajo infantil en comunidades caficultoras de Honduras. Formamos líderes comunitarios y mejoramos la gobernanza local.',
     impact:  [
       { label: 'Comunidades',         value: '12+'    },
@@ -184,7 +184,7 @@ const PROJECTS = [
     color:   '#E65100',
     light:   '#FFCC80',
     tag:     'Yoro, Honduras',
-    image:   '/imagenes/inicio/03-proyectos/Incentivos_ImagenPrincipal.jpg',
+    image:   '/imagenes/inicio/03-proyectos/Incentivos_ImagenPrincipal.webp',
     desc:    'Programa piloto en Yoro que incentiva condicionalmente la transición de productores vulnerables hacia prácticas de agricultura regenerativa, mejorando suelos y medios de vida.',
     impact:  [
       { label: 'Productores',         value: '120+'   },
@@ -198,7 +198,7 @@ const PROJECTS = [
     color:   '#F57F17',
     light:   '#FFE082',
     tag:     'Sostenibilidad AAA',
-    image:   '/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.png',
+    image:   '/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.webp',
     desc:    'Programa de sostenibilidad AAA en el Clúster COHONDUCAFÉ con enfoque en inclusividad, productividad y calidad de vida. Conecta a 421 productores de Copán y Ocotepeque con el mercado premium.',
     impact:  [
       { label: 'Productores AAA',     value: '421'    },

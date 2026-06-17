@@ -51,7 +51,7 @@ export default function RsGold() {
         subtitle="Nescafé Responsible Sourced Gold"
         description="Garantiza a la cadena de suministro RS Gold, café responsable bajo agricultura regenerativa y resiliente. 1,620 caficultores hacia la sostenibilidad certificada."
         color={COLOR}
-        imageSrc="/imagenes/proyectos/rs-gold/hero.png"
+        imageSrc="/imagenes/proyectos/rs-gold/hero.webp"
         tag="Cadena de Suministro"
         collaborators={7}
       />
@@ -272,7 +272,7 @@ export default function RsGold() {
                 {[1, 2, 3].map((n) => (
                   <div key={n} className="rounded-2xl overflow-hidden aspect-square shadow-md hover:shadow-xl transition-shadow duration-300">
                     <img
-                      src={`/imagenes/proyectos/rs-gold/Variedades_MLT_${n}.png`}
+                      src={`/imagenes/proyectos/rs-gold/Variedades_MLT_${n}.webp`}
                       alt={`Variedad MLT ${n}`}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />

@@ -11,18 +11,18 @@ const MID   = '#43A047'
 
 /* ── Imágenes ─────────────────────────────────────────── */
 const AULA = [
-  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-01.jpg',
-  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-02.jpg',
-  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-03.jpg',
+  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-01.webp',
+  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-02.webp',
+  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-03.webp',
 ]
 const VIRTUAL = [
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa1.jpeg.jpg',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa2.png',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa3.png',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/iniciativa4.png',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa5.png',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa6.png',
-  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/iniciativa7.png',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa1.webp.jpg',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa2.webp',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa3.webp',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/iniciativa4.webp',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa5.webp',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/Iniciativa6.webp',
+  '/imagenes/proyectos/jovenes-caficultores/clasesVirtuales/iniciativa7.webp',
 ]
 
 /* ── Icon helper ──────────────────────────────────────── */
@@ -127,7 +127,7 @@ export default function JovenesCaficultores() {
         subtitle="Iniciativa por los Jóvenes Caficultores"
         description="Mejora la calidad de vida de jóvenes caficultores a través de orientación, capacitación y agro emprendimiento. Evita la migración del país."
         color={COLOR}
-        imageSrc="/imagenes/proyectos/jovenes-caficultores/aulaMovil/hero.jpg"
+        imageSrc="/imagenes/proyectos/jovenes-caficultores/aulaMovil/hero.webp"
         logo="/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES POSITIVO.png"
         tag="Educación & Desarrollo"
         collaborators={8}

@@ -10,17 +10,17 @@ const LIGHT = '#4CAF50'
 
 /* ── Imágenes ─────────────────────────────────────────── */
 const IMG = {
-  hero:   '/imagenes/proyectos/bosques-del-manana/bosques_01.jpg',
-  num:    '/imagenes/proyectos/bosques-del-manana/Bosques1.jpg',
-  mad:    '/imagenes/proyectos/bosques-del-manana/bosques_02.jpg',
-  fru:    '/imagenes/proyectos/bosques-del-manana/bosques_03.jpg',
-  cer:    '/imagenes/proyectos/bosques-del-manana/bosques_04.jpg',
-  meta:   '/imagenes/proyectos/bosques-del-manana/Bosques2.jpg',
-  audit:  '/imagenes/proyectos/bosques-del-manana/bosques_05.jpg',
-  fin:    '/imagenes/proyectos/bosques-del-manana/Bosques3.jpg',
-  g1:     '/imagenes/proyectos/bosques-del-manana/bosques5.png',
-  g2:     '/imagenes/proyectos/bosques-del-manana/bosques6.png',
-  g3:     '/imagenes/proyectos/bosques-del-manana/bosques7.png',
+  hero:   '/imagenes/proyectos/bosques-del-manana/bosques_01.webp',
+  num:    '/imagenes/proyectos/bosques-del-manana/Bosques1.webp',
+  mad:    '/imagenes/proyectos/bosques-del-manana/bosques_02.webp',
+  fru:    '/imagenes/proyectos/bosques-del-manana/bosques_03.webp',
+  cer:    '/imagenes/proyectos/bosques-del-manana/bosques_04.webp',
+  meta:   '/imagenes/proyectos/bosques-del-manana/Bosques2.webp',
+  audit:  '/imagenes/proyectos/bosques-del-manana/bosques_05.webp',
+  fin:    '/imagenes/proyectos/bosques-del-manana/Bosques3.webp',
+  g1:     '/imagenes/proyectos/bosques-del-manana/bosques5.webp',
+  g2:     '/imagenes/proyectos/bosques-del-manana/bosques6.webp',
+  g3:     '/imagenes/proyectos/bosques-del-manana/bosques7.webp',
 }
 
 /* ── Icon helper ──────────────────────────────────────── */

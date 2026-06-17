@@ -47,7 +47,7 @@ export default function IncentivoCondicional() {
         subtitle="Acelerando la Agricultura Regenerativa"
         description="Incentivo condicional para la transición de agricultura convencional a prácticas regenerativas en productores más vulnerables de Yoro, Honduras."
         color={COLOR}
-        imageSrc="/imagenes/proyectos/incentivo-condicional/hero.jpg"
+        imageSrc="/imagenes/proyectos/incentivo-condicional/hero.webp"
         tag="Agricultura Regenerativa"
         collaborators={3}
       />
@@ -217,7 +217,7 @@ export default function IncentivoCondicional() {
                 {/* Ecolluvia.png ≈ cuadrada 1:1 */}
                 <div className="rounded-2xl overflow-hidden aspect-square shadow-md">
                   <img
-                    src="/imagenes/proyectos/incentivo-condicional/Ecolluvia.png"
+                    src="/imagenes/proyectos/incentivo-condicional/Ecolluvia.webp"
                     alt="Sistema Ecolluvía"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -225,7 +225,7 @@ export default function IncentivoCondicional() {
                 {/* Ecolluvia_2.png ≈ retrato 5:6 */}
                 <div className="rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '5/6' }}>
                   <img
-                    src="/imagenes/proyectos/incentivo-condicional/Ecolluvia_2.png"
+                    src="/imagenes/proyectos/incentivo-condicional/Ecolluvia_2.webp"
                     alt="Sistema Ecolluvía instalación"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -313,12 +313,12 @@ export default function IncentivoCondicional() {
               {/* Fila superior: 01 y 02 son retrato 3:4 — lado a lado */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
-                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_01.jpg"
+                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_01.webp"
                        alt="Apicultura 1"
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
-                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_02.jpg"
+                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_02.webp"
                        alt="Apicultura 2"
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -326,12 +326,12 @@ export default function IncentivoCondicional() {
               {/* Fila inferior: 03 cuadrada + 04 paisaje 3:2 */}
               <div className="grid grid-cols-5 gap-3">
                 <div className="col-span-2 rounded-2xl overflow-hidden aspect-square">
-                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_03.jpg"
+                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_03.webp"
                        alt="Apicultura 3"
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="col-span-3 rounded-2xl overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_04.jpg"
+                  <img src="/imagenes/proyectos/incentivo-condicional/apicultura_04.webp"
                        alt="Apicultura 4"
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>

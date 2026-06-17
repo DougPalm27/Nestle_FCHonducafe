@@ -37,7 +37,7 @@ const EJES = [
     icon: ICONS.globe,
     title: 'Inclusividad',
     color: '#2E7D32',
-    img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niñez.jpg',
+    img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niñez.webp',
     items: [
       'Diversificación de ingresos para productoras (gallinas ponedoras)',
       'Revisión y adaptación de políticas — Debida Diligencia de DDHH',
@@ -51,7 +51,7 @@ const EJES = [
     icon: ICONS.chart,
     title: 'Productividad',
     color: GOLD,
-    img: '/imagenes/proyectos/nespresso-aaa/AsistenciasTecnicas/AsistenciasTecnicas.jpeg',
+    img: '/imagenes/proyectos/nespresso-aaa/AsistenciasTecnicas/AsistenciasTecnicas.webp',
     items: [
       'Nutrición del suelo con análisis de laboratorio',
       'Nutrición del cultivo y manejo de tejidos',
@@ -66,7 +66,7 @@ const EJES = [
     icon: ICONS.star,
     title: 'Calidad',
     color: '#C0392B',
-    img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad1.jpg',
+    img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad1.webp',
     imgPosition: 'bottom',
     items: [
       'Clasificación de fruto en cosecha — selección en origen',
@@ -85,7 +85,7 @@ const ESPECIALES = [
     title: 'Espacios Seguros',
     detail: '47 niños y niñas atendidos durante la cosecha. 60% niñas y 40% niños. Cooperativas COAEDCAL & APROCASAM periodo 25–26.',
     color: '#0D47A1',
-    img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niños2.jpeg',
+    img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niños2.webp',
   },
   {
     icon: ICONS.chicken,
@@ -105,14 +105,14 @@ const ESPECIALES = [
     title: 'Trazabilidad Open SC',
     detail: 'Sistema de trazabilidad transparente implementado en toda la cadena de valor del clúster COHONDUCAFÉ.',
     color: '#1B5E20',
-    img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad2.jpg',
+    img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad2.webp',
   },
   {
     icon: ICONS.star,
     title: 'Premios e Incentivos',
     detail: 'Entrega de premios e incentivos a productores destacados por calidad y sostenibilidad en el Clúster COHONDUCAFÉ.',
     color: '#C0392B',
-    img: '/imagenes/proyectos/nespresso-aaa/premioso_o_incentivos/EntregaIncentivos.jpg',
+    img: '/imagenes/proyectos/nespresso-aaa/premioso_o_incentivos/EntregaIncentivos.webp',
     imgPosition: '50% 30%',
   },
 ]
@@ -135,7 +135,7 @@ export default function Nespresso() {
         subtitle="Programa de Sostenibilidad y Calidad"
         description="Programa AAA de sostenibilidad en el Clúster COHONDUCAFÉ, con enfoque en inclusividad, productividad y calidad de vida de 421 productores en Copán y Ocotepeque."
         color={COLOR}
-        imageSrc="/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.png"
+        imageSrc="/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.webp"
         logo="/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.png"
         tag="Sostenibilidad AAA"
         collaborators={5}
