@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ───────────────────────────────────────────────── */
+:root {
+  --color-terracota:  #C0392B;
+  --color-terracota-light: #E74C3C;
+  --color-crema:      #F2EDE4;
+  --color-crema-dark: #E8DFD0;
+  --color-verde-joven: #2E7D32;
+  --color-verde-lima:  #8BC34A;
+  --color-verde-bosque: #1B5E20;
+  --color-azul:       #1565C0;
+  --color-cafe:       #3E2723;
+  --color-naranja-yoro: #E65100;
+  --color-dorado:     #F57F17;
+  --color-white:      #FFFFFF;
+}
+
+/* ── Base Resets ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-crema);
+  color: var(--color-cafe);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-crema-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-terracota);
+  border-radius: 3px;
+}
+
+/* ── Utility classes ──────────────────────────────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-terracota text-white font-semibold
+           px-8 py-3 rounded-full transition-all duration-300
+           hover:bg-terracota-dark hover:shadow-xl hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-white text-white font-semibold
+           px-8 py-3 rounded-full transition-all duration-300
+           hover:bg-white hover:text-cafe hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center gap-2 bg-cafe text-white font-semibold
+           px-8 py-3 rounded-full transition-all duration-300
+           hover:bg-cafe-medium hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-black tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-cafe-light leading-relaxed max-w-2xl;
+  }
+
+  .card-project {
+    @apply bg-white rounded-3xl p-6 shadow-md
+           transition-all duration-300
+           hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.01]
+           cursor-pointer overflow-hidden;
+  }
+
+  .stat-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center
+           border border-white/20;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50;
+  }
+
+  /* Diagonal clip between sections */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+  .clip-diagonal-reverse {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Frosted nav */
+  .nav-blur {
+    @apply bg-white/10 backdrop-blur-md border-b border-white/10;
+  }
+  .nav-blur-scrolled {
+    @apply bg-cafe/90 backdrop-blur-xl border-b border-cafe-medium/30 shadow-xl;
+  }
+}
+
+/* ── SVG Blob morph animation ─────────────────────────────────────── */
+.blob-morph {
+  animation: blobMorph 8s ease-in-out infinite;
+}
+@keyframes blobMorph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50%       { border-radius: 50% 60% 30% 60% / 40% 30% 60% 50%; }
+  75%       { border-radius: 40% 60% 60% 30% / 60% 40% 50% 40%; }
+}
+
+.blob-morph-2 {
+  animation: blobMorph2 10s ease-in-out infinite;
+}
+@keyframes blobMorph2 {
+  0%, 100% { border-radius: 40% 60% 50% 70% / 50% 40% 60% 50%; }
+  33%       { border-radius: 70% 30% 40% 60% / 60% 50% 40% 60%; }
+  66%       { border-radius: 50% 50% 70% 30% / 40% 60% 50% 40%; }
+}
+
+/* ── Ken Burns parallax ───────────────────────────────────────────── */
+.ken-burns-img {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+@keyframes kenBurns {
+  0%   { transform: scale(1.0) translateY(0%); }
+  100% { transform: scale(1.15) translateY(-3%); }
+}
+
+/* ── Parallax scroll effect (JS-driven via inline style) ─────────── */
+.parallax-bg {
+  will-change: transform;
+  transition: none;
+}
+
+/* ── Progress bar animation ──────────────────────────────────────── */
+.progress-fill {
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Page fade-in ─────────────────────────────────────────────────── */
+.page-enter {
+  animation: pageFadeIn 0.4s ease forwards;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Ticker animations ───────────────────────────────────────────── */
+@keyframes ticker-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+@keyframes ticker-right {
+  0%   { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
