@@ -43,9 +43,9 @@ const projects = [
     logo:  null,
   },
   {
-    label: 'Nespresso AAA',
+    label: 'Clúster Nespresso - COHONDUCAFÉ',
     to:    '/proyectos/nespresso-aaa',
-    color: '#F57F17',
+    color: '#1A0E08',
     logo:  '/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp',
   },
 ]

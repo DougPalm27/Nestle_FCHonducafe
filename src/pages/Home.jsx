@@ -547,56 +547,10 @@ export default function Home() {
           initial={{ opacity:0, y:-20 }} animate={{ opacity:1, y:0 }}
           transition={{ duration:0.7, delay:0.15 }}>
 
-          <div className="w-full max-w-xl mb-5 overflow-hidden" style={{ maskImage:'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-            <div className="flex mb-1" style={{ animation:'ticker-left 18s linear infinite' }}>
-              {[...Array(3)].map((_, r) => (
-                <div key={r} className="flex items-center gap-4 flex-shrink-0 pr-4">
-                  {[
-                    { label:'COHONDUCAFÉ',       color: palette.dark ? '#00000055' : '#ffffff55' },
-                    { label:'6 PROYECTOS',        color: palette.dot },
-                    { label:'63,212 CAPACITADOS', color: palette.dark ? '#00000055' : '#ffffff55' },
-                    { label:'HONDURAS',           color: palette.dark ? '#00000040' : '#ffffff40' },
-                    { label:'2026',               color: palette.dark ? '#00000030' : '#ffffff25' },
-                  ].map((item, i) => (
-                    <span key={i} className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-[9px] font-black uppercase tracking-[0.22em] whitespace-nowrap"
-                            style={{ color: item.color }}>{item.label}</span>
-                      <span className="text-[8px]" style={{ color: palette.dark ? '#00000020' : '#ffffff20' }}>◆</span>
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="flex" style={{ animation:'ticker-right 22s linear infinite' }}>
-              {[...Array(3)].map((_, r) => (
-                <div key={r} className="flex items-center gap-4 flex-shrink-0 pr-4">
-                  {[
-                    { label:'4M+ ÁRBOLES',      color: palette.dark ? '#00000045' : '#ffffff40' },
-                    { label:'23 PAÍSES',         color: palette.dark ? '#00000035' : '#ffffff30' },
-                    { label:'81 COLABORADORES',  color: palette.dark ? '#00000045' : '#ffffff40' },
-                    { label:'NESTLÉ × NESCAFÉ',  color: palette.dark ? '#00000030' : '#ffffff25' },
-                    { label:'CENTROAMÉRICA',     color: palette.dark ? '#00000040' : '#ffffff35' },
-                  ].map((item, i) => (
-                    <span key={i} className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-[9px] font-black uppercase tracking-[0.22em] whitespace-nowrap"
-                            style={{ color: item.color }}>{item.label}</span>
-                      <span className="text-[8px]" style={{ color: palette.dark ? '#00000020' : '#ffffff20' }}>◆</span>
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight"
               style={{ color: palette.dark ? '#1a0a05' : '#ffffff' }}>
             Proyectos<br/>
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: palette.title, transition: 'background-image 0s' }}
-            >
-              con Nestlé
-            </span>
+            con Nestlé
           </h1>
         </motion.div>
 

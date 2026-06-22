@@ -1,12 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import ProjectHero from '../../components/ProjectHero'
-import CounterStat from '../../components/CounterStat'
 
-const COLOR  = '#E65100'
-const GOLD   = '#F57F17'
-const DARK   = '#BF360C'
+const COLOR  = '#8B6B3D'   // bronce
+const GOLD   = '#C8A96E'   // dorado
+const DARK   = '#1A0E08'   // espresso
+const BROWN  = '#2C1810'   // café
+const SAND   = '#EDE4D8'   // arena
+const CREAM  = '#F2EBE0'   // crema
+const IVORY  = '#FAF7F2'   // marfil
 
 const Icon = ({ d, className = 'w-6 h-6' }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -23,6 +25,7 @@ const ICONS = {
   pin:     'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z',
   check:   'M4.5 12.75l6 6 9-13.5',
   water:   'M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z',
+  droplet: 'M12 2.69l5.66 6.93a8 8 0 11-11.32 0L12 2.69z',
   rain:    'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 00.985-7.37A5.25 5.25 0 0013.5 3H12a5.25 5.25 0 00-5.21 4.558A4.501 4.501 0 002.25 15z',
   chicken: 'M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z',
   link:    'M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244',
@@ -36,36 +39,36 @@ const EJES = [
     id: 'inclusividad',
     icon: ICONS.globe,
     title: 'Inclusividad',
-    color: '#2E7D32',
+    color: '#5C7A4E',
     img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niñez.webp',
     items: [
-      'Diversificación de ingresos para productoras (gallinas ponedoras)',
-      'Revisión y adaptación de políticas — Debida Diligencia de DDHH',
-      'Monitoreo de Trabajo Infantil en toda la cadena',
-      'Entrega de 265 filtros de agua — Acceso a agua potable 2025',
-      'Espacios Seguros: 47 niños y niñas atendidos (60% niñas)',
+      { title: 'Diversificación de Ingresos', detail: '32 productoras AAA atendidas en 2025, con ampliación a 45 más para 2026 en Copán y Ocotepeque.' },
+      { title: 'Debida Diligencia de DDHH', detail: 'Revisión y adaptación de políticas en toda la cadena de suministro del Clúster COHONDUCAFÉ.' },
+      { title: 'Proyecto Cosecha Feliz', detail: 'Prevención de Trabajo Infantil mediante espacios seguros desde 2023. 47 niños atendidos en la cosecha 25–26.' },
+      { title: 'Acceso a Agua Potable', detail: 'Entrega de 265 filtros de agua para caficultores y sus trabajadores.' },
+      { title: 'Seguro Paramétrico', detail: 'Cobertura a 309 caficultores AAA en floración, llenado de fruto y cosecha.' },
     ],
   },
   {
     id: 'productividad',
     icon: ICONS.chart,
     title: 'Productividad',
-    color: GOLD,
+    color: COLOR,
     img: '/imagenes/proyectos/nespresso-aaa/AsistenciasTecnicas/AsistenciasTecnicas.webp',
     items: [
-      'Nutrición del suelo con análisis de laboratorio',
-      'Nutrición del cultivo y manejo de tejidos',
-      'Monitoreo y control de plagas integrado',
-      'Fincas Modelo demostrativas 2026',
-      'Cumplimiento EUDR-ENVERITAS (normativa europea)',
-      'Ciclo TASQ: Regenerativo, Inclusividad, Productividad, Calidad',
+      'Nutrición de suelo basado en análisis de laboratorio.',
+      'Nutrición del cultivo y manejo de tejidos.',
+      'Manejo Integrado de Plagas y Enfermedades.',
+      'Fincas Modelo 2026.',
+      'Cumplimiento de EUDR dentro del Clúster COHONDUCAFÉ por parte de los productores AAA.',
+      'Desarrollo de Evaluaciones TASQ: Regenerativo, Inclusividad, Productividad y Calidad.',
     ],
   },
   {
     id: 'calidad',
     icon: ICONS.star,
     title: 'Calidad',
-    color: '#C0392B',
+    color: DARK,
     img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad1.webp',
     imgPosition: 'bottom',
     items: [
@@ -74,7 +77,6 @@ const EJES = [
       'Almacenamiento y conservación óptima',
       'Implementación Trazabilidad Transparente — Open SC',
       'Entrega Premio AAA Cosecha 2024–2025',
-      'Proyecto Cosecha Feliz 2025–2026',
     ],
   },
 ]
@@ -84,34 +86,35 @@ const ESPECIALES = [
     icon: ICONS.child,
     title: 'Espacios Seguros',
     detail: '47 niños y niñas atendidos durante la cosecha. 60% niñas y 40% niños. Cooperativas COAEDCAL & APROCASAM periodo 25–26.',
-    color: '#0D47A1',
+    color: DARK,
     img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niños2.webp',
   },
   {
     icon: ICONS.chicken,
     title: 'Diversificación de Ingresos',
     detail: '32 productoras con gallinas ponedoras. 97% destinan producción a venta, 23 productoras destinan más del 50% a venta.',
-    color: GOLD,
-    img: '/imagenes/proyectos/nespresso-aaa/diversificacion/Jaula 4 Gallinas.png',
+    color: COLOR,
+    img: '/imagenes/proyectos/nespresso-aaa/diversificacion/Jaula 4 Gallinas.webp',
   },
   {
     icon: ICONS.rain,
     title: 'Seguro Paramétrico',
-    detail: '300 productores bajo seguro paramétrico (Fase II). Cobertura ante riesgos climáticos para las cooperativas.',
-    color: '#1565C0',
+    detail: '309 productores AAA atendidos con Seguro Paramétrico, para la cobertura de sus fincas ante riesgos climáticos a lo largo de los estadios del cultivo de café anualmente.',
+    color: BROWN,
+    img: '/imagenes/proyectos/nespresso-aaa/seguroParametrica/SeguroParametrico.webp',
   },
   {
     icon: ICONS.link,
     title: 'Trazabilidad Open SC',
     detail: 'Sistema de trazabilidad transparente implementado en toda la cadena de valor del clúster COHONDUCAFÉ.',
-    color: '#1B5E20',
+    color: DARK,
     img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad2.webp',
   },
   {
     icon: ICONS.star,
-    title: 'Premios e Incentivos',
+    title: 'Premio AAA',
     detail: 'Entrega de premios e incentivos a productores destacados por calidad y sostenibilidad en el Clúster COHONDUCAFÉ.',
-    color: '#C0392B',
+    color: COLOR,
     img: '/imagenes/proyectos/nespresso-aaa/premioso_o_incentivos/EntregaIncentivos.webp',
     imgPosition: '50% 30%',
   },
@@ -127,33 +130,195 @@ const fadeUp = {
 export default function Nespresso() {
   const [activeEje, setActiveEje] = useState('inclusividad')
   const eje = EJES.find(e => e.id === activeEje)
+  const heroImgRef = useRef(null)
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!heroImgRef.current) return
+      heroImgRef.current.style.transform = `translateY(${window.scrollY * 0.25}px)`
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div className="page-enter">
-      <ProjectHero
-        title="Nespresso AAA"
-        subtitle="Programa de Sostenibilidad y Calidad"
-        description="Programa AAA de sostenibilidad en el Clúster COHONDUCAFÉ, con enfoque en inclusividad, productividad y calidad de vida de 421 productores en Copán y Ocotepeque."
-        color={COLOR}
-        imageSrc="/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.webp"
-        logo="/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp"
-        tag="Sostenibilidad AAA"
-        collaborators={5}
-      />
+      {/* ── Hero institucional ── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: DARK }}>
+
+        {/* Fotografía de fondo, a pantalla completa */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            ref={heroImgRef}
+            src="/imagenes/proyectos/nespresso-aaa/Hero_Final.png"
+            alt="Clúster Nespresso Cohonducafé"
+            className="absolute inset-0 w-full h-full object-cover will-change-transform"
+            loading="eager"
+          />
+          {/* Overlay degradado izquierda → derecha en tonos café/bronce */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(105deg, #2A1208 0%, #4A2412 30%, #8B6B3D33 65%, transparent 100%)' }}
+          />
+          <div className="absolute inset-0 bg-black/25" />
+        </div>
+
+        {/* Contenido */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full py-32">
+          <div className="max-w-2xl">
+
+            {/* Volver al inicio */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-10"
+            >
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 text-white/70 hover:text-white
+                           text-sm font-medium transition-colors duration-200 group"
+              >
+                <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Volver al inicio
+              </Link>
+            </motion.div>
+
+            {/* Logos */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex items-center gap-5 mb-7"
+            >
+              <img
+                src="/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp"
+                alt="Programa AAA"
+                className="h-16 w-auto object-contain"
+              />
+              <div className="w-px h-10 bg-white/20" />
+              <img
+                src="/imagenes/logos/Logos Generales/Nespresso_Monogram_2021_CMYK_White_on_Black-removebg-preview.png"
+                alt="Nespresso"
+                className="h-10 w-auto object-contain"
+              />
+            </motion.div>
+
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-6"
+            >
+              <span
+                className="inline-block bg-white/10 backdrop-blur-sm text-white text-xs font-bold
+                           uppercase tracking-widest px-4 py-2 rounded-full border border-white/25"
+              >
+                Programa AAA™
+              </span>
+            </motion.div>
+
+            {/* Título */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="font-black text-white leading-[1.05] tracking-tight"
+              style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)' }}
+            >
+              Clúster Nespresso<br />Cohonducafé
+            </motion.h1>
+
+            {/* Subtítulo */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="mt-5 text-xl font-semibold text-white/85"
+            >
+              Programa de Sostenibilidad y Calidad AAA<sup>TM</sup> de Nespresso
+            </motion.p>
+
+            {/* Descripción */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="mt-4 text-base text-white/65 leading-relaxed max-w-xl"
+            >
+              Mediante la implementación del Programa AAA de Nespresso, se desarrollan los ejes
+              estratégicos de Inclusividad, Agricultura Regenerativa y Calidad con{' '}
+              <strong className="text-white font-bold">421 productores</strong> de los
+              departamentos de Copán y Ocotepeque.
+            </motion.p>
+
+            {/* Botones CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.75 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              <span
+                className="inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-full
+                           shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                style={{ backgroundColor: GOLD, color: DARK }}
+              >
+                Ver reporte 2026
+              </span>
+              <a
+                href="#ejes"
+                className="inline-flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-full
+                           border border-white/30 text-white hover:bg-white/10 hover:-translate-y-0.5
+                           transition-all duration-200"
+              >
+                Conocer el programa
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* Chips inferiores */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.85 }}
+              className="mt-7 flex flex-wrap gap-3"
+            >
+              <div className="flex items-center gap-2 text-white/55 text-sm font-medium">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                5 colaboradores
+              </div>
+              <span className="text-white/30">·</span>
+              <div className="flex items-center gap-2 text-white/55 text-sm font-medium">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Reporte 2026
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
 
       {/* ── 3 Ejes — tabs ── */}
-      <section className="py-24 bg-white">
+      <section id="ejes" className="py-24" style={{ backgroundColor: IVORY }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-12">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
               Estructura del programa
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Los 3 ejes del AAA</h2>
-            <p className="text-cafe-light mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-              El modelo TASQ — Regenerativo, Inclusividad, Productividad y Calidad — articula
-              todos los ejes del programa en un ciclo continuo de mejora.
-            </p>
+            <h2 className="text-4xl font-black text-cafe mt-2">Programa AAA</h2>
           </motion.div>
 
           {/* Tab selector */}
@@ -163,9 +328,9 @@ export default function Nespresso() {
                 key={e.id}
                 onClick={() => setActiveEje(e.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 ${
-                  activeEje === e.id ? 'text-white shadow-lg' : 'bg-[#F2EDE4] text-cafe hover:bg-gray-100'
+                  activeEje === e.id ? 'text-white shadow-lg' : 'text-cafe hover:opacity-80'
                 }`}
-                style={activeEje === e.id ? { backgroundColor: e.color } : {}}
+                style={activeEje === e.id ? { backgroundColor: e.color } : { backgroundColor: SAND }}
               >
                 <Icon d={e.icon} className="w-4 h-4" />
                 {e.title}
@@ -207,7 +372,7 @@ export default function Nespresso() {
                       <h3 className="text-2xl font-black">Eje {eje.title}</h3>
                     </div>
                   </div>
-                  <div className="bg-white p-8 flex-1">
+                  <div className="p-8 flex-1" style={{ backgroundColor: IVORY }}>
                     <ul className="space-y-3">
                       {eje.items.map((item, i) => (
                         <motion.li
@@ -221,7 +386,14 @@ export default function Nespresso() {
                                style={{ backgroundColor: `${eje.color}20` }}>
                             <Icon d={ICONS.check} className="w-3 h-3" style={{ color: eje.color }} />
                           </div>
-                          <span className="text-cafe text-sm leading-snug">{item}</span>
+                          {typeof item === 'object' ? (
+                            <span className="text-sm leading-snug">
+                              <span className="block font-bold text-cafe">{item.title}</span>
+                              <span className="block text-cafe-light mt-0.5">{item.detail}</span>
+                            </span>
+                          ) : (
+                            <span className="text-cafe text-sm leading-snug">{item}</span>
+                          )}
                         </motion.li>
                       ))}
                     </ul>
@@ -234,7 +406,7 @@ export default function Nespresso() {
       </section>
 
       {/* ── Proyectos especiales — Timeline ── */}
-      <section className="py-24 bg-[#F2EDE4]">
+      <section className="py-24" style={{ backgroundColor: CREAM }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-16 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
@@ -248,7 +420,7 @@ export default function Nespresso() {
             {/* Línea central — solo visible en md+ */}
             <div
               className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5"
-              style={{ backgroundColor: `${COLOR}30` }}
+              style={{ backgroundColor: GOLD }}
             />
 
             <div className="space-y-16">
@@ -265,8 +437,8 @@ export default function Nespresso() {
                   >
                     {/* Dot central */}
                     <div
-                      className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-[#F2EDE4] z-10 items-center justify-center"
-                      style={{ backgroundColor: p.color }}
+                      className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 items-center justify-center"
+                      style={{ backgroundColor: GOLD, border: `4px solid ${CREAM}` }}
                     />
 
                     {/* Imagen */}
@@ -316,45 +488,67 @@ export default function Nespresso() {
       </section>
 
       {/* ── Filtros de agua callout ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: COLOR }}>
-        {/* Background image with overlay */}
-        <div className="absolute inset-0">
-          <img
-            src="/imagenes/proyectos/nespresso-aaa/Filtros de agua/EcoFiltros.jpeg"
-            alt="Filtros de agua"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0" style={{ backgroundColor: `${COLOR}d0` }} />
-        </div>
+      <section className="relative overflow-hidden py-24" style={{ backgroundColor: DARK }}>
+        <div className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-10" style={{ backgroundColor: GOLD }} />
 
-        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-black/10 translate-y-1/2 -translate-x-1/2" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          {/* Texto */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center gap-10 text-white"
           >
-            <div className="w-24 h-24 rounded-3xl bg-white/20 flex items-center justify-center flex-shrink-0">
-              <Icon d={ICONS.water} className="w-12 h-12 text-white" />
+            <span className="text-sm font-bold uppercase tracking-widest" style={{ color: GOLD }}>
+              Acceso a agua potable
+            </span>
+            <div className="flex items-end gap-3 mt-3 mb-4">
+              <p className="text-7xl font-black leading-none" style={{ color: GOLD }}>265</p>
+              <p className="text-2xl font-bold text-white/90 pb-1">filtros de agua<br />instalados</p>
             </div>
-            <div className="text-center md:text-left">
-              <p className="text-6xl font-black mb-2">265</p>
-              <p className="text-2xl font-bold text-white/90">filtros de agua instalados</p>
-              <p className="text-white/70 text-lg mt-2">
-                Acceso a agua potable para familias productoras del clúster COHONDUCAFÉ,
-                mejorando la salud y calidad de vida de las comunidades.
-              </p>
+            <p className="text-white/65 text-lg leading-relaxed max-w-md">
+              Acceso a agua potable para familias productoras del clúster COHONDUCAFÉ,
+              mejorando la salud y calidad de vida de las comunidades.
+            </p>
+          </motion.div>
+
+          {/* Foto */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+              <img
+                src="/imagenes/proyectos/nespresso-aaa/Filtros de agua/EcoFiltros.webp"
+                alt="Filtros de agua instalados"
+                className="w-full h-full object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: `linear-gradient(to top, ${DARK}80 0%, transparent 45%)` }}
+              />
+            </div>
+
+            {/* Badge flotante */}
+            <div
+              className="absolute -bottom-6 -left-6 w-28 h-28 rounded-2xl shadow-xl flex flex-col items-center justify-center"
+              style={{ backgroundColor: GOLD }}
+            >
+              <Icon d={ICONS.droplet} className="w-7 h-7" style={{ color: DARK }} />
+              <span className="mt-1 text-xs font-black uppercase tracking-wide" style={{ color: DARK }}>
+                EcoFiltros
+              </span>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 bg-[#F2EDE4] text-center">
+      <section className="py-20 text-center" style={{ backgroundColor: IVORY }}>
         <motion.div {...fadeUp} className="max-w-2xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/" className="btn-primary">← Todos los proyectos</Link>

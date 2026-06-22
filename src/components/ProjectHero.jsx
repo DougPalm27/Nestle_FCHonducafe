@@ -9,9 +9,11 @@ export default function ProjectHero({
   color,
   imageId,
   imageSrc,
+  imagePosition = 'center',
   tag,
   collaborators,
   logo,
+  logo2,
 }) {
   const imgRef = useRef(null)
 
@@ -19,7 +21,7 @@ export default function ProjectHero({
     const handleScroll = () => {
       if (!imgRef.current) return
       const scrolled = window.scrollY
-      imgRef.current.style.transform = `translateY(${scrolled * 0.35}px) scale(1.15)`
+      imgRef.current.style.transform = `translateY(${scrolled * 0.35}px)`
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -33,14 +35,15 @@ export default function ProjectHero({
           ref={imgRef}
           src={imageSrc || `https://picsum.photos/seed/${imageId}/1600/900`}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover object-bottom will-change-transform"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform"
+          style={{ objectPosition: imagePosition }}
           loading="eager"
         />
         {/* Gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to top, ${color}f0 0%, ${color}99 30%, ${color}44 60%, transparent 100%)`
+            background: `linear-gradient(to top, ${color}a0 0%, ${color}66 30%, ${color}22 60%, transparent 100%)`
           }}
         />
         <div className="absolute inset-0 bg-black/20" />
@@ -84,9 +87,12 @@ export default function ProjectHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-5"
+            className="mb-5 flex items-center gap-5"
           >
             <img src={logo} alt={title} className="h-40 w-auto object-contain drop-shadow-xl" />
+            {logo2 && (
+              <img src={logo2} alt="" className="h-24 w-auto object-contain drop-shadow-xl" />
+            )}
           </motion.div>
         )}
 

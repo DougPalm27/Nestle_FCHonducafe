@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ProjectHero from '../../components/ProjectHero'
+import BosquesMap from '../../components/BosquesMap'
 import CounterStat from '../../components/CounterStat'
 
 const COLOR = '#1B5E20'
@@ -146,13 +147,12 @@ export default function BosquesDelManana() {
 
       {/* ── HERO ───────────────────────────────────────────── */}
       <ProjectHero
-        title="Bosques del Mañana"
+        title="GRP-Bosques del Mañana"
         logo="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp"
-        subtitle="Reforestación con sistemas agroforestales"
-        description="Más de 4 millones de árboles plantados en sistemas agroforestales junto al café. Generando empleo, ingresos y biodiversidad en Honduras y Panamá."
+        subtitle="Árboles que restauran la tierra y generan oportunidades."
+        description="Más de 4 millones de árboles plantados en sistemas agroforestales en asocio con café, cercas vivas, y plantaciones puras, generando empleos, ingresos y mejorando la Biodiversidad en Honduras."
         color={COLOR}
         imageSrc={IMG.hero}
-        tag="Medio Ambiente"
         collaborators={57}
       />
 
@@ -193,7 +193,7 @@ export default function BosquesDelManana() {
                   className="text-[100px] md:text-[140px] font-black leading-none"
                   style={{ color: COLOR }}
                 >
-                  <CounterStat value={4010362} duration={2500} />
+                  <CounterStat value={4010362} duration={2500} prefix="+" />
                 </motion.div>
               </div>
 
@@ -207,8 +207,8 @@ export default function BosquesDelManana() {
               {/* Mini stats */}
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
-                  { icon: ICONS.map,   v: '19,683 ha', l: 'Hectáreas' },
-                  { icon: ICONS.users, v: '2,718',     l: 'Productores' },
+                  { icon: ICONS.map,   v: '+19,683 ha', l: 'Hectáreas intervenidas' },
+                  { icon: ICONS.users, v: '+2,718',     l: 'Productores beneficiados' },
                 ].map((s, i) => (
                   <motion.div
                     key={i}
@@ -273,7 +273,7 @@ export default function BosquesDelManana() {
               Composición de la plantación
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">
-              Tipos de árboles
+              Distribución de tipo de planta
             </h2>
           </motion.div>
 
@@ -282,7 +282,7 @@ export default function BosquesDelManana() {
               {
                 img:   IMG.mad,
                 icon:  ICONS.tree,
-                label: 'Árboles maderables',
+                label: 'Árboles maderables totales',
                 value: '3,639,139',
                 pct:   91,
                 desc:  'Especies forestales de alto valor comercial y ecológico integradas en fincas cafetaleras.',
@@ -291,7 +291,7 @@ export default function BosquesDelManana() {
               {
                 img:   IMG.fru,
                 icon:  ICONS.leaf,
-                label: 'Árboles frutales',
+                label: 'Árboles frutales totales',
                 value: '371,223',
                 pct:   9,
                 desc:  'Diversificación de ingresos y nutrición local con frutales nativos y comerciales.',
@@ -300,11 +300,11 @@ export default function BosquesDelManana() {
               {
                 img:   IMG.cer,
                 icon:  ICONS.map,
-                label: 'Km de cercas vivas',
-                value: '3,311 km',
+                label: 'Árboles totales',
+                value: '4,010,362',
                 pct:   null,
-                desc:  'Barreras naturales que protegen suelos, retienen agua y aumentan la biodiversidad.',
-                badge: 'VIVO',
+                desc:  'Total acumulado 2022–2025 entre maderables y frutales en sistemas agroforestales.',
+                badge: 'TOTAL',
               },
             ].map((item, i) => (
               <motion.div
@@ -327,15 +327,6 @@ export default function BosquesDelManana() {
                   />
                   <div className="absolute inset-0"
                        style={{ background: `linear-gradient(to top, ${COLOR}cc 0%, transparent 60%)` }} />
-                  {/* Badge */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    <span className="font-black text-sm" style={{ color: COLOR }}>{item.badge}</span>
-                  </div>
-                  {/* Icon circle */}
-                  <div className="absolute bottom-4 left-4 w-10 h-10 rounded-2xl flex items-center justify-center"
-                       style={{ backgroundColor: COLOR }}>
-                    <Icon d={item.icon} className="w-5 h-5 text-white" />
-                  </div>
                 </div>
                 {/* Content */}
                 <div className="p-6">
@@ -359,185 +350,190 @@ export default function BosquesDelManana() {
             ))}
           </div>
 
-          {/* Stats row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-            {[
-              { icon: ICONS.map,    label: 'Hectáreas',     value: '19,683.90' },
-              { icon: ICONS.users,  label: 'Productores',   value: '2,718' },
-              { icon: ICONS.shield, label: 'Colaboradores', value: '57' },
-              { icon: ICONS.recycle, label: 'Meta 2026',    value: '5 M árboles' },
-            ].map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.08, type: 'spring', bounce: 0.4 }}
-                className="rounded-2xl p-5 flex items-center gap-3"
-                style={{ backgroundColor: `${COLOR}0e` }}
-              >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                     style={{ backgroundColor: `${COLOR}20` }}>
-                  <Icon d={s.icon} className="w-5 h-5" style={{ color: COLOR }} />
-                </div>
-                <div>
-                  <p className="font-black text-cafe text-sm">{s.value}</p>
-                  <p className="text-cafe-light text-xs">{s.label}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── METAS 2026 con imagen lateral ──────────────────── */}
-      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: COLOR }}>
-        {/* SVG wave top */}
-        <div className="absolute top-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="#fff" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0,0 C360,60 1080,0 1440,0 L1440,0 L0,0Z" opacity="0.1" />
-            <path d="M0,20 C360,60 1080,0 1440,20 L1440,0 L0,0Z" />
-          </svg>
-        </div>
-
-        <LiquidBlob color="#fff" opacity={0.06} size={600} delay={2} className="-top-20 -right-20" />
-        <LiquidBlob color={LIGHT} opacity={0.1} size={400} delay={5} className="bottom-0 left-10" />
-        <DotsPattern color="#fff" />
+      {/* ── IMPACTO EN NÚMEROS — layout infográfico ────────── */}
+      <section className="py-20 bg-[#F2EDE4] relative overflow-hidden">
+        <LeafPattern color={COLOR} />
+        <LiquidBlob color={COLOR} opacity={0.05} size={600} className="-top-40 -left-40" />
+        <LiquidBlob color={LIGHT} opacity={0.05} size={400} delay={3} className="-bottom-20 -right-20" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* Metrics */}
+          <motion.div {...fadeUp} className="mb-10 text-center">
+            <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
+              Resultados acumulados
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">Impacto en números</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-5 items-stretch">
+
+            {/* ── COLUMNA IZQUIERDA ── */}
+            <div className="flex flex-row lg:flex-col gap-4">
+              {[
+                { img: IMG.num,  valor: '4,010,362', label: 'Árboles plantados' },
+                { img: IMG.mad,  valor: '+16,000',   label: 'AT proporcionadas' },
+                { img: IMG.fru,  valor: '+2,700',    label: 'Productores atendidos' },
+              ].map((c, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15, type: 'spring', bounce: 0.2 }}
+                  animate={{ y: [0, -8, 0] }}
+                  style={{ minHeight: '160px', animation: 'none' }}
+                >
+                <motion.div
+                  className="flex-1 h-full rounded-3xl overflow-hidden shadow-lg relative group"
+                  animate={{ y: [0, -(5 + i * 1.5), 0] }}
+                  transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.7 }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                  style={{ minHeight: '220px' }}
+                >
+                  <img src={c.img} alt={c.label}
+                       className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0"
+                       style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)' }} />
+                  {/* Acento verde izquierdo */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-3xl" style={{ backgroundColor: LIGHT }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-black text-2xl leading-none drop-shadow">{c.valor}</p>
+                    <p className="text-white/75 text-xs mt-1 font-medium tracking-wide">{c.label}</p>
+                  </div>
+                </motion.div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* ── COLUMNA CENTRAL ── */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
+              className="bg-white rounded-[32px] shadow-xl overflow-hidden flex flex-col border border-gray-100"
             >
-              <span className="text-white/60 text-sm font-bold uppercase tracking-widest">
-                Objetivos 2026
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mt-2 mb-10">
-                Meta: 5 millones de árboles
-              </h2>
+              {/* Header logos */}
+              <div className="flex items-center justify-center gap-5 px-8 py-4 border-b border-gray-100 flex-wrap">
+                <img src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
+                     alt="Nestlé" className="h-9 w-auto object-contain" style={{ filter: 'brightness(0) opacity(0.75)' }} />
+                <div className="w-px h-8 bg-gray-200" />
+                <img src="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA COLOR.webp"
+                     alt="Bosques del Mañana" className="h-11 w-auto object-contain" />
+                <div className="w-px h-8 bg-gray-200" />
+                <img src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ COLOR.webp"
+                     alt="Fundación COHONDUCAFÉ" className="h-11 w-auto object-contain" />
+              </div>
 
-              <div className="space-y-5">
+              {/* Subtítulo mapa */}
+              <p className="text-center text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 pt-3 pb-1 px-4">
+                General Location Map of Farms · Project Bosques del Mañana · Honduras 2025
+              </p>
+
+              {/* Mapa */}
+              <div className="flex-1 px-3 pb-2" style={{ minHeight: '320px' }}>
+                <BosquesMap />
+              </div>
+
+              {/* Chips de datos — separador */}
+              <div className="mx-4 border-t border-gray-100" />
+
+              {/* Chips en 2 filas */}
+              <div className="px-4 py-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+
+                {/* Género */}
                 {[
-                  { label: 'Árboles maderables a plantar', total: 900000 },
-                  { label: 'Árboles frutales a plantar',   total: 137864 },
-                  { label: 'Total árboles 2026',           total: 1037864 },
-                  { label: 'Productores beneficiados',     total: 1000 },
-                ].map((p, i) => (
+                  { valor: '449',   label: 'Mujeres productoras', color: '#C2185B', bg: '#FCE4EC' },
+                  { valor: '2,269', label: 'Hombres productores', color: COLOR,     bg: '#E8F5E9' },
+                ].map((c, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.12 }}
+                    transition={{ delay: 0.3 + i * 0.08 }}
+                    className="flex items-center gap-2.5 rounded-2xl p-3"
+                    style={{ backgroundColor: c.bg }}
                   >
-                    <div className="flex justify-between mb-2">
-                      <span className="text-white text-sm font-semibold">{p.label}</span>
-                      <span className="text-white/60 text-sm font-bold">
-                        {p.total.toLocaleString('es-HN')}
-                      </span>
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                         style={{ backgroundColor: `${c.color}25` }}>
+                      <Icon d={ICONS.users} className="w-4 h-4" style={{ color: c.color }} />
                     </div>
-                    <div className="h-3 rounded-full bg-white/15 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '0%' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.4 + i * 0.1 }}
-                        className="h-full rounded-full bg-white/80"
-                      />
+                    <div>
+                      <p className="font-black text-sm leading-none" style={{ color: c.color }}>{c.valor}</p>
+                      <p className="text-[10px] leading-tight mt-0.5 font-medium" style={{ color: `${c.color}99` }}>{c.label}</p>
                     </div>
-                    <p className="text-white/40 text-xs mt-1">Año en curso — datos pendientes</p>
+                  </motion.div>
+                ))}
+
+                {/* USD stats */}
+                {[
+                  { valor: '+USD 930,000', label: 'Por establecimiento', icon: ICONS.leaf },
+                  { valor: '+USD 980,000', label: 'Por mantenimiento',   icon: ICONS.leaf },
+                  { valor: '+USD 87,000',  label: 'Por sobrevivencia',   icon: ICONS.leaf },
+                  { valor: '+20',          label: 'Viveristas',          icon: ICONS.tree },
+                  { valor: '+19,000 ha',   label: 'Intervenidas',        icon: ICONS.map  },
+                ].map((c, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 + i * 0.07 }}
+                    className="flex items-center gap-2.5 rounded-2xl p-3 bg-gray-50"
+                  >
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                         style={{ backgroundColor: `${COLOR}18` }}>
+                      <Icon d={c.icon} className="w-4 h-4" style={{ color: COLOR }} />
+                    </div>
+                    <div>
+                      <p className="font-black text-xs leading-none text-cafe">{c.valor}</p>
+                      <p className="text-[10px] leading-tight mt-0.5 text-cafe-light font-medium">{c.label}</p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
-
-              {/* Beneficios financieros */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="mt-10 bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <Icon d={ICONS.dollar} className="w-5 h-5 text-white/70" />
-                  <p className="text-white/70 text-xs font-bold uppercase tracking-widest">
-                    Beneficios a productores
-                  </p>
-                </div>
-                <p className="text-5xl font-black text-white mb-4">$3,685,397</p>
-                <div className="space-y-2">
-                  {BENEFICIOS.map((b, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-white/60 flex-shrink-0" />
-                      <div className="flex-1">
-                        <div className="flex justify-between text-xs text-white/80 mb-1">
-                          <span>{b.label}</span>
-                          <span className="font-bold">${b.monto.toLocaleString('en-US', { maximumFractionDigits: 0 })}</span>
-                        </div>
-                        <div className="h-1 rounded-full bg-white/20 overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${b.pct}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: 0.8 + i * 0.1 }}
-                            className="h-full rounded-full bg-white/70"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </motion.div>
 
-            {/* Imagen lateral */}
-            <div className="relative">
-              <motion.div
-                className="absolute -inset-4 rounded-full"
-                style={{ backgroundColor: '#fff', opacity: 0.08, filter: 'blur(50px)', willChange: 'transform' }}
-                animate={{ scale: [1, 1.1, 0.93, 1], x: [0, 20, -15, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <motion.div
-                className="relative rounded-[36px] overflow-hidden shadow-2xl aspect-[3/4]"
-                initial={{ opacity: 0, x: 60, rotate: 3 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.9, type: 'spring' }}
-              >
-                <img src={IMG.meta} alt="Bosques metas" className="w-full h-full object-cover" />
-                <div className="absolute inset-0"
-                     style={{ background: `linear-gradient(to top, ${COLOR}dd 0%, transparent 50%)` }} />
-
-                {/* Floating badge */}
+            {/* ── COLUMNA DERECHA ── */}
+            <div className="flex flex-row lg:flex-col gap-4">
+              {[
+                { img: IMG.cer,   valor: '+20',      label: 'Técnicos en Campo' },
+                { img: IMG.g1,    valor: '+15,000',  label: 'Kits entregados' },
+                { img: IMG.audit, valor: '🌱',        label: 'Voluntariado Nestlé' },
+              ].map((c, i) => (
                 <motion.div
-                  className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-xl"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={i}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.7, type: 'spring' }}
+                  transition={{ delay: i * 0.15, type: 'spring', bounce: 0.2 }}
+                  style={{ minHeight: '220px' }}
                 >
-                  <p className="text-3xl font-black" style={{ color: COLOR }}>57</p>
-                  <p className="text-xs text-cafe-light font-semibold">colaboradores<br />en campo</p>
-                </motion.div>
-
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex gap-2">
-                    {[{ code: 'HN', name: 'Honduras' }, { code: 'PA', name: 'Panamá' }].map(z => (
-                      <span key={z.code} className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/30 flex items-center gap-1.5">
-                        <span className="text-[9px] font-black bg-white/30 px-1 py-0.5 rounded">{z.code}</span>
-                        {z.name}
-                      </span>
-                    ))}
+                <motion.div
+                  className="flex-1 h-full rounded-3xl overflow-hidden shadow-lg relative group"
+                  animate={{ y: [0, -(5 + i * 1.5), 0] }}
+                  transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.7 + 1.5 }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                  style={{ minHeight: '220px' }}
+                >
+                  <img src={c.img} alt={c.label}
+                       className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0"
+                       style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)' }} />
+                  <div className="absolute right-0 top-0 bottom-0 w-1 rounded-r-3xl" style={{ backgroundColor: LIGHT }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-black text-2xl leading-none drop-shadow">{c.valor}</p>
+                    <p className="text-white/75 text-xs mt-1 font-medium tracking-wide">{c.label}</p>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+                </motion.div>
+              ))}
             </div>
+
           </div>
         </div>
       </section>
@@ -570,9 +566,9 @@ export default function BosquesDelManana() {
                 Auditoría de Carbono 2026
               </h2>
               <p className="text-white/80 leading-relaxed mb-8 text-lg">
-                El proyecto es auditado externamente para cuantificar la captura de carbono
-                de los sistemas agroforestales, alineándose con estándares internacionales
-                de descarbonización y agricultura regenerativa.
+                En 2026 se ejecutó satisfactoriamente la primera auditoría de carbono donde un equipo especializado realizó la verificación de datos dasométricos para comprobar el crecimiento y desarrollo de las plantas.
+                <br /><br />
+                Se reconoció el excelente equipo de trabajo en campo, el seguimiento a cada productor y el robusto manejo de la información.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -597,38 +593,137 @@ export default function BosquesDelManana() {
               </div>
             </motion.div>
 
-            {/* Carbono Neutro logo card */}
+            {/* Meta captura de carbono */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: 'spring' }}
+              className="flex flex-col gap-5"
             >
-              <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-10 text-center border border-white/25 shadow-2xl">
-                <motion.img
-                  src="/imagenes/logos/Logos Generales/LOGO-AI-CARBONO-NEUTRO.webp"
-                  alt="Carbono Neutro"
-                  className="h-28 w-auto mx-auto mb-6 object-contain drop-shadow-xl"
-                  style={{ willChange: 'transform' }}
-                  animate={{ y: [0, -12, 0] }}
+              {/* Card principal */}
+              <div className="bg-white/10 backdrop-blur-xl rounded-[40px] p-10 text-center border border-white/25 shadow-2xl relative overflow-hidden">
+
+                {/* Anillos decorativos animados */}
+                <motion.div
+                  className="absolute inset-0 rounded-[40px] border-2 border-white/10"
+                  animate={{ scale: [1, 1.04, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 />
-                <p className="text-7xl font-black text-white mb-2">57</p>
-                <p className="text-white/80 text-lg">colaboradores en campo</p>
+                <motion.div
+                  className="absolute -inset-3 rounded-[50px] border border-white/5"
+                  animate={{ scale: [1, 1.06, 1] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                />
 
-                <div className="mt-8 grid grid-cols-2 gap-3 text-left">
+                {/* Logo flotante */}
+                <motion.img
+                  src="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp"
+                  alt="Bosques del Mañana"
+                  className="h-24 w-auto mx-auto mb-6 object-contain drop-shadow-xl"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                />
+
+                {/* Etiqueta */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="text-white/60 text-xs font-bold uppercase tracking-widest mb-3"
+                >
+                  Nuestra meta
+                </motion.p>
+
+                {/* Número animado grande */}
+                <motion.div
+                  className="flex items-end justify-center gap-1 mb-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, type: 'spring', bounce: 0.3 }}
+                >
+                  <span className="text-white/70 text-4xl font-black">+</span>
+                  <motion.span
+                    className="text-7xl md:text-8xl font-black text-white leading-none"
+                    animate={{ textShadow: ['0 0 20px rgba(255,255,255,0)', '0 0 40px rgba(255,255,255,0.3)', '0 0 20px rgba(255,255,255,0)'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    1M
+                  </motion.span>
+                </motion.div>
+
+                <motion.p
+                  className="text-2xl font-black text-white/90 mb-1"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  tCO₂e capturadas
+                </motion.p>
+                <motion.p
+                  className="text-white/50 text-sm"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
+                  en un período de 20 años
+                </motion.p>
+
+                {/* Barra de progreso decorativa */}
+                <div className="mt-8 bg-white/10 rounded-full h-2 overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full"
+                    style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.9))' }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '35%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.7, ease: 'easeOut' }}
+                  />
+                </div>
+                <p className="text-white/40 text-xs mt-2">Progreso hacia la meta</p>
+              </div>
+
+              {/* Conclusiones del auditor */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20"
+              >
+                <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">
+                  Conclusiones preliminares del auditor
+                </p>
+                <div className="space-y-3">
                   {[
-                    { code: 'HN', label: 'Honduras', desc: 'Operaciones principales' },
-                    { code: 'PA', label: 'Panamá',   desc: 'Extensión del programa' },
-                  ].map(z => (
-                    <div key={z.label} className="bg-white/15 rounded-2xl p-4">
-                      <span className="inline-block text-xs font-black bg-white/25 text-white px-2 py-1 rounded mb-2">{z.code}</span>
-                      <p className="font-black text-white">{z.label}</p>
-                      <p className="text-white/60 text-xs mt-0.5">{z.desc}</p>
-                    </div>
+                    'Fuerte coordinación en campo que permitió resultados sólidos.',
+                    'Colaboración efectiva con agricultores, partes interesadas y equipo técnico.',
+                    'Estructura del proyecto robusta a nivel técnico, social y operativo.',
+                    'Infraestructura que supera los requerimientos mínimos del proyecto.',
+                    'Equipo técnico con alta preparación y experiencia.',
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.9 + i * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-white/85 text-sm leading-snug">{item}</p>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -647,73 +742,47 @@ export default function BosquesDelManana() {
             <h2 className="text-4xl font-black text-cafe mt-2">Galería de campo</h2>
           </motion.div>
 
-          {/* Grid principal */}
-          <div className="grid grid-cols-12 gap-4 mb-4">
-            {/* Grande izquierda */}
-            <motion.div
-              className="col-span-12 md:col-span-7 rounded-3xl overflow-hidden shadow-xl aspect-[16/9] relative group"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <img src={IMG.fin} alt="Bosques" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                   style={{ background: `linear-gradient(to top, ${COLOR}99, transparent)` }} />
-            </motion.div>
+          {/* Grid masonry uniforme — 3 columnas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[IMG.fin, IMG.g1, IMG.g2, IMG.g3, IMG.num, IMG.meta].map((src, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="group rounded-3xl overflow-hidden shadow-lg bg-white"
+              >
+                <img
+                  src={src}
+                  alt={`Bosques del Mañana ${i + 1}`}
+                  className="w-full object-contain group-hover:scale-105 transition-transform duration-700"
+                />
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Columna derecha 2 imgs */}
-            <div className="col-span-12 md:col-span-5 grid grid-rows-2 gap-4">
-              {[IMG.g1, IMG.g2].map((src, i) => (
-                <motion.div
-                  key={i}
-                  className="rounded-3xl overflow-hidden shadow-xl relative group"
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.15 + i * 0.15 }}
-                >
-                  <img src={src} alt={`Bosques ${i + 2}`}
-                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" style={{ aspectRatio: '16/7' }} />
-                </motion.div>
-              ))}
+          {/* Stat card decorativo */}
+          <motion.div
+            className="mt-5 rounded-3xl p-8 text-white flex items-center gap-8"
+            style={{ background: `linear-gradient(135deg, ${COLOR}, ${LIGHT})` }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <div className="flex-1">
+              <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Hito 2026</p>
+              <p className="text-6xl font-black mb-1">5M</p>
+              <p className="text-white/80 text-lg">árboles — meta acumulada</p>
             </div>
-          </div>
-
-          {/* Fila inferior */}
-          <div className="grid grid-cols-12 gap-4">
-            <motion.div
-              className="col-span-12 md:col-span-5 rounded-3xl overflow-hidden shadow-xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
-              <img src={IMG.g3} alt="Bosques galería" className="w-full h-48 object-cover hover:scale-105 transition-transform duration-700" />
-            </motion.div>
-
-            {/* Stat card decorativo */}
-            <motion.div
-              className="col-span-12 md:col-span-7 rounded-3xl p-8 text-white flex items-center gap-8"
-              style={{ background: `linear-gradient(135deg, ${COLOR}, ${LIGHT})` }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="flex-1">
-                <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Hito 2026</p>
-                <p className="text-6xl font-black mb-1">5M</p>
-                <p className="text-white/80 text-lg">árboles — meta acumulada</p>
-              </div>
-              {/* SVG árbol decorativo */}
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" className="opacity-25 flex-shrink-0">
-                <path d="M60 10 L90 70 H70 L80 110 H40 L50 70 H30 Z" fill="white" />
-                <path d="M60 25 L85 75 H65 L73 110 H47 L55 75 H35 Z" fill="white" opacity="0.6" />
-                <path d="M60 40 L80 80 H40 Z" fill="white" opacity="0.4" />
-              </svg>
-            </motion.div>
-          </div>
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" className="opacity-25 flex-shrink-0">
+              <path d="M60 10 L90 70 H70 L80 110 H40 L50 70 H30 Z" fill="white" />
+              <path d="M60 25 L85 75 H65 L73 110 H47 L55 75 H35 Z" fill="white" opacity="0.6" />
+              <path d="M60 40 L80 80 H40 Z" fill="white" opacity="0.4" />
+            </svg>
+          </motion.div>
         </div>
       </section>
 

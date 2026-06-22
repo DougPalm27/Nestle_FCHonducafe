@@ -5,7 +5,7 @@ function easeOutQuart(t) {
   return 1 - Math.pow(1 - t, 4)
 }
 
-export default function CounterStat({ value, suffix = '', prefix = '', label, className = '', duration = 2000 }) {
+export default function CounterStat({ value, suffix = '', prefix = '', label, className = '', valueClassName = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
   const startedRef = useRef(false)
@@ -40,7 +40,7 @@ export default function CounterStat({ value, suffix = '', prefix = '', label, cl
 
   return (
     <div ref={ref} className={className}>
-      <div className="text-4xl md:text-5xl font-black tabular-nums leading-none">
+      <div className={`font-black tabular-nums leading-none ${valueClassName || 'text-4xl md:text-5xl'}`}>
         {prefix}{formatNumber(count)}{suffix}
       </div>
       {label && <p className="mt-2 text-sm md:text-base opacity-80 leading-snug">{label}</p>}

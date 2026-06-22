@@ -15,27 +15,31 @@ const BASE  = '/imagenes/proyectos/derechos-humanos'
 const COMP  = `${BASE}/compressed`
 
 /* ── Imágenes ─────────────────────────────────────────── */
-const HERO_IMG = `${COMP}/_EAA4513.webp`
+const HERO_IMG = `${COMP}/Hero.webp`
 
 const GALLERY = [
-  { src: `${COMP}/_EAA4560.webp`                },
-  { src: `${COMP}/_EAA4601.webp`                },
-  { src: `${COMP}/niños.webp`                   },
-  { src: `${COMP}/_EAA4617.webp`                },
-  { src: `${COMP}/niña_pintando_343x394_px.webp`},
-  { src: `${COMP}/_EAA4672.webp`                },
-  { src: `${COMP}/recibiendo_clases.webp`        },
-  { src: `${COMP}/_EAA4688.webp`                },
-  { src: `${COMP}/niño_jugando_loteria.webp`    },
+  { src: `${COMP}/DDHH_WA01.webp`               },
+  { src: `${COMP}/DDHH_WA04.webp`               },
   { src: `${COMP}/_EAA4845.webp`                },
-  { src: `${COMP}/niños_comiendo_merienda.webp` },
-  { src: `${COMP}/_EAA4876.webp`                },
-  { src: `${COMP}/niños_fila_merienda.webp`     },
-  { src: `${COMP}/_EAA4888.webp`                },
-  { src: `${COMP}/niño_escribe_677x747px.webp`  },
-  { src: `${COMP}/_EAA4948.webp`                },
-  { src: `${COMP}/_EAA4968.webp`                },
+  { src: `${COMP}/DDHH_WA03.webp`               },
   { src: `${COMP}/_EAA4525.webp`                },
+  { src: `${COMP}/niño_escribe_677x747px.webp`  },
+  { src: `${COMP}/niño_jugando_loteria.webp`    },
+  { src: `${COMP}/DDHH_WA06.webp`               },
+  { src: `${COMP}/niños_fila_merienda.webp`     },
+  { src: `${COMP}/DDHH_WA05.webp`               },
+  { src: `${COMP}/_EAA4688.webp`                },
+  { src: `${COMP}/niña_pintando_343x394_px.webp`},
+  { src: `${COMP}/_EAA4601.webp`                },
+  { src: `${COMP}/DDHH_WA02.webp`               },
+  { src: `${COMP}/_EAA4617.webp`                },
+  { src: `${COMP}/_EAA4876.webp`                },
+  { src: `${COMP}/galeria_21.webp`              },
+  { src: `${COMP}/recibiendo_clases.webp`        },
+  { src: `${COMP}/_EAA4888.webp`                },
+  { src: `${COMP}/DDHH_WA07.webp`               },
+  { src: `${COMP}/_EAA4672.webp`                },
+  { src: `${COMP}/niños.webp`                   },
 ]
 
 const ROTATIONS = [-4, 2, -6, 3, -2, 5, -3, 4, -5, 2, 6, -4, 3, -2, 5, -6, 4, -3]
@@ -70,8 +74,9 @@ const COMPROMISOS = [
     icon: ICONS.home,
     title: '3 Espacios Seguros',
     desc: 'Implementación en Comayagua, Santa Bárbara y Yoro — entornos protegidos para la niñez y juventud cafetera durante la cosecha.',
-    status: 'En progreso',
-    pct: 33,
+    status: 'Completado',
+    pct: 100,
+    img: `${COMP}/_EAA4948.webp`,
   },
   {
     icon: ICONS.eye,
@@ -79,6 +84,7 @@ const COMPROMISOS = [
     desc: '1 sistema de monitoreo activo. 100% de los casos identificados reciben al menos 2 visitas de seguimiento documentadas.',
     status: 'Activo',
     pct: 100,
+    img: `${COMP}/_EAA4968.webp`,
   },
   {
     icon: ICONS.users,
@@ -86,13 +92,15 @@ const COMPROMISOS = [
     desc: 'Formación en DDHH y Trabajo Infantil dirigida a equipos técnicos, productores, trabajadores, familias, jóvenes y NNA.',
     status: 'En ejecución',
     pct: 60,
+    img: `${COMP}/LineaTiempo1.webp`,
   },
   {
     icon: ICONS.backpack,
-    title: '90 Kits Escolares',
+    title: '86 Kits Escolares',
     desc: 'Materiales educativos para fortalecer el derecho a la educación de niños y niñas en zonas de intervención.',
-    status: 'Programado',
-    pct: 0,
+    status: 'Completado',
+    pct: 100,
+    img: `${COMP}/galeria_20.webp`,
   },
   {
     icon: ICONS.clip,
@@ -100,6 +108,7 @@ const COMPROMISOS = [
     desc: '1 protocolo de protección infantil y remediación elaborado y socializado con toda la comunidad de productores RS GOLD.',
     status: 'En desarrollo',
     pct: 40,
+    img: `${COMP}/niños_comiendo_merienda.webp`,
   },
   {
     icon: ICONS.hands,
@@ -107,6 +116,7 @@ const COMPROMISOS = [
     desc: 'Trabajo con instituciones gubernamentales y OSC para garantizar respuesta a casos identificados.',
     status: 'Activo',
     pct: 85,
+    img: `${COMP}/_EAA4560.webp`,
   },
 ]
 
@@ -118,7 +128,7 @@ const fadeUp = {
 }
 
 /* ── Mapa de Honduras (amCharts 5) ────────────────────── */
-const HIGHLIGHTED = ['HN-SB', 'HN-YO', 'HN-CP', 'HN-LM', 'HN-CM']
+const HIGHLIGHTED = ['HN-SB', 'HN-YO', 'HN-CM']
 
 function HondurasMap({ color = '#0D47A1' }) {
   const chartRef = useRef(null)
@@ -255,6 +265,7 @@ export default function DerechosHumanos() {
         description="Fortalecer el respeto, la protección y la garantía de los derechos humanos con énfasis en la prevención del trabajo infantil en la cadena RS GOLD de Honduras."
         color={COLOR}
         imageSrc={HERO_IMG}
+        imagePosition="center 25%"
         tag="Derechos Humanos"
         collaborators={1}
       />
@@ -265,9 +276,9 @@ export default function DerechosHumanos() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-3xl overflow-hidden">
             {[
               { value: 450,  label: 'Personas a capacitar',   sub: 'en DDHH y Trabajo Infantil' },
-              { value: 90,   label: 'Kits escolares',          sub: 'para niños y niñas' },
+              { value: 86,   label: 'Kits escolares',          sub: 'para niños y niñas' },
               { value: 3,    label: 'Espacios Seguros',        sub: 'Comayagua, Sta. Bárbara, Yoro' },
-              { value: 5,    label: 'Departamentos',           sub: 'de intervención en Honduras' },
+              { value: 3,    label: 'Departamentos',           sub: 'de intervención en Honduras' },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -311,15 +322,15 @@ export default function DerechosHumanos() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`relative flex gap-6 md:gap-0 ${
-                    i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  className={`relative flex flex-col md:flex-row md:items-center gap-6 md:gap-0 ${
+                    c.img ? (i % 2 !== 0 ? 'md:flex-row-reverse' : '') : 'md:justify-center'
                   }`}
                 >
                   <div className="absolute left-6 md:left-1/2 w-4 h-4 rounded-full border-4 border-white -translate-x-1/2 top-6 z-10"
                        style={{ backgroundColor: COLOR }} />
 
-                  <div className={`ml-14 md:ml-0 bg-white rounded-3xl p-6 shadow-sm w-full md:w-[46%] hover:shadow-lg transition-shadow duration-300 border border-gray-100 ${
-                    i % 2 === 0 ? 'md:mr-auto md:pr-10' : 'md:ml-auto md:pl-10'
+                  <div className={`ml-14 md:ml-0 bg-white rounded-3xl p-6 shadow-sm w-full ${c.img ? 'md:w-[46%]' : 'md:w-[60%]'} hover:shadow-lg transition-shadow duration-300 border border-gray-100 ${
+                    c.img ? (i % 2 === 0 ? 'md:mr-auto md:pr-10' : 'md:ml-auto md:pl-10') : ''
                   }`}>
                     <div className="flex items-start gap-4">
                       <div className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
@@ -351,6 +362,16 @@ export default function DerechosHumanos() {
                       </div>
                     </div>
                   </div>
+
+                  {c.img && (
+                    <div className={`ml-14 md:ml-0 md:w-[46%] flex ${
+                      i % 2 === 0 ? 'justify-start md:justify-end' : 'justify-start'
+                    }`}>
+                      <div className="w-3/4 sm:w-2/3 md:w-[70%] rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src={c.img} alt={c.title} className="w-full h-full object-cover aspect-[4/3]" loading="lazy" />
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -407,7 +428,7 @@ export default function DerechosHumanos() {
                     <p className="text-white/70 text-xs mt-0.5">Coordinadora</p>
                   </div>
                   <div className="text-center border-x border-white/20">
-                    <p className="text-3xl font-black">5</p>
+                    <p className="text-3xl font-black">3</p>
                     <p className="text-white/70 text-xs mt-0.5">Departamentos</p>
                   </div>
                   <div className="text-center">
