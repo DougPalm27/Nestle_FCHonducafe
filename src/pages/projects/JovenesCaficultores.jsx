@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ProjectHero from '../../components/ProjectHero'
 import CounterStat from '../../components/CounterStat'
 import ProgressBar from '../../components/ProgressBar'
@@ -95,16 +96,16 @@ function HexPattern({ color = COLOR }) {
 }
 
 const TOP_COUNTRIES = [
-  { name: 'Honduras',    count: 24047, code: 'HN' },
-  { name: 'Nicaragua',   count: 4528,  code: 'NI' },
-  { name: 'Guatemala',   count: 4466,  code: 'GT' },
-  { name: 'El Salvador', count: 2613,  code: 'SV' },
-  { name: 'Panamá',      count: 2116,  code: 'PA' },
-  { name: 'Colombia',    count: 1921,  code: 'CO' },
-  { name: 'Costa Rica',  count: 1378,  code: 'CR' },
-  { name: 'Perú',        count: 696,   code: 'PE' },
-  { name: 'Bolivia',     count: 613,   code: 'BO' },
-  { name: 'México',      count: 484,   code: 'MX' },
+  { code: 'HN', count: 24047 },
+  { code: 'NI', count: 4528  },
+  { code: 'GT', count: 4466  },
+  { code: 'SV', count: 2613  },
+  { code: 'PA', count: 2116  },
+  { code: 'CO', count: 1921  },
+  { code: 'CR', count: 1378  },
+  { code: 'PE', count: 696   },
+  { code: 'BO', count: 613   },
+  { code: 'MX', count: 484   },
 ]
 const MAX_C = 24047
 
@@ -116,6 +117,7 @@ const fadeUp = {
 }
 
 export default function JovenesCaficultores() {
+  const { t } = useTranslation('jovenesCaficultores')
   const [activeTab, setActiveTab] = useState('virtual')
 
   return (
@@ -123,13 +125,13 @@ export default function JovenesCaficultores() {
 
       {/* ── HERO ───────────────────────────────────────────── */}
       <ProjectHero
-        title="Jóvenes Caficultores"
-        subtitle="Iniciativa por los Jóvenes Caficultores"
-        description="Mejora la calidad de vida de jóvenes caficultores a través de orientación, capacitación y agro emprendimiento. Evita la migración del país."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        description={t('hero.description')}
         color={COLOR}
         imageSrc="/imagenes/proyectos/jovenes-caficultores/aulaMovil/hero.webp"
         logo="/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES NEGATIVO.webp"
-        tag="Educación & Desarrollo"
+        tag={t('hero.tag')}
         collaborators={8}
       />
 
@@ -138,11 +140,11 @@ export default function JovenesCaficultores() {
         <CirclesPattern />
         <div className="flex gap-0 divide-x divide-gray-100 relative">
           {[
-            { v: '+1,600',  label: 'horas en vivo',        icon: ICONS.monitor },
-            { v: '63,212',  label: 'personas capacitadas', icon: ICONS.graduate },
-            { v: '23',      label: 'países alcanzados',    icon: ICONS.globe },
-            { v: '+300 TB', label: 'datos consumidos',     icon: ICONS.monitor },
-            { v: '80',      label: 'jóvenes baristas',     icon: ICONS.coffee },
+            { v: '+1,600',  label: t('ribbon.liveHours'),        icon: ICONS.monitor },
+            { v: '63,212',  label: t('ribbon.peopleTrained'),     icon: ICONS.graduate },
+            { v: '23',      label: t('ribbon.countriesReached'), icon: ICONS.globe },
+            { v: '+300 TB', label: t('ribbon.dataConsumed'),      icon: ICONS.monitor },
+            { v: '80',      label: t('ribbon.youngBaristas'),     icon: ICONS.coffee },
           ].map((s, i) => (
             <motion.div
               key={i}
@@ -173,18 +175,18 @@ export default function JovenesCaficultores() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Dos modalidades de formación
+              {t('tabs.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">
-              El programa en acción
+              {t('tabs.title')}
             </h2>
           </motion.div>
 
           {/* Tab buttons */}
           <div className="flex gap-3 justify-center mb-12">
             {[
-              { id: 'virtual', label: 'Cursos Virtuales', icon: ICONS.monitor },
-              { id: 'aula',    label: 'Aula Móvil',       icon: ICONS.truck },
+              { id: 'virtual', label: t('tabs.virtual'), icon: ICONS.monitor },
+              { id: 'aula',    label: t('tabs.aula'),     icon: ICONS.truck },
             ].map(tab => (
               <button
                 key={tab.id}
@@ -221,15 +223,15 @@ export default function JovenesCaficultores() {
                           <Icon d={ICONS.monitor} className="w-6 h-6" style={{ color: COLOR }} />
                         </div>
                         <div>
-                          <h3 className="font-black text-cafe text-xl">Plataforma Virtual</h3>
-                          <p className="text-cafe-light text-sm">44,373 personas · 23 países</p>
+                          <h3 className="font-black text-cafe text-xl">{t('virtual.platformTitle')}</h3>
+                          <p className="text-cafe-light text-sm">{t('virtual.platformSubtitle')}</p>
                         </div>
                       </div>
                       {[
-                        { label: 'Personas capacitadas',      v: '44,373' },
-                        { label: 'Horas de transmisión vivo', v: '+1,600' },
-                        { label: 'Datos consumidos',          v: '+300 TB' },
-                        { label: 'Países alcanzados',         v: '23' },
+                        { label: t('virtual.rows.trained'),  v: '44,373' },
+                        { label: t('virtual.rows.liveHours'), v: '+1,600' },
+                        { label: t('virtual.rows.data'),      v: '+300 TB' },
+                        { label: t('virtual.rows.countries'), v: '23' },
                       ].map((row, i) => (
                         <motion.div
                           key={i}
@@ -246,11 +248,11 @@ export default function JovenesCaficultores() {
 
                     {/* Género */}
                     <div className="bg-white rounded-3xl p-6 shadow-md">
-                      <p className="font-bold text-cafe mb-4 text-sm">Participación por género</p>
+                      <p className="font-bold text-cafe mb-4 text-sm">{t('virtual.genderTitle')}</p>
                       <div className="space-y-3">
                         {[
-                          { label: 'Mujeres jóvenes', pct: 55, v: '19,956' },
-                          { label: 'Hombres jóvenes', pct: 45, v: '16,495' },
+                          { label: t('virtual.gender.women'), pct: 55, v: '19,956' },
+                          { label: t('virtual.gender.men'),   pct: 45, v: '16,495' },
                         ].map((g, i) => (
                           <div key={i}>
                             <div className="flex justify-between mb-1">
@@ -286,7 +288,7 @@ export default function JovenesCaficultores() {
                       >
                         <img
                           src={src}
-                          alt={`Clase virtual ${i + 1}`}
+                          alt={`${t('virtual.galleryAlt')} ${i + 1}`}
                           className="w-full h-full object-contain p-2"
                         />
                       </motion.div>
@@ -314,13 +316,13 @@ export default function JovenesCaficultores() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <img src={AULA[0]} alt="Aula Móvil principal"
+                      <img src={AULA[0]} alt={t('aula.mainAlt')}
                            className="w-full h-full object-cover" />
                       <div className="absolute inset-0"
                            style={{ background: `linear-gradient(to top, ${COLOR}99, transparent)` }} />
                       <div className="absolute bottom-5 left-5">
                         <span className="bg-white/20 backdrop-blur-sm text-white text-sm font-bold px-4 py-2 rounded-full border border-white/30">
-                          Aula Móvil · Honduras
+                          {t('aula.badge')}
                         </span>
                       </div>
                     </motion.div>
@@ -334,7 +336,7 @@ export default function JovenesCaficultores() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 + i * 0.15 }}
                         >
-                          <img src={src} alt={`Aula móvil ${i + 2}`} className="w-full h-full object-cover" />
+                          <img src={src} alt={`${t('aula.galleryAlt')} ${i + 2}`} className="w-full h-full object-cover" />
                         </motion.div>
                       ))}
                     </div>
@@ -349,15 +351,15 @@ export default function JovenesCaficultores() {
                           <Icon d={ICONS.truck} className="w-6 h-6" style={{ color: COLOR }} />
                         </div>
                         <div>
-                          <h3 className="font-black text-cafe text-xl">Aula Móvil</h3>
-                          <p className="text-cafe-light text-sm">Unidad educativa itinerante</p>
+                          <h3 className="font-black text-cafe text-xl">{t('aula.title')}</h3>
+                          <p className="text-cafe-light text-sm">{t('aula.subtitle')}</p>
                         </div>
                       </div>
                       {[
-                        { label: 'Estudiantes capacitados',       v: '18,778' },
-                        { label: 'Jóvenes baristas formados',     v: '80' },
-                        { label: 'Jóvenes en Derechos Humanos',   v: '61' },
-                        { label: 'Total del programa',            v: '63,212', bold: true },
+                        { label: t('aula.rows.students'),    v: '18,778' },
+                        { label: t('aula.rows.baristas'),    v: '80' },
+                        { label: t('aula.rows.humanRights'), v: '61' },
+                        { label: t('aula.rows.total'),       v: '63,212', bold: true },
                       ].map((row, i) => (
                         <motion.div
                           key={i}
@@ -377,12 +379,12 @@ export default function JovenesCaficultores() {
 
                     {/* Módulos */}
                     <div className="bg-white rounded-3xl p-6 shadow-md">
-                      <p className="font-bold text-cafe mb-4 text-sm">Módulos del Aula Móvil</p>
+                      <p className="font-bold text-cafe mb-4 text-sm">{t('aula.modulesTitle')}</p>
                       <div className="space-y-3">
                         {[
-                          { icon: ICONS.coffee,   label: 'Barismo profesional',       sub: '80 jóvenes certificados' },
-                          { icon: ICONS.scale,    label: 'Derechos Humanos',           sub: '61 jóvenes líderes' },
-                          { icon: ICONS.graduate, label: 'Capacitación técnica cafetera', sub: 'Fincas rurales' },
+                          { icon: ICONS.coffee,   label: t('aula.modules.barismo.label'),  sub: t('aula.modules.barismo.sub') },
+                          { icon: ICONS.scale,    label: t('aula.modules.derechos.label'), sub: t('aula.modules.derechos.sub') },
+                          { icon: ICONS.graduate, label: t('aula.modules.tecnica.label'),  sub: t('aula.modules.tecnica.sub') },
                         ].map((m, i) => (
                           <motion.div
                             key={i}
@@ -432,16 +434,16 @@ export default function JovenesCaficultores() {
               transition={{ duration: 0.7 }}
             >
               <span className="text-white/60 text-sm font-bold uppercase tracking-widest">
-                Alcance internacional
+                {t('countries.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-white mt-2 mb-10">
-                Personas capacitadas<br />por país
+                {t('countries.title1')}<br />{t('countries.title2')}
               </h2>
 
               <div className="space-y-3">
                 {TOP_COUNTRIES.map((c, i) => (
                   <motion.div
-                    key={c.name}
+                    key={c.code}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -451,7 +453,7 @@ export default function JovenesCaficultores() {
                     <span className="text-[10px] font-black w-8 h-5 rounded flex items-center justify-center flex-shrink-0 bg-white/20 text-white">
                       {c.code}
                     </span>
-                    <span className="text-white/90 text-sm font-semibold w-28 flex-shrink-0">{c.name}</span>
+                    <span className="text-white/90 text-sm font-semibold w-28 flex-shrink-0">{t(`countries.names.${c.code}`)}</span>
                     <div className="flex-1 h-2.5 rounded-full bg-white/15 overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
@@ -466,7 +468,7 @@ export default function JovenesCaficultores() {
                     </span>
                   </motion.div>
                 ))}
-                <p className="text-white/40 text-xs mt-3 pl-12">+ 13 países más (España, USA, Chile, Haití, Argentina, Brasil, Italia, Cuba…)</p>
+                <p className="text-white/40 text-xs mt-3 pl-12">{t('countries.more')}</p>
               </div>
             </motion.div>
 
@@ -482,14 +484,14 @@ export default function JovenesCaficultores() {
                 <div>
                   <p className="text-8xl font-black text-white">23</p>
                 </div>
-                <p className="text-white/80 text-2xl font-bold mt-2">países alcanzados</p>
-                <p className="text-white/50 text-sm mt-1">en América Latina y el Caribe</p>
+                <p className="text-white/80 text-2xl font-bold mt-2">{t('countries.statCard.label')}</p>
+                <p className="text-white/50 text-sm mt-1">{t('countries.statCard.sub')}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { v: '63,212', l: 'Personas capacitadas', icon: ICONS.graduate },
-                  { v: '+1,600', l: 'Horas en vivo',        icon: ICONS.monitor },
+                  { v: '63,212', l: t('countries.miniStats.trained'),  icon: ICONS.graduate },
+                  { v: '+1,600', l: t('countries.miniStats.liveHours'), icon: ICONS.monitor },
                 ].map((s, i) => (
                   <motion.div
                     key={i}
@@ -518,16 +520,16 @@ export default function JovenesCaficultores() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-16">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Resultados 2025
+              {t('achievements.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Metas cumplidas</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('achievements.title')}</h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { pct: '100.83%', label: 'Aula Móvil',         sub: '3,543 / 3,300 personas', color: COLOR },
-              { pct: '100%',    label: 'Cursos impartidos',   sub: '15 de 15 cursos',         color: MID },
-              { pct: '100.8%',  label: 'Graduados virtuales', sub: '8,168 / 8,100 personas',  color: '#388E3C' },
+              { pct: '100.83%', label: t('achievements.items.aulaMovil.label'),   sub: t('achievements.items.aulaMovil.sub'),   color: COLOR },
+              { pct: '100%',    label: t('achievements.items.cursos.label'),      sub: t('achievements.items.cursos.sub'),      color: MID },
+              { pct: '100.8%',  label: t('achievements.items.graduados.label'),   sub: t('achievements.items.graduados.sub'),   color: '#388E3C' },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -569,16 +571,16 @@ export default function JovenesCaficultores() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div {...fadeUp}>
               <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-                Avance 2026
+                {t('goals2026.eyebrow')}
               </span>
-              <h2 className="text-4xl font-black text-cafe mt-2 mb-3">Metas del año en curso</h2>
-              <p className="text-cafe-light mb-8 text-sm">*Datos parciales al cierre de mayo 2026</p>
+              <h2 className="text-4xl font-black text-cafe mt-2 mb-3">{t('goals2026.title')}</h2>
+              <p className="text-cafe-light mb-8 text-sm">{t('goals2026.note')}</p>
               <div className="space-y-5">
                 {[
-                  { label: 'Cursos virtuales ejecutados',       current: 6,    total: 12,   pct: 50 },
-                  { label: 'Personas capacitadas (virtual)',     current: 3545, total: 6000, pct: 59 },
-                  { label: 'Personas capacitadas (Aula Móvil)', current: 1226, total: 2500, pct: 49 },
-                  { label: 'Horas de clases impartidas',        current: 32,   total: 139,  pct: 23 },
+                  { label: t('goals2026.items.cursosVirtuales'),    current: 6,    total: 12,   pct: 50 },
+                  { label: t('goals2026.items.capacitadasVirtual'), current: 3545, total: 6000, pct: 59 },
+                  { label: t('goals2026.items.capacitadasAula'),    current: 1226, total: 2500, pct: 49 },
+                  { label: t('goals2026.items.horasClases'),        current: 32,   total: 139,  pct: 23 },
                 ].map((p, i) => (
                   <motion.div
                     key={i}
@@ -599,15 +601,15 @@ export default function JovenesCaficultores() {
 
             {/* Timeline metodología */}
             <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.2 }}>
-              <h3 className="text-2xl font-black text-cafe mb-8">Metodología del programa</h3>
+              <h3 className="text-2xl font-black text-cafe mb-8">{t('methodology.title')}</h3>
               <div className="relative">
                 <div className="absolute left-6 top-4 bottom-4 w-0.5 bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
                 <div className="space-y-5">
                   {[
-                    { icon: ICONS.monitor, title: 'Cursos Virtuales',   desc: 'Plataforma digital en 23 países con más de 1,600 horas en vivo y +300 TB consumidos.', img: VIRTUAL[0] },
-                    { icon: ICONS.truck,   title: 'Aula Móvil',          desc: 'Unidad educativa itinerante que lleva formación técnica directamente a comunidades rurales.', img: AULA[1] },
-                    { icon: ICONS.coffee,  title: 'Barismo',             desc: '80 jóvenes certificados como baristas, abriendo puertas en el sector del café de especialidad.', img: AULA[2] },
-                    { icon: ICONS.scale,   title: 'Liderazgo, emprendimiento e innovación en la cadena de valor del café',    desc: '250 jóvenes líderes en gobernanza, emprendimiento e innovación dentro de la cadena de valor del café.', img: VIRTUAL[2] },
+                    { icon: ICONS.monitor, title: t('methodology.steps.virtual.title'),   desc: t('methodology.steps.virtual.desc'),   img: VIRTUAL[0] },
+                    { icon: ICONS.truck,   title: t('methodology.steps.aula.title'),       desc: t('methodology.steps.aula.desc'),       img: AULA[1] },
+                    { icon: ICONS.coffee,  title: t('methodology.steps.barismo.title'),    desc: t('methodology.steps.barismo.desc'),    img: AULA[2] },
+                    { icon: ICONS.scale,   title: t('methodology.steps.liderazgo.title'),  desc: t('methodology.steps.liderazgo.desc'),  img: VIRTUAL[2] },
                   ].map((step, i) => (
                     <motion.div
                       key={i}
@@ -643,13 +645,13 @@ export default function JovenesCaficultores() {
       <section className="py-20 bg-white text-center relative overflow-hidden">
         <LiquidBlob color={COLOR} opacity={0.07} size={400} className="-bottom-20 left-1/2 -translate-x-1/2" />
         <motion.div {...fadeUp} className="relative max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-black text-cafe mb-4">¿Te gustaría saber más?</h2>
+          <h2 className="text-3xl font-black text-cafe mb-4">{t('cta.title')}</h2>
           <p className="text-cafe-light mb-8">
-            Explora el resto de nuestros proyectos o contáctanos para más información.
+            {t('cta.subtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Ver todos los proyectos</Link>
-            <Link to="/proyectos/bosques-del-manana" className="btn-dark">Siguiente: Bosques del Mañana →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/bosques-del-manana" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

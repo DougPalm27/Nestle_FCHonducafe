@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "GRP-Bosques del Mañana",
+    "subtitle": "Árboles que restauran la tierra y generan oportunidades.",
+    "description": "Más de 4 millones de árboles plantados en sistemas agroforestales en asocio con café, cercas vivas, y plantaciones puras, generando empleos, ingresos y mejorando la Biodiversidad en Honduras."
+  },
+  "central": {
+    "accumulated": "Acumulado 2022–2025",
+    "treesPlanted": "árboles plantados",
+    "subtitle": "en sistemas agroforestales integrados al cultivo del café",
+    "hectares": "Hectáreas intervenidas",
+    "producers": "Productores beneficiados",
+    "imageAlt": "Bosques",
+    "goalLabel": "árboles — meta 2026"
+  },
+  "types": {
+    "eyebrow": "Composición de la plantación",
+    "title": "Distribución de tipo de planta",
+    "items": {
+      "maderables": { "label": "Árboles maderables totales", "desc": "Especies forestales de alto valor comercial y ecológico integradas en fincas cafetaleras." },
+      "frutales": { "label": "Árboles frutales totales", "desc": "Diversificación de ingresos y nutrición local con frutales nativos y comerciales." },
+      "total": { "label": "Árboles totales", "desc": "Total acumulado 2022–2025 entre maderables y frutales en sistemas agroforestales." }
+    }
+  },
+  "numbers": {
+    "eyebrow": "Resultados acumulados",
+    "title": "Impacto en números",
+    "left": {
+      "trees": "Árboles plantados",
+      "at": "AT proporcionadas",
+      "producers": "Productores atendidos"
+    },
+    "mapCaption": "Mapa de Ubicación General de Fincas · Proyecto Bosques del Mañana · Honduras 2025",
+    "gender": {
+      "women": "Mujeres productoras",
+      "men": "Hombres productores"
+    },
+    "usd": {
+      "establecimiento": "Por establecimiento",
+      "mantenimiento": "Por mantenimiento",
+      "sobrevivencia": "Por sobrevivencia",
+      "viveristas": "Viveristas",
+      "intervenidas": "Intervenidas"
+    },
+    "right": {
+      "tecnicos": "Técnicos en Campo",
+      "kits": "Kits entregados",
+      "voluntariado": "Voluntariado Nestlé"
+    }
+  },
+  "audit": {
+    "eyebrow": "Sostenibilidad ambiental",
+    "title": "Auditoría de Carbono 2026",
+    "description": "En 2026 se ejecutó satisfactoriamente la primera auditoría de carbono donde un equipo especializado realizó la verificación de datos dasométricos para comprobar el crecimiento y desarrollo de las plantas.\n\nSe reconoció el excelente equipo de trabajo en campo, el seguimiento a cada productor y el robusto manejo de la información.",
+    "features": {
+      "carbon": "Captura de carbono verificada",
+      "standards": "Estándares internacionales",
+      "monitoring": "Monitoreo y evaluación",
+      "agroforestry": "Sistemas agroforestales"
+    },
+    "goalLabel": "Nuestra meta",
+    "tco2e": "tCO₂e capturadas",
+    "period": "en un período de 20 años",
+    "progress": "Progreso hacia la meta",
+    "conclusionsTitle": "Conclusiones preliminares del auditor",
+    "conclusions": [
+      "Fuerte coordinación en campo que permitió resultados sólidos.",
+      "Colaboración efectiva con agricultores, partes interesadas y equipo técnico.",
+      "Estructura del proyecto robusta a nivel técnico, social y operativo.",
+      "Infraestructura que supera los requerimientos mínimos del proyecto.",
+      "Equipo técnico con alta preparación y experiencia."
+    ]
+  },
+  "gallery": {
+    "eyebrow": "El programa en imágenes",
+    "title": "Galería de campo",
+    "imageAlt": "Bosques del Mañana",
+    "milestone": "Hito 2026",
+    "milestoneLabel": "árboles — meta acumulada"
+  },
+  "cta": {
+    "title": "Conoce otros proyectos",
+    "subtitle": "Cada programa transforma vidas en las comunidades caficultoras de Honduras.",
+    "btnAll": "← Todos los proyectos",
+    "btnNext": "Siguiente: RS GOLD →"
+  }
+}

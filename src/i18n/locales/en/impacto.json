@@ -1,0 +1,28 @@
+{
+  "badge": "2026 Impact Report",
+  "title": "Global Impact",
+  "subtitle": "Concrete results that transform coffee-growing communities in Honduras and all of Central America.",
+  "statsTitle": "Our impact in numbers",
+  "stats": {
+    "colaboradores": "Collaborators",
+    "proyectosActivos": "Active projects",
+    "personasCapacitadas": "People trained",
+    "arbolesPlantados": "Trees planted"
+  },
+  "byProjectTitle": "Impact by project",
+  "projects": {
+    "jovenesCaficultores": "Young Coffee Growers",
+    "bosquesDelManana": "Forests of Tomorrow",
+    "rsGold": "RS GOLD",
+    "derechosHumanos": "Human Rights",
+    "incentivoCondicional": "Conditional Incentive",
+    "nespresso": "Nespresso AAA"
+  },
+  "labels": {
+    "personasCapacitadas": "people trained",
+    "arboles": "trees",
+    "colabs": "collabs."
+  },
+  "countriesTitle": "Presence in Central America and beyond",
+  "countriesSubtitle": "23 countries reached by the program's virtual courses"
+}

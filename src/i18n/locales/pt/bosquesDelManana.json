@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "GRP-Florestas do Amanhã",
+    "subtitle": "Árvores que restauram a terra e geram oportunidades.",
+    "description": "Mais de 4 milhões de árvores plantadas em sistemas agroflorestais associados ao café, cercas vivas e plantações puras, gerando empregos, renda e melhorando a Biodiversidade em Honduras."
+  },
+  "central": {
+    "accumulated": "Acumulado 2022–2025",
+    "treesPlanted": "árvores plantadas",
+    "subtitle": "em sistemas agroflorestais integrados ao cultivo do café",
+    "hectares": "Hectares intervencionados",
+    "producers": "Produtores beneficiados",
+    "imageAlt": "Florestas",
+    "goalLabel": "árvores — meta 2026"
+  },
+  "types": {
+    "eyebrow": "Composição da plantação",
+    "title": "Distribuição por tipo de planta",
+    "items": {
+      "maderables": { "label": "Árvores madeireiras totais", "desc": "Espécies florestais de alto valor comercial e ecológico integradas em fazendas cafeeiras." },
+      "frutales": { "label": "Árvores frutíferas totais", "desc": "Diversificação de renda e nutrição local com frutíferas nativas e comerciais." },
+      "total": { "label": "Árvores totais", "desc": "Total acumulado 2022–2025 entre madeireiras e frutíferas em sistemas agroflorestais." }
+    }
+  },
+  "numbers": {
+    "eyebrow": "Resultados acumulados",
+    "title": "Impacto em números",
+    "left": {
+      "trees": "Árvores plantadas",
+      "at": "AT fornecidas",
+      "producers": "Produtores atendidos"
+    },
+    "mapCaption": "Mapa de Localização Geral das Fazendas · Projeto Florestas do Amanhã · Honduras 2025",
+    "gender": {
+      "women": "Mulheres produtoras",
+      "men": "Homens produtores"
+    },
+    "usd": {
+      "establecimiento": "Para estabelecimento",
+      "mantenimiento": "Para manutenção",
+      "sobrevivencia": "Para sobrevivência",
+      "viveristas": "Viveiristas",
+      "intervenidas": "Intervencionadas"
+    },
+    "right": {
+      "tecnicos": "Técnicos de campo",
+      "kits": "Kits entregues",
+      "voluntariado": "Voluntariado Nestlé"
+    }
+  },
+  "audit": {
+    "eyebrow": "Sustentabilidade ambiental",
+    "title": "Auditoria de Carbono 2026",
+    "description": "Em 2026 foi executada com sucesso a primeira auditoria de carbono, na qual uma equipe especializada realizou a verificação de dados dasométricos para comprovar o crescimento e desenvolvimento das plantas.\n\nFoi reconhecida a excelente equipe de trabalho em campo, o acompanhamento de cada produtor e a gestão robusta das informações.",
+    "features": {
+      "carbon": "Captura de carbono verificada",
+      "standards": "Padrões internacionais",
+      "monitoring": "Monitoramento e avaliação",
+      "agroforestry": "Sistemas agroflorestais"
+    },
+    "goalLabel": "Nossa meta",
+    "tco2e": "tCO₂e capturadas",
+    "period": "em um período de 20 anos",
+    "progress": "Progresso em direção à meta",
+    "conclusionsTitle": "Conclusões preliminares do auditor",
+    "conclusions": [
+      "Forte coordenação em campo que permitiu resultados sólidos.",
+      "Colaboração eficaz com agricultores, partes interessadas e equipe técnica.",
+      "Estrutura do projeto robusta nos níveis técnico, social e operacional.",
+      "Infraestrutura que supera os requisitos mínimos do projeto.",
+      "Equipe técnica com alta preparação e experiência."
+    ]
+  },
+  "gallery": {
+    "eyebrow": "O programa em imagens",
+    "title": "Galeria de campo",
+    "imageAlt": "Florestas do Amanhã",
+    "milestone": "Marco 2026",
+    "milestoneLabel": "árvores — meta acumulada"
+  },
+  "cta": {
+    "title": "Conheça outros projetos",
+    "subtitle": "Cada programa transforma vidas nas comunidades cafeicultoras de Honduras.",
+    "btnAll": "← Todos os projetos",
+    "btnNext": "Próximo: RS GOLD →"
+  }
+}

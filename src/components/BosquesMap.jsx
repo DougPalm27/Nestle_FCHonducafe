@@ -3,25 +3,29 @@ import * as am5 from '@amcharts/amcharts5'
 import * as am5map from '@amcharts/amcharts5/map'
 import hondurasHigh from '@amcharts/amcharts5-geodata/hondurasHigh'
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
+import { useTranslation } from 'react-i18next'
 
 // Intensidad relativa por departamento basada en imagen oficial
-const HEAT_DATA = [
-  { id: 'HN-CP', name: 'Copán',         value: 100 },
-  { id: 'HN-YO', name: 'Yoro',          value: 100 },
-  { id: 'HN-LE', name: 'Lempira',       value: 75  },
-  { id: 'HN-CM', name: 'Comayagua',     value: 75  },
-  { id: 'HN-OC', name: 'Ocotepeque',    value: 75  },
-  { id: 'HN-SB', name: 'Santa Bárbara', value: 55  },
-  { id: 'HN-IN', name: 'Intibucá',      value: 30  },
-  { id: 'HN-CR', name: 'Cortés',        value: 15  },
-  { id: 'HN-LP', name: 'La Paz',        value: 5   },
+// Los nombres se traducen en tiempo de render vía i18n/locales/<lang>/bosquesMap.json
+const HEAT_DATA_BASE = [
+  { id: 'HN-CP', value: 100 },
+  { id: 'HN-YO', value: 100 },
+  { id: 'HN-LE', value: 75  },
+  { id: 'HN-CM', value: 75  },
+  { id: 'HN-OC', value: 75  },
+  { id: 'HN-SB', value: 55  },
+  { id: 'HN-IN', value: 30  },
+  { id: 'HN-CR', value: 15  },
+  { id: 'HN-LP', value: 5   },
 ]
 
-const ACTIVE_IDS = HEAT_DATA.map(d => d.id)
+const ACTIVE_IDS = HEAT_DATA_BASE.map(d => d.id)
 
 export default function BosquesMap() {
+  const { t } = useTranslation('bosquesMap')
   const chartRef = useRef(null)
   const rootRef  = useRef(null)
+  const HEAT_DATA = HEAT_DATA_BASE.map(d => ({ ...d, name: t(`departments.${d.id}`) }))
 
   useEffect(() => {
     if (!chartRef.current) return
@@ -77,7 +81,7 @@ export default function BosquesMap() {
       interactive: true,
       tooltipHTML: `<div style="background:#1B5E20;color:#fff;padding:8px 14px;border-radius:10px;font-family:inherit;">
         <p style="font-size:13px;font-weight:700;margin:0">{name}</p>
-        <p style="font-size:11px;opacity:0.7;margin:2px 0 0">Zona de intervención</p>
+        <p style="font-size:11px;opacity:0.7;margin:2px 0 0">${t('tooltip')}</p>
       </div>`,
     })
 
@@ -96,13 +100,13 @@ export default function BosquesMap() {
       <div ref={chartRef} style={{ width: '100%', flex: 1, minHeight: '300px' }} />
       {/* Leyenda */}
       <div className="flex items-center justify-center gap-3 mt-2">
-        <span className="text-[10px] text-cafe-light font-medium">Menor presencia</span>
+        <span className="text-[10px] text-cafe-light font-medium">{t('legend.lower')}</span>
         <div className="flex h-2.5 w-32 rounded-full overflow-hidden">
           {['#C8E6C9','#A5D6A7','#66BB6A','#388E3C','#1B5E20'].map((c,i) => (
             <div key={i} className="flex-1" style={{ backgroundColor: c }} />
           ))}
         </div>
-        <span className="text-[10px] text-cafe-light font-medium">Mayor presencia</span>
+        <span className="text-[10px] text-cafe-light font-medium">{t('legend.higher')}</span>
       </div>
     </div>
   )

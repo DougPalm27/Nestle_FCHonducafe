@@ -1,0 +1,63 @@
+{
+  "badge": "Notre équipe",
+  "title1": "L'équipe",
+  "title2": "COHONDUCAFÉ",
+  "subtitle": "82 collaborateurs dévoués à transformer les communautés caféicultrices avec engagement, technique et esprit de service.",
+  "summary": {
+    "colaboradores": "Collaborateurs au total",
+    "areas": "Domaines de travail",
+    "departamentos": "Départements du Honduras",
+    "paises": "Pays d'opération directe"
+  },
+  "org": {
+    "eyebrow": "Organigramme",
+    "title": "Structure de l'équipe"
+  },
+  "colaboradoresLabel": "collaborateurs",
+  "areas": {
+    "ghg": {
+      "name": "GHG",
+      "groups": [
+        { "items": ["Assistant Administratif : GM", "6 techniciens sous contrat"] }
+      ]
+    },
+    "pilotoYoro": {
+      "name": "Agriculture Régénérative Résiliente (Pilote de Yoro)",
+      "groups": [
+        { "items": ["Techniciens de terrain (3)"] }
+      ]
+    },
+    "jovenesCaficultores": {
+      "name": "Initiative pour les Jeunes",
+      "groups": [
+        { "items": ["Coordinateur : JH", "Spécialiste S&E : EM", "Spécialiste en Transfert de Technologie (1) : JC", "Instructeur de la Classe Mobile (1)", "Chauffeur de la Classe Mobile (1)"] },
+        { "title": "Soutien partagé", "items": ["Analyste de données (50 %) : JC"] }
+      ]
+    },
+    "recursosHumanos": {
+      "name": "Ressources Humaines",
+      "groups": [
+        { "items": ["Responsable des Ressources Humaines : DP", "Responsable de Flotte : CJ", "Analyste de données (50 %)"] }
+      ]
+    },
+    "bosquesDelManana": {
+      "name": "Forêts de Demain",
+      "groups": [
+        { "title": "Domaine Technique", "items": ["Coordinateur Technique : EU", "Spécialiste Environnemental : MO", "Spécialiste S&E : AC", "Superviseurs de Terrain (2)", "Techniciens de Terrain (20) à recruter (1)", "Pépiniéristes (28)"] },
+        { "title": "Domaine Administratif", "items": ["Coordinateur Administratif : MS", "Comptable du Projet : HH", "Chargé des Paiements : DC"] }
+      ]
+    },
+    "derechosHumanos": {
+      "name": "Droits Humains et Protection de l'Enfance",
+      "groups": [
+        { "items": ["Coordinatrice : WG"] }
+      ]
+    },
+    "nespresso": {
+      "name": "Nespresso",
+      "groups": [
+        { "items": ["Coordinatrice : MC", "Responsables Départementaux (1) : TL", "Assistant : RP", "Techniciens de Terrain (2)"] }
+      ]
+    }
+  }
+}

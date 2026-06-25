@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "backHome": "Volver al inicio",
+    "badge": "Programa AAA™",
+    "title1": "Clúster Nespresso",
+    "title2": "Cohonducafé",
+    "subtitle": "Programa de Sostenibilidad y Calidad AAA™ de Nespresso",
+    "description": "Mediante la implementación del Programa AAA de Nespresso, se desarrollan los ejes estratégicos de Inclusividad, Agricultura Regenerativa y Calidad con <strong class=\"text-white font-bold\">421 productores</strong> de los departamentos de Copán y Ocotepeque.",
+    "ctaReport": "Ver reporte 2026",
+    "ctaProgram": "Conocer el programa",
+    "chips": {
+      "collaborators": "5 colaboradores",
+      "report": "Reporte 2026"
+    }
+  },
+  "ejes": {
+    "eyebrow": "Estructura del programa",
+    "title": "Programa AAA",
+    "ejeLabel": "Eje",
+    "inclusividad": {
+      "title": "Inclusividad",
+      "items": {
+        "diversificacion": { "title": "Diversificación de Ingresos", "detail": "32 productoras AAA atendidas en 2025, con ampliación a 45 más para 2026 en Copán y Ocotepeque." },
+        "diligencia": { "title": "Debida Diligencia de DDHH", "detail": "Revisión y adaptación de políticas en toda la cadena de suministro del Clúster COHONDUCAFÉ." },
+        "cosechaFeliz": { "title": "Proyecto Cosecha Feliz", "detail": "Prevención de Trabajo Infantil mediante espacios seguros desde 2023. 47 niños atendidos en la cosecha 25–26." },
+        "agua": { "title": "Acceso a Agua Potable", "detail": "Entrega de 265 filtros de agua para caficultores y sus trabajadores." },
+        "seguro": { "title": "Seguro Paramétrico", "detail": "Cobertura a 309 caficultores AAA en floración, llenado de fruto y cosecha." }
+      }
+    },
+    "productividad": {
+      "title": "Productividad",
+      "items": [
+        "Nutrición de suelo basado en análisis de laboratorio.",
+        "Nutrición del cultivo y manejo de tejidos.",
+        "Manejo Integrado de Plagas y Enfermedades.",
+        "Fincas Modelo 2026.",
+        "Cumplimiento de EUDR dentro del Clúster COHONDUCAFÉ por parte de los productores AAA.",
+        "Desarrollo de Evaluaciones TASQ: Regenerativo, Inclusividad, Productividad y Calidad."
+      ]
+    },
+    "calidad": {
+      "title": "Calidad",
+      "items": [
+        "Clasificación de fruto en cosecha — selección en origen",
+        "Mejora de proceso de beneficio húmedo",
+        "Almacenamiento y conservación óptima",
+        "Implementación Trazabilidad Transparente — Open SC",
+        "Entrega Premio AAA Cosecha 2024–2025"
+      ]
+    }
+  },
+  "especiales": {
+    "eyebrow": "Iniciativas complementarias",
+    "title": "Proyectos especiales",
+    "items": {
+      "espaciosSeguros": { "title": "Espacios Seguros", "detail": "47 niños y niñas atendidos durante la cosecha. 60% niñas y 40% niños. Cooperativas COAEDCAL & APROCASAM periodo 25–26." },
+      "diversificacion": { "title": "Diversificación de Ingresos", "detail": "32 productoras con gallinas ponedoras. 97% destinan producción a venta, 23 productoras destinan más del 50% a venta." },
+      "seguroParametrico": { "title": "Seguro Paramétrico", "detail": "309 productores AAA atendidos con Seguro Paramétrico, para la cobertura de sus fincas ante riesgos climáticos a lo largo de los estadios del cultivo de café anualmente." },
+      "trazabilidad": { "title": "Trazabilidad Open SC", "detail": "Sistema de trazabilidad transparente implementado en toda la cadena de valor del clúster COHONDUCAFÉ." },
+      "premio": { "title": "Premio AAA", "detail": "Entrega de premios e incentivos a productores destacados por calidad y sostenibilidad en el Clúster COHONDUCAFÉ." }
+    }
+  },
+  "water": {
+    "eyebrow": "Acceso a agua potable",
+    "label1": "filtros de agua",
+    "label2": "instalados",
+    "description": "Acceso a agua potable para familias productoras del clúster COHONDUCAFÉ, mejorando la salud y calidad de vida de las comunidades.",
+    "imageAlt": "Filtros de agua instalados",
+    "badge": "EcoFiltros"
+  },
+  "cta": {
+    "btnAll": "← Todos los proyectos",
+    "btnNext": "Siguiente: Jóvenes Caficultores →"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "Young Coffee Growers",
+    "subtitle": "Initiative for Young Coffee Growers",
+    "description": "Improves the quality of life of young coffee growers through guidance, training and agribusiness entrepreneurship. It prevents migration from the country.",
+    "tag": "Education & Development"
+  },
+  "ribbon": {
+    "liveHours": "live hours",
+    "peopleTrained": "people trained",
+    "countriesReached": "countries reached",
+    "dataConsumed": "data consumed",
+    "youngBaristas": "young baristas"
+  },
+  "tabs": {
+    "eyebrow": "Two training formats",
+    "title": "The program in action",
+    "virtual": "Virtual Courses",
+    "aula": "Mobile Classroom"
+  },
+  "virtual": {
+    "platformTitle": "Virtual Platform",
+    "platformSubtitle": "44,373 people · 23 countries",
+    "rows": {
+      "trained": "People trained",
+      "liveHours": "Live broadcast hours",
+      "data": "Data consumed",
+      "countries": "Countries reached"
+    },
+    "genderTitle": "Participation by gender",
+    "gender": {
+      "women": "Young women",
+      "men": "Young men"
+    },
+    "galleryAlt": "Virtual class"
+  },
+  "aula": {
+    "badge": "Mobile Classroom · Honduras",
+    "title": "Mobile Classroom",
+    "subtitle": "Itinerant educational unit",
+    "rows": {
+      "students": "Students trained",
+      "baristas": "Young baristas trained",
+      "humanRights": "Youth in Human Rights",
+      "total": "Program total"
+    },
+    "modulesTitle": "Mobile Classroom modules",
+    "modules": {
+      "barismo": { "label": "Professional barista training", "sub": "80 certified youth" },
+      "derechos": { "label": "Human Rights", "sub": "61 young leaders" },
+      "tecnica": { "label": "Technical coffee training", "sub": "Rural farms" }
+    },
+    "mainAlt": "Main Mobile Classroom",
+    "galleryAlt": "Mobile classroom"
+  },
+  "countries": {
+    "eyebrow": "International reach",
+    "title1": "People trained",
+    "title2": "by country",
+    "more": "+ 13 more countries (Spain, USA, Chile, Haiti, Argentina, Brazil, Italy, Cuba…)",
+    "names": {
+      "HN": "Honduras",
+      "NI": "Nicaragua",
+      "GT": "Guatemala",
+      "SV": "El Salvador",
+      "PA": "Panama",
+      "CO": "Colombia",
+      "CR": "Costa Rica",
+      "PE": "Peru",
+      "BO": "Bolivia",
+      "MX": "Mexico"
+    },
+    "statCard": { "label": "countries reached", "sub": "in Latin America and the Caribbean" },
+    "miniStats": {
+      "trained": "People trained",
+      "liveHours": "Live hours"
+    }
+  },
+  "achievements": {
+    "eyebrow": "2025 Results",
+    "title": "Goals achieved",
+    "items": {
+      "aulaMovil": { "label": "Mobile Classroom", "sub": "3,543 / 3,300 people" },
+      "cursos": { "label": "Courses delivered", "sub": "15 of 15 courses" },
+      "graduados": { "label": "Virtual graduates", "sub": "8,168 / 8,100 people" }
+    }
+  },
+  "goals2026": {
+    "eyebrow": "2026 Progress",
+    "title": "Current year goals",
+    "note": "*Partial data as of end of May 2026",
+    "items": {
+      "cursosVirtuales": "Virtual courses delivered",
+      "capacitadasVirtual": "People trained (virtual)",
+      "capacitadasAula": "People trained (Mobile Classroom)",
+      "horasClases": "Class hours delivered"
+    }
+  },
+  "methodology": {
+    "title": "Program methodology",
+    "steps": {
+      "virtual": { "title": "Virtual Courses", "desc": "Digital platform in 23 countries with more than 1,600 live hours and +300 TB consumed." },
+      "aula": { "title": "Mobile Classroom", "desc": "Itinerant educational unit that brings technical training directly to rural communities." },
+      "barismo": { "title": "Barista Training", "desc": "80 young people certified as baristas, opening doors in the specialty coffee sector." },
+      "liderazgo": { "title": "Leadership, entrepreneurship and innovation in the coffee value chain", "desc": "250 young leaders in governance, entrepreneurship and innovation within the coffee value chain." }
+    }
+  },
+  "cta": {
+    "title": "Would you like to know more?",
+    "subtitle": "Explore the rest of our projects or contact us for more information.",
+    "btnAll": "← View all projects",
+    "btnNext": "Next: Forests of Tomorrow →"
+  }
+}

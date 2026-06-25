@@ -1,0 +1,18 @@
+{
+  "departments": {
+    "HN-CP": "Copán",
+    "HN-YO": "Yoro",
+    "HN-LE": "Lempira",
+    "HN-CM": "Comayagua",
+    "HN-OC": "Ocotepeque",
+    "HN-SB": "Santa Bárbara",
+    "HN-IN": "Intibucá",
+    "HN-CR": "Cortés",
+    "HN-LP": "La Paz"
+  },
+  "tooltip": "Zona de intervención",
+  "legend": {
+    "lower": "Menor presencia",
+    "higher": "Mayor presencia"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "title": "Incitation Conditionnelle",
+    "subtitle": "Accélérer l'Agriculture Régénérative",
+    "description": "Incitation conditionnelle pour la transition de l'agriculture conventionnelle vers des pratiques régénératives chez les producteurs les plus vulnérables de Yoro, Honduras.",
+    "tag": "Agriculture Régénérative"
+  },
+  "pilot": {
+    "eyebrow": "Le pilote en chiffres",
+    "title": "Données clés de Yoro",
+    "stats": {
+      "familias": { "label": "Familles productrices", "sub": "dans le pilote Yoro" },
+      "hectareas": { "label": "Hectares cultivés", "sub": "de café" },
+      "toneladas": { "label": "Tonnes métriques", "sub": "potentiel de production" }
+    },
+    "areaLabel": "Zone d'influence :",
+    "quote": "Accélérer la transition de l'agriculture conventionnelle vers une agriculture régénérative et résiliente"
+  },
+  "goals": {
+    "eyebrow": "Avancement 2026",
+    "title": "Réalisation des objectifs",
+    "items": [
+      "80 % des producteurs avec niveau avancé en Agriculture Régénérative (FAT)",
+      "80 % des producteurs avec collecte dès le début de l'année",
+      "355 producteurs avec assistance technique personnalisée",
+      "80 % des producteurs avec gestion nutritionnelle (analyse de sol)"
+    ]
+  },
+  "ecolluvia": {
+    "title": "Système Ecolluvía",
+    "logoAlt": "Ecolluvía",
+    "description": "Projet visant à améliorer la qualité de vie des producteurs grâce à l'installation de systèmes de captation et d'utilisation de l'eau de pluie pour diverses applications agricoles et domestiques.",
+    "stats": {
+      "unidades": { "label": "Unités de collecte installées", "sub": "25 à Yoro · 3 à Comayagua" },
+      "galones": { "label": "Gallons collectés par an", "sub": "par les 28 unités" }
+    },
+    "nextStepsTitle": "Prochaines étapes",
+    "nextSteps": [
+      "Suivi technique pour assurer le bon fonctionnement",
+      "Expansion à davantage de producteurs de la zone",
+      "Suivi de l'impact sur la productivité"
+    ],
+    "mainAlt": "Système Ecolluvía",
+    "installAlt": "Installation du système Ecolluvía",
+    "miniStats": {
+      "yoro": "unités à Yoro",
+      "comayagua": "unités à Comayagua",
+      "total": "total installées"
+    }
+  },
+  "apiculture": {
+    "title": "Apiculture Durable",
+    "description": "Protection des abeilles <em>Apis mellifera</em> menacées par les agrochimiques, diversifiant les revenus et améliorant la pollinisation du café.",
+    "logoAlt": "Apiculture",
+    "stats": {
+      "colmenas": "Ruches actives",
+      "botellas": "Bouteilles de miel produites",
+      "incremento": "Augmentation de la récolte 2024 vs 2023"
+    },
+    "galleryAlt": "Apiculture",
+    "goalsTitle": "Objectifs du projet",
+    "goals": [
+      "40 ruches remises à 9 producteurs",
+      "Suivi technique programmé 2023–2024",
+      "Collecte de données de récolte"
+    ],
+    "innovationTitle": "Innovation en développement",
+    "innovationItems": ["Propolis", "Pollen", "Reines", "Sous-produits"],
+    "areaTitle": "Zone d'influence",
+    "areaZones": ["Santa Bárbara", "Comayagua"]
+  },
+  "cta": {
+    "btnAll": "← Tous les projets",
+    "btnNext": "Suivant : Nespresso AAA →"
+  }
+}

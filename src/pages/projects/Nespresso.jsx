@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const COLOR  = '#8B6B3D'   // bronce
 const GOLD   = '#C8A96E'   // dorado
@@ -34,90 +35,35 @@ const ICONS = {
   map:     'M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z',
 }
 
-const EJES = [
+const EJES_BASE = [
   {
     id: 'inclusividad',
     icon: ICONS.globe,
-    title: 'Inclusividad',
     color: '#5C7A4E',
     img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niñez.webp',
-    items: [
-      { title: 'Diversificación de Ingresos', detail: '32 productoras AAA atendidas en 2025, con ampliación a 45 más para 2026 en Copán y Ocotepeque.' },
-      { title: 'Debida Diligencia de DDHH', detail: 'Revisión y adaptación de políticas en toda la cadena de suministro del Clúster COHONDUCAFÉ.' },
-      { title: 'Proyecto Cosecha Feliz', detail: 'Prevención de Trabajo Infantil mediante espacios seguros desde 2023. 47 niños atendidos en la cosecha 25–26.' },
-      { title: 'Acceso a Agua Potable', detail: 'Entrega de 265 filtros de agua para caficultores y sus trabajadores.' },
-      { title: 'Seguro Paramétrico', detail: 'Cobertura a 309 caficultores AAA en floración, llenado de fruto y cosecha.' },
-    ],
+    itemKeys: ['diversificacion', 'diligencia', 'cosechaFeliz', 'agua', 'seguro'],
   },
   {
     id: 'productividad',
     icon: ICONS.chart,
-    title: 'Productividad',
     color: COLOR,
     img: '/imagenes/proyectos/nespresso-aaa/AsistenciasTecnicas/AsistenciasTecnicas.webp',
-    items: [
-      'Nutrición de suelo basado en análisis de laboratorio.',
-      'Nutrición del cultivo y manejo de tejidos.',
-      'Manejo Integrado de Plagas y Enfermedades.',
-      'Fincas Modelo 2026.',
-      'Cumplimiento de EUDR dentro del Clúster COHONDUCAFÉ por parte de los productores AAA.',
-      'Desarrollo de Evaluaciones TASQ: Regenerativo, Inclusividad, Productividad y Calidad.',
-    ],
   },
   {
     id: 'calidad',
     icon: ICONS.star,
-    title: 'Calidad',
     color: DARK,
     img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad1.webp',
     imgPosition: 'bottom',
-    items: [
-      'Clasificación de fruto en cosecha — selección en origen',
-      'Mejora de proceso de beneficio húmedo',
-      'Almacenamiento y conservación óptima',
-      'Implementación Trazabilidad Transparente — Open SC',
-      'Entrega Premio AAA Cosecha 2024–2025',
-    ],
   },
 ]
 
-const ESPECIALES = [
-  {
-    icon: ICONS.child,
-    title: 'Espacios Seguros',
-    detail: '47 niños y niñas atendidos durante la cosecha. 60% niñas y 40% niños. Cooperativas COAEDCAL & APROCASAM periodo 25–26.',
-    color: DARK,
-    img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niños2.webp',
-  },
-  {
-    icon: ICONS.chicken,
-    title: 'Diversificación de Ingresos',
-    detail: '32 productoras con gallinas ponedoras. 97% destinan producción a venta, 23 productoras destinan más del 50% a venta.',
-    color: COLOR,
-    img: '/imagenes/proyectos/nespresso-aaa/diversificacion/Jaula 4 Gallinas.webp',
-  },
-  {
-    icon: ICONS.rain,
-    title: 'Seguro Paramétrico',
-    detail: '309 productores AAA atendidos con Seguro Paramétrico, para la cobertura de sus fincas ante riesgos climáticos a lo largo de los estadios del cultivo de café anualmente.',
-    color: BROWN,
-    img: '/imagenes/proyectos/nespresso-aaa/seguroParametrica/SeguroParametrico.webp',
-  },
-  {
-    icon: ICONS.link,
-    title: 'Trazabilidad Open SC',
-    detail: 'Sistema de trazabilidad transparente implementado en toda la cadena de valor del clúster COHONDUCAFÉ.',
-    color: DARK,
-    img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad2.webp',
-  },
-  {
-    icon: ICONS.star,
-    title: 'Premio AAA',
-    detail: 'Entrega de premios e incentivos a productores destacados por calidad y sostenibilidad en el Clúster COHONDUCAFÉ.',
-    color: COLOR,
-    img: '/imagenes/proyectos/nespresso-aaa/premioso_o_incentivos/EntregaIncentivos.webp',
-    imgPosition: '50% 30%',
-  },
+const ESPECIALES_BASE = [
+  { key: 'espaciosSeguros',   icon: ICONS.child,  color: DARK,  img: '/imagenes/proyectos/nespresso-aaa/espaciosSeguros/Niños2.webp' },
+  { key: 'diversificacion',   icon: ICONS.chicken, color: COLOR, img: '/imagenes/proyectos/nespresso-aaa/diversificacion/Jaula 4 Gallinas.webp' },
+  { key: 'seguroParametrico', icon: ICONS.rain,    color: BROWN, img: '/imagenes/proyectos/nespresso-aaa/seguroParametrica/SeguroParametrico.webp' },
+  { key: 'trazabilidad',      icon: ICONS.link,    color: DARK,  img: '/imagenes/proyectos/nespresso-aaa/Trazabilidad/Trazabilidad2.webp' },
+  { key: 'premio',            icon: ICONS.star,    color: COLOR, img: '/imagenes/proyectos/nespresso-aaa/premioso_o_incentivos/EntregaIncentivos.webp', imgPosition: '50% 30%' },
 ]
 
 const fadeUp = {
@@ -128,7 +74,25 @@ const fadeUp = {
 }
 
 export default function Nespresso() {
+  const { t } = useTranslation('nespresso')
   const [activeEje, setActiveEje] = useState('inclusividad')
+
+  const EJES = EJES_BASE.map(e => ({
+    ...e,
+    title: t(`ejes.${e.id}.title`),
+    items: e.itemKeys
+      ? e.itemKeys.map(k => ({
+          title: t(`ejes.inclusividad.items.${k}.title`),
+          detail: t(`ejes.inclusividad.items.${k}.detail`),
+        }))
+      : t(`ejes.${e.id}.items`, { returnObjects: true }),
+  }))
+  const ESPECIALES = ESPECIALES_BASE.map(p => ({
+    ...p,
+    title: t(`especiales.items.${p.key}.title`),
+    detail: t(`especiales.items.${p.key}.detail`),
+  }))
+
   const eje = EJES.find(e => e.id === activeEje)
   const heroImgRef = useRef(null)
 
@@ -151,7 +115,7 @@ export default function Nespresso() {
           <img
             ref={heroImgRef}
             src="/imagenes/proyectos/nespresso-aaa/Hero_Final.png"
-            alt="Clúster Nespresso Cohonducafé"
+            alt={`${t('hero.title1')} ${t('hero.title2')}`}
             className="absolute inset-0 w-full h-full object-cover will-change-transform"
             loading="eager"
           />
@@ -183,7 +147,7 @@ export default function Nespresso() {
                      fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Volver al inicio
+                {t('hero.backHome')}
               </Link>
             </motion.div>
 
@@ -218,7 +182,7 @@ export default function Nespresso() {
                 className="inline-block bg-white/10 backdrop-blur-sm text-white text-xs font-bold
                            uppercase tracking-widest px-4 py-2 rounded-full border border-white/25"
               >
-                Programa AAA™
+                {t('hero.badge')}
               </span>
             </motion.div>
 
@@ -230,7 +194,7 @@ export default function Nespresso() {
               className="font-black text-white leading-[1.05] tracking-tight"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)' }}
             >
-              Clúster Nespresso<br />Cohonducafé
+              {t('hero.title1')}<br />{t('hero.title2')}
             </motion.h1>
 
             {/* Subtítulo */}
@@ -240,7 +204,7 @@ export default function Nespresso() {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="mt-5 text-xl font-semibold text-white/85"
             >
-              Programa de Sostenibilidad y Calidad AAA<sup>TM</sup> de Nespresso
+              {t('hero.subtitle')}
             </motion.p>
 
             {/* Descripción */}
@@ -249,12 +213,8 @@ export default function Nespresso() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
               className="mt-4 text-base text-white/65 leading-relaxed max-w-xl"
-            >
-              Mediante la implementación del Programa AAA de Nespresso, se desarrollan los ejes
-              estratégicos de Inclusividad, Agricultura Regenerativa y Calidad con{' '}
-              <strong className="text-white font-bold">421 productores</strong> de los
-              departamentos de Copán y Ocotepeque.
-            </motion.p>
+              dangerouslySetInnerHTML={{ __html: t('hero.description') }}
+            />
 
             {/* Botones CTA */}
             <motion.div
@@ -268,7 +228,7 @@ export default function Nespresso() {
                            shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
                 style={{ backgroundColor: GOLD, color: DARK }}
               >
-                Ver reporte 2026
+                {t('hero.ctaReport')}
               </span>
               <a
                 href="#ejes"
@@ -276,7 +236,7 @@ export default function Nespresso() {
                            border border-white/30 text-white hover:bg-white/10 hover:-translate-y-0.5
                            transition-all duration-200"
               >
-                Conocer el programa
+                {t('hero.ctaProgram')}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -295,7 +255,7 @@ export default function Nespresso() {
                   <path strokeLinecap="round" strokeLinejoin="round"
                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                5 colaboradores
+                {t('hero.chips.collaborators')}
               </div>
               <span className="text-white/30">·</span>
               <div className="flex items-center gap-2 text-white/55 text-sm font-medium">
@@ -303,7 +263,7 @@ export default function Nespresso() {
                   <path strokeLinecap="round" strokeLinejoin="round"
                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Reporte 2026
+                {t('hero.chips.report')}
               </div>
             </motion.div>
           </div>
@@ -316,9 +276,9 @@ export default function Nespresso() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-12">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Estructura del programa
+              {t('ejes.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Programa AAA</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('ejes.title')}</h2>
           </motion.div>
 
           {/* Tab selector */}
@@ -369,7 +329,7 @@ export default function Nespresso() {
                       <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
                         <Icon d={eje.icon} className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-2xl font-black">Eje {eje.title}</h3>
+                      <h3 className="text-2xl font-black">{t('ejes.ejeLabel')} {eje.title}</h3>
                     </div>
                   </div>
                   <div className="p-8 flex-1" style={{ backgroundColor: IVORY }}>
@@ -410,9 +370,9 @@ export default function Nespresso() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-16 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Iniciativas complementarias
+              {t('especiales.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Proyectos especiales</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('especiales.title')}</h2>
           </motion.div>
 
           {/* Timeline */}
@@ -501,15 +461,14 @@ export default function Nespresso() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: GOLD }}>
-              Acceso a agua potable
+              {t('water.eyebrow')}
             </span>
             <div className="flex items-end gap-3 mt-3 mb-4">
               <p className="text-7xl font-black leading-none" style={{ color: GOLD }}>265</p>
-              <p className="text-2xl font-bold text-white/90 pb-1">filtros de agua<br />instalados</p>
+              <p className="text-2xl font-bold text-white/90 pb-1">{t('water.label1')}<br />{t('water.label2')}</p>
             </div>
             <p className="text-white/65 text-lg leading-relaxed max-w-md">
-              Acceso a agua potable para familias productoras del clúster COHONDUCAFÉ,
-              mejorando la salud y calidad de vida de las comunidades.
+              {t('water.description')}
             </p>
           </motion.div>
 
@@ -524,7 +483,7 @@ export default function Nespresso() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
               <img
                 src="/imagenes/proyectos/nespresso-aaa/Filtros de agua/EcoFiltros.webp"
-                alt="Filtros de agua instalados"
+                alt={t('water.imageAlt')}
                 className="w-full h-full object-cover"
               />
               <div
@@ -540,7 +499,7 @@ export default function Nespresso() {
             >
               <Icon d={ICONS.droplet} className="w-7 h-7" style={{ color: DARK }} />
               <span className="mt-1 text-xs font-black uppercase tracking-wide" style={{ color: DARK }}>
-                EcoFiltros
+                {t('water.badge')}
               </span>
             </div>
           </motion.div>
@@ -551,8 +510,8 @@ export default function Nespresso() {
       <section className="py-20 text-center" style={{ backgroundColor: IVORY }}>
         <motion.div {...fadeUp} className="max-w-2xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Todos los proyectos</Link>
-            <Link to="/proyectos/jovenes-caficultores" className="btn-dark">Siguiente: Jóvenes Caficultores →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/jovenes-caficultores" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

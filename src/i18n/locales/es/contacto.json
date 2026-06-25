@@ -1,0 +1,40 @@
+{
+  "badge": "Fundación COHONDUCAFÉ",
+  "title": "Contáctanos",
+  "subtitle": "¿Quieres saber más sobre nuestros proyectos o explorar una alianza? Escríbenos, estamos aquí para escucharte.",
+  "infoTitle": "Información de contacto",
+  "info": {
+    "location": { "title": "Ubicación", "text": "Honduras, Centroamérica\nOperaciones en Honduras y Panamá" },
+    "reach": { "title": "Alcance", "text": "Jóvenes Caficultores en 23 países\nOperaciones en 5 departamentos de Honduras" },
+    "alliances": { "title": "Alianzas", "text": "En colaboración con Nestlé\nNescafé · Nespresso AAA · RS GOLD" },
+    "projects": { "title": "Proyectos", "text": "6 proyectos activos · 81 colaboradores\n63,212+ personas capacitadas" }
+  },
+  "form": {
+    "title": "Envíanos un mensaje",
+    "name": "Nombre completo",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "subject": "Asunto",
+    "subjectPlaceholder": "Selecciona un asunto",
+    "subjectOptions": {
+      "general": "Información general",
+      "jovenesCaficultores": "Jóvenes Caficultores",
+      "bosquesDelManana": "Bosques del Mañana",
+      "rsGold": "RS GOLD",
+      "derechosHumanos": "Derechos Humanos",
+      "incentivoCondicional": "Incentivo Condicional",
+      "nespresso": "Nespresso AAA",
+      "alianza": "Alianza estratégica",
+      "otro": "Otro"
+    },
+    "message": "Mensaje",
+    "messagePlaceholder": "¿En qué podemos ayudarte?",
+    "submit": "Enviar mensaje"
+  },
+  "sent": {
+    "title": "¡Mensaje enviado!",
+    "subtitle": "Gracias por contactarnos. Nos comunicaremos contigo pronto.",
+    "another": "Enviar otro mensaje"
+  }
+}

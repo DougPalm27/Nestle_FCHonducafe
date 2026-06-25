@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "backHome": "Retour à l'accueil",
+    "badge": "Programme AAA™",
+    "title1": "Cluster Nespresso",
+    "title2": "Cohonducafé",
+    "subtitle": "Programme de Durabilité et Qualité AAA™ de Nespresso",
+    "description": "Grâce à la mise en œuvre du Programme AAA de Nespresso, les axes stratégiques d'Inclusivité, d'Agriculture Régénérative et de Qualité sont développés avec <strong class=\"text-white font-bold\">421 producteurs</strong> des départements de Copán et Ocotepeque.",
+    "ctaReport": "Voir le rapport 2026",
+    "ctaProgram": "Découvrir le programme",
+    "chips": {
+      "collaborators": "5 collaborateurs",
+      "report": "Rapport 2026"
+    }
+  },
+  "ejes": {
+    "eyebrow": "Structure du programme",
+    "title": "Programme AAA",
+    "ejeLabel": "Axe",
+    "inclusividad": {
+      "title": "Inclusivité",
+      "items": {
+        "diversificacion": { "title": "Diversification des Revenus", "detail": "32 productrices AAA accompagnées en 2025, avec une extension à 45 de plus d'ici 2026 à Copán et Ocotepeque." },
+        "diligencia": { "title": "Diligence Raisonnable en Droits Humains", "detail": "Révision et adaptation des politiques dans toute la chaîne d'approvisionnement du Cluster COHONDUCAFÉ." },
+        "cosechaFeliz": { "title": "Projet Récolte Heureuse", "detail": "Prévention du travail des enfants grâce à des espaces sûrs depuis 2023. 47 enfants accompagnés pendant la récolte 25–26." },
+        "agua": { "title": "Accès à l'Eau Potable", "detail": "Remise de 265 filtres à eau aux caféiculteurs et à leurs travailleurs." },
+        "seguro": { "title": "Assurance Paramétrique", "detail": "Couverture de 309 caféiculteurs AAA pendant la floraison, le remplissage du fruit et la récolte." }
+      }
+    },
+    "productividad": {
+      "title": "Productivité",
+      "items": [
+        "Nutrition du sol basée sur des analyses de laboratoire.",
+        "Nutrition de la culture et gestion des tissus.",
+        "Gestion Intégrée des Ravageurs et Maladies.",
+        "Fermes Modèles 2026.",
+        "Conformité EUDR au sein du Cluster COHONDUCAFÉ par les producteurs AAA.",
+        "Développement des Évaluations TASQ : Régénératif, Inclusivité, Productivité et Qualité."
+      ]
+    },
+    "calidad": {
+      "title": "Qualité",
+      "items": [
+        "Classification du fruit à la récolte — sélection à l'origine",
+        "Amélioration du processus de traitement humide",
+        "Stockage et conservation optimaux",
+        "Mise en œuvre de la Traçabilité Transparente — Open SC",
+        "Remise du Prix AAA Récolte 2024–2025"
+      ]
+    }
+  },
+  "especiales": {
+    "eyebrow": "Initiatives complémentaires",
+    "title": "Projets spéciaux",
+    "items": {
+      "espaciosSeguros": { "title": "Espaces Sûrs", "detail": "47 garçons et filles accompagnés pendant la récolte. 60 % filles et 40 % garçons. Coopératives COAEDCAL & APROCASAM, période 25–26." },
+      "diversificacion": { "title": "Diversification des Revenus", "detail": "32 productrices avec poules pondeuses. 97 % destinent leur production à la vente, 23 productrices en destinent plus de 50 % à la vente." },
+      "seguroParametrico": { "title": "Assurance Paramétrique", "detail": "309 producteurs AAA couverts par l'Assurance Paramétrique, pour la couverture de leurs fermes face aux risques climatiques tout au long des stades de la culture du café, chaque année." },
+      "trazabilidad": { "title": "Traçabilité Open SC", "detail": "Système de traçabilité transparente mis en œuvre dans toute la chaîne de valeur du cluster COHONDUCAFÉ." },
+      "premio": { "title": "Prix AAA", "detail": "Remise de prix et d'incitations aux producteurs reconnus pour leur qualité et leur durabilité au sein du Cluster COHONDUCAFÉ." }
+    }
+  },
+  "water": {
+    "eyebrow": "Accès à l'eau potable",
+    "label1": "filtres à eau",
+    "label2": "installés",
+    "description": "Accès à l'eau potable pour les familles productrices du cluster COHONDUCAFÉ, améliorant la santé et la qualité de vie des communautés.",
+    "imageAlt": "Filtres à eau installés",
+    "badge": "EcoFiltres"
+  },
+  "cta": {
+    "btnAll": "← Tous les projets",
+    "btnNext": "Suivant : Jeunes Caféiculteurs →"
+  }
+}

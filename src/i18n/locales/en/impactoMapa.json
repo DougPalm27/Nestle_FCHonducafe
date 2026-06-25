@@ -1,0 +1,43 @@
+{
+  "countries": {
+    "HN": { "name": "Honduras", "note": "Headquarters · 6 active projects" },
+    "NI": { "name": "Nicaragua", "note": "Virtual courses" },
+    "GT": { "name": "Guatemala", "note": "Virtual courses" },
+    "SV": { "name": "El Salvador", "note": "Virtual courses" },
+    "PA": { "name": "Panama", "note": "Virtual courses" },
+    "CO": { "name": "Colombia", "note": "Virtual courses" },
+    "CR": { "name": "Costa Rica", "note": "Virtual courses" },
+    "PE": { "name": "Peru", "note": "Virtual courses" },
+    "BO": { "name": "Bolivia", "note": "Virtual courses" },
+    "VE": { "name": "Venezuela", "note": "Virtual courses" },
+    "MX": { "name": "Mexico", "note": "Virtual courses" },
+    "BR": { "name": "Brazil", "note": "Virtual courses" },
+    "EC": { "name": "Ecuador", "note": "Virtual courses" },
+    "DO": { "name": "Dominican Rep.", "note": "Virtual courses" },
+    "CU": { "name": "Cuba", "note": "Virtual courses" },
+    "PY": { "name": "Paraguay", "note": "Virtual courses" },
+    "UY": { "name": "Uruguay", "note": "Virtual courses" },
+    "CL": { "name": "Chile", "note": "Virtual courses" },
+    "AR": { "name": "Argentina", "note": "Virtual courses" },
+    "HT": { "name": "Haiti", "note": "Virtual courses" },
+    "JM": { "name": "Jamaica", "note": "Virtual courses" },
+    "PR": { "name": "Puerto Rico", "note": "Virtual courses" },
+    "CA": { "name": "Canada", "note": "Virtual courses" }
+  },
+  "sedePrincipal": "Headquarters",
+  "legend": {
+    "hq": "Honduras — Headquarters",
+    "virtual": "Countries with virtual reach",
+    "drag": "Drag · Zoom with wheel"
+  },
+  "statsStrip": {
+    "countries": "Countries reached",
+    "viewList": "View list →",
+    "activeProjects": "Active projects",
+    "region": "Impact region"
+  },
+  "modal": {
+    "title": "Countries reached",
+    "subtitle": "23 countries · virtual courses"
+  }
+}

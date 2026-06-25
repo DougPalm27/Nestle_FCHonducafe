@@ -1,0 +1,80 @@
+{
+  "captions": ["Honduras 2026", "Espaces Sûrs", "Communautés", "Formation", "Enfance", "RS GOLD", "Sur le terrain", "Familles caféicultrices"],
+  "hero": {
+    "title": "Droits Humains et Protection de l'Enfance",
+    "subtitle": "Renforcement des droits dans la chaîne caféicultrice",
+    "description": "Renforcer le respect, la protection et la garantie des droits humains en mettant l'accent sur la prévention du travail des enfants dans la chaîne RS GOLD du Honduras.",
+    "tag": "Droits Humains"
+  },
+  "stats": {
+    "items": {
+      "personas": { "label": "Personnes à former", "sub": "en Droits Humains et Travail des Enfants" },
+      "kits": { "label": "Kits scolaires", "sub": "pour les enfants" },
+      "espacios": { "label": "Espaces Sûrs", "sub": "Comayagua, Sta. Bárbara, Yoro" },
+      "departamentos": { "label": "Départements", "sub": "d'intervention au Honduras" }
+    }
+  },
+  "timeline": {
+    "eyebrow": "Engagements 2026",
+    "title": "Plan d'action du programme",
+    "description": "Six axes de travail couvrant la prévention, le suivi, la remédiation et le renforcement des capacités dans les communautés caféicultrices du Honduras.",
+    "items": {
+      "espaciosSeguros": {
+        "title": "3 Espaces Sûrs",
+        "desc": "Mise en place à Comayagua, Santa Bárbara et Yoro — environnements protégés pour les enfants et jeunes caféicultivateurs pendant la récolte.",
+        "status": "Terminé"
+      },
+      "monitoreo": {
+        "title": "Suivi du Travail des Enfants",
+        "desc": "1 système de suivi actif. 100 % des cas identifiés reçoivent au moins 2 visites de suivi documentées.",
+        "status": "Actif"
+      },
+      "capacitados": {
+        "title": "450 Personnes Formées",
+        "desc": "Formation en Droits Humains et Travail des Enfants destinée aux équipes techniques, producteurs, travailleurs, familles, jeunes et enfants.",
+        "status": "En cours"
+      },
+      "kits": {
+        "title": "86 Kits Scolaires",
+        "desc": "Matériel éducatif pour renforcer le droit à l'éducation des enfants dans les zones d'intervention.",
+        "status": "Terminé"
+      },
+      "protocolo": {
+        "title": "Protocole de Protection",
+        "desc": "1 protocole de protection infantile et de remédiation élaboré et partagé avec toute la communauté de producteurs RS GOLD.",
+        "status": "En développement"
+      },
+      "articulacion": {
+        "title": "Coordination Interinstitutionnelle",
+        "desc": "Travail avec les institutions gouvernementales et les OSC pour garantir une réponse aux cas identifiés.",
+        "status": "Actif"
+      }
+    }
+  },
+  "map": {
+    "eyebrow": "Portée territoriale",
+    "title": "Départements d'intervention",
+    "description": "Le programme opère dans les principaux départements caféiers du Honduras où se développe la chaîne RS GOLD, en priorisant les communautés les plus vulnérables et exposées au risque de travail des enfants.",
+    "legend": {
+      "intervened": "Départements concernés",
+      "other": "Autres départements"
+    },
+    "objectiveTitle": "Objectif du programme",
+    "objectiveText": "Renforcer le respect, la protection et la garantie des droits humains, en mettant l'accent sur la prévention du travail des enfants et l'amélioration des conditions de travail dans la chaîne de valeur RS GOLD, par des actions intégrales de prévention, suivi et remédiation.",
+    "miniStats": {
+      "coordinadora": "Coordinatrice",
+      "departamentos": "Départements",
+      "meta": "Objectif de formation"
+    }
+  },
+  "gallery": {
+    "badge": "Galerie",
+    "title": "Moments du programme",
+    "description": "Images du travail de terrain avec les communautés, les enfants et les familles caféicultrices du Honduras.",
+    "dragHint": "Faites glisser les photos pour les réorganiser"
+  },
+  "cta": {
+    "btnAll": "← Tous les projets",
+    "btnNext": "Suivant : Incitation Conditionnelle →"
+  }
+}

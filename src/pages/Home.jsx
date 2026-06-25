@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 /* ── Paletas de color ───────────────────────────────────── */
 const PALETTES = [
@@ -120,95 +121,54 @@ const PALETTES = [
   },
 ]
 
-/* ── Datos de proyectos ─────────────────────────────────── */
-const PROJECTS = [
+/* ── Datos de proyectos (lo no traducible) ──────────────── */
+/* El nombre, etiqueta, descripción e impacto vienen de i18n/locales/<lang>/home.json */
+const PROJECTS_BASE = [
   {
-    name:    'Jóvenes Caficultores',
+    key:     'jovenesCaficultores',
     slug:    'jovenes-caficultores',
     color:   '#2E7D32',
     light:   '#81C784',
-    tag:     'Educación & Juventud',
     image:   '/imagenes/inicio/03-proyectos/Inicio_JovenesCaficultores.webp',
-    desc:    'Orientación vocacional, capacitación técnica y agro emprendimiento para jóvenes de comunidades caficultoras. Prevenimos la migración generando oportunidades reales en el campo.',
-    impact:  [
-      { label: 'Jóvenes capacitados', value: '4,771+' },
-      { label: 'Países alcanzados',   value: '23'     },
-      { label: 'Horas en vivo',       value: '1,600+' },
-    ],
   },
   {
-    name:    'Bosques del Mañana',
+    key:     'bosquesDelManana',
     slug:    'bosques-del-manana',
     color:   '#1B5E20',
     light:   '#A5D6A7',
-    tag:     'Reforestación',
     image:   '/imagenes/inicio/03-proyectos/Inicio_Bosques.webp',
-    desc:    'Reforestación estratégica con más de 4 millones de árboles integrados en sistemas agroforestales junto al cultivo de café. Restauramos ecosistemas y fortalecemos la resiliencia climática.',
-    impact:  [
-      { label: 'Árboles plantados',   value: '4M+'    },
-      { label: 'Familias beneficiadas', value: '800+' },
-      { label: 'Hectáreas',           value: '2,100'  },
-    ],
   },
   {
-    name:    'GHG & RS GOLD',
+    key:     'rsGold',
     slug:    'rs-gold',
     color:   '#B71C1C',
     light:   '#EF9A9A',
-    tag:     'Agricultura Regenerativa',
     image:   '/imagenes/proyectos/rs-gold/Variedades_MLT_1.webp',
-    desc:    'Garantizamos café responsable bajo agricultura regenerativa y resiliente en la cadena RS Gold de Nescafé. Captura de carbono, trazabilidad total y certificación 4C para 1,620 caficultores.',
-    impact:  [
-      { label: 'Caficultores',        value: '1,620'  },
-      { label: 'Fincas georef.',      value: '1,620'  },
-      { label: 'Estándar',            value: '4C'     },
-    ],
   },
   {
-    name:    'Espacios Seguros',
+    key:     'derechosHumanos',
     slug:    'derechos-humanos',
     color:   '#1565C0',
     light:   '#90CAF9',
-    tag:     'Impacto Social',
     image:   '/imagenes/inicio/03-proyectos/Inicio_EspaciosSeguros.webp',
-    desc:    'Fortalecemos los derechos humanos y prevenimos el trabajo infantil en comunidades caficultoras de Honduras. Formamos líderes comunitarios y mejoramos la gobernanza local.',
-    impact:  [
-      { label: 'Comunidades',         value: '12+'    },
-      { label: 'Líderes formados',    value: '61'     },
-      { label: 'Niños protegidos',    value: '200+'   },
-    ],
   },
   {
-    name:    'Incentivo Condicional',
+    key:     'incentivoCondicional',
     slug:    'piloto-yoro',
     color:   '#E65100',
     light:   '#FFCC80',
-    tag:     'Yoro, Honduras',
     image:   '/imagenes/inicio/03-proyectos/Incentivos_ImagenPrincipal.webp',
-    desc:    'Programa piloto en Yoro que incentiva condicionalmente la transición de productores vulnerables hacia prácticas de agricultura regenerativa, mejorando suelos y medios de vida.',
-    impact:  [
-      { label: 'Productores',         value: '120+'   },
-      { label: 'Municipios',          value: '3'      },
-      { label: 'Año inicio',          value: '2024'   },
-    ],
   },
   {
-    name:    'Nespresso AAA',
+    key:     'nespresso',
     slug:    'nespresso-aaa',
     color:   '#F57F17',
     light:   '#FFE082',
-    tag:     'Sostenibilidad AAA',
     image:   '/imagenes/proyectos/nespresso-aaa/Hero_Nespresso.webp',
-    desc:    'Programa de sostenibilidad AAA en el Clúster COHONDUCAFÉ con enfoque en inclusividad, productividad y calidad de vida. Conecta a 421 productores de Copán y Ocotepeque con el mercado premium.',
-    impact:  [
-      { label: 'Productores AAA',     value: '421'    },
-      { label: 'Regiones',            value: '2'      },
-      { label: 'Enfoque',             value: 'Premium' },
-    ],
   },
 ]
 
-const COUNT  = PROJECTS.length
+const COUNT  = PROJECTS_BASE.length
 const ANGLE  = 360 / COUNT
 const RADIUS = 280
 
@@ -308,7 +268,7 @@ function Card({ project: p, angle, isActive, onClick, onNavigate, wasDragging })
 }
 
 /* ── Carrusel 3D ────────────────────────────────────────── */
-function Carousel({ activeIdx, onRotate, onNavigate, wasDragging, isDragging, onDragStart, onDragMove, onDragEnd, rotY }) {
+function Carousel({ projects, activeIdx, onRotate, onNavigate, wasDragging, isDragging, onDragStart, onDragMove, onDragEnd, rotY }) {
   return (
     <div
       className="relative w-full flex items-center justify-center"
@@ -332,7 +292,7 @@ function Carousel({ activeIdx, onRotate, onNavigate, wasDragging, isDragging, on
           animate={{ rotateY: rotY }}
           transition={{ duration: isDragging ? 0 : 0.95, ease:[0.33,1,0.68,1] }}
         >
-          {PROJECTS.map((p, i) => (
+          {projects.map((p, i) => (
             <Card
               key={p.slug}
               project={p}
@@ -351,6 +311,7 @@ function Carousel({ activeIdx, onRotate, onNavigate, wasDragging, isDragging, on
 
 /* ── Panel informativo ──────────────────────────────────── */
 function InfoPanel({ project: p }) {
+  const { t } = useTranslation('home')
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -388,7 +349,7 @@ function InfoPanel({ project: p }) {
                 className="inline-flex items-center gap-2 font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:brightness-110"
                 style={{ backgroundColor: p.color, color:'#fff' }}
               >
-                Ver proyecto
+                {t('viewProject')}
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
@@ -398,20 +359,9 @@ function InfoPanel({ project: p }) {
             {/* Separador vertical */}
             <div className="hidden sm:block w-px self-stretch" style={{ backgroundColor:`${p.color}30` }}/>
 
-            {/* Derecha: descripción e impacto */}
+            {/* Derecha: descripción */}
             <div className="flex-1 flex flex-col gap-4">
               <p className="text-white/70 text-sm leading-relaxed">{p.desc}</p>
-
-              {/* Métricas */}
-              <div className="grid grid-cols-3 gap-3 pt-2">
-                {p.impact.map((m, i) => (
-                  <div key={i} className="rounded-2xl p-3 text-center"
-                    style={{ backgroundColor:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.07)' }}>
-                    <p className="font-black text-lg" style={{ color: p.light }}>{m.value}</p>
-                    <p className="text-white/45 text-[10px] font-medium mt-0.5 leading-tight">{m.label}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -422,7 +372,14 @@ function InfoPanel({ project: p }) {
 
 /* ── Página principal ───────────────────────────────────── */
 export default function Home() {
+  const { t } = useTranslation('home')
   const navigate = useNavigate()
+  const projects = PROJECTS_BASE.map(p => ({
+    ...p,
+    name: t(`projects.${p.key}.name`),
+    tag:  t(`projects.${p.key}.tag`),
+    desc: t(`projects.${p.key}.desc`),
+  }))
   const [activeIdx,  setActiveIdx]  = useState(0)
   const [rotY,       setRotY]       = useState(0)
   const [paused,     setPaused]     = useState(false)
@@ -449,8 +406,8 @@ export default function Home() {
 
   useEffect(() => {
     if (paused) return
-    const t = setInterval(next, 3500)
-    return () => clearInterval(t)
+    const timer = setInterval(next, 3500)
+    return () => clearInterval(timer)
   }, [paused, next])
 
   const onDragStart = (e) => {
@@ -513,7 +470,7 @@ export default function Home() {
                 >
                   <span className="w-3 h-3 rounded-full flex-shrink-0 ring-2 ring-white/20"
                         style={{ backgroundColor: pal.dot }}/>
-                  <span className="text-white/80 text-xs font-medium whitespace-nowrap">{pal.name}</span>
+                  <span className="text-white/80 text-xs font-medium whitespace-nowrap">{t(`palettes.${pal.id}`)}</span>
                   {paletteIdx === i && (
                     <span className="ml-auto text-white/40 text-[10px]">✓</span>
                   )}
@@ -530,7 +487,7 @@ export default function Home() {
             background: palette.dot,
             boxShadow: `0 0 16px ${palette.dot}60`,
           }}
-          title="Cambiar paleta"
+          title={t('changePalette')}
         >
           <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
@@ -549,8 +506,8 @@ export default function Home() {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight"
               style={{ color: palette.dark ? '#1a0a05' : '#ffffff' }}>
-            Proyectos<br/>
-            con Nestlé
+            {t('title1')}<br/>
+            {t('title2')}
           </h1>
         </motion.div>
 
@@ -559,6 +516,7 @@ export default function Home() {
           initial={{ opacity:0, scale:0.9 }} animate={{ opacity:1, scale:1 }}
           transition={{ duration:0.9, delay:0.35, ease:'easeOut' }}>
           <Carousel
+            projects={projects}
             activeIdx={activeIdx}
             rotY={rotY}
             isDragging={dragging}
@@ -572,7 +530,7 @@ export default function Home() {
 
           {/* Dots */}
           <div className="flex items-center justify-center gap-2 -mt-2 mb-5">
-            {PROJECTS.map((p, i) => (
+            {projects.map((p, i) => (
               <button key={i}
                 onClick={() => { goTo(i); setPaused(true); setTimeout(()=>setPaused(false),2500) }}
                 style={{
@@ -589,7 +547,7 @@ export default function Home() {
         <motion.div className="w-full max-w-4xl px-0"
           initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }}
           transition={{ duration:0.7, delay:0.55 }}>
-          <InfoPanel project={PROJECTS[activeIdx]}/>
+          <InfoPanel project={projects[activeIdx]}/>
         </motion.div>
 
         {/* ── CTAs secundarios ── */}
@@ -600,7 +558,7 @@ export default function Home() {
             className="bg-white/6 border border-white/15 backdrop-blur-sm text-white/80 font-semibold
                        px-5 py-2.5 rounded-full hover:bg-white/12 transition-all duration-200
                        flex items-center gap-2 text-xs uppercase tracking-widest">
-            Impacto global
+            {t('globalImpact')}
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -608,7 +566,7 @@ export default function Home() {
           <Link to="/contacto"
             className="bg-white/6 border border-white/15 backdrop-blur-sm text-white/80 font-semibold
                        px-5 py-2.5 rounded-full hover:bg-white/12 transition-all duration-200 text-xs uppercase tracking-widest">
-            Contáctanos
+            {t('contactUs')}
           </Link>
         </motion.div>
       </div>

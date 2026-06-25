@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ProjectHero from '../../components/ProjectHero'
 import CounterStat from '../../components/CounterStat'
 
@@ -25,11 +26,11 @@ const ICONS = {
   sparkle: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z',
 }
 
-const METAS = [
-  { label: '80% productores con nivel avanzado en Ag. Regenerativa (FAT)', pct: 100, done: true },
-  { label: '80% productores con acopio desde inicio del año',               pct: 100, done: true },
-  { label: '355 productores con asistencia técnica personalizada',           pct: 28,  done: false },
-  { label: '80% productores con manejo nutricional (análisis de suelo)',     pct: 0,   done: false },
+const METAS_PCT = [
+  { pct: 100, done: true },
+  { pct: 100, done: true },
+  { pct: 28,  done: false },
+  { pct: 0,   done: false },
 ]
 
 const fadeUp = {
@@ -40,15 +41,18 @@ const fadeUp = {
 }
 
 export default function IncentivoCondicional() {
+  const { t } = useTranslation('incentivoCondicional')
+  const METAS = METAS_PCT.map((m, i) => ({ ...m, label: t('goals.items', { returnObjects: true })[i] }))
+
   return (
     <div className="page-enter">
       <ProjectHero
-        title="Incentivo Condicional"
-        subtitle="Acelerando la Agricultura Regenerativa"
-        description="Incentivo condicional para la transición de agricultura convencional a prácticas regenerativas en productores más vulnerables de Yoro, Honduras."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        description={t('hero.description')}
         color={COLOR}
         imageSrc="/imagenes/proyectos/incentivo-condicional/hero.webp"
-        tag="Agricultura Regenerativa"
+        tag={t('hero.tag')}
         collaborators={3}
       />
 
@@ -58,16 +62,16 @@ export default function IncentivoCondicional() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-16">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              El piloto en números
+              {t('pilot.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Datos clave de Yoro</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('pilot.title')}</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {[
-              { icon: ICONS.family, value: 355,  label: 'Familias productoras', sub: 'en el piloto Yoro' },
-              { icon: ICONS.map,    value: 690,  label: 'Hectáreas cultivadas', sub: 'con café' },
-              { icon: ICONS.scale,  value: 1074, label: 'Toneladas métricas',   sub: 'potencial de producción' },
+              { icon: ICONS.family, value: 355,  label: t('pilot.stats.familias.label'),   sub: t('pilot.stats.familias.sub') },
+              { icon: ICONS.map,    value: 690,  label: t('pilot.stats.hectareas.label'),  sub: t('pilot.stats.hectareas.sub') },
+              { icon: ICONS.scale,  value: 1074, label: t('pilot.stats.toneladas.label'),  sub: t('pilot.stats.toneladas.sub') },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -92,7 +96,7 @@ export default function IncentivoCondicional() {
           <motion.div {...fadeUp}>
             <div className="bg-white rounded-2xl p-6 flex flex-wrap items-center gap-4">
               <Icon d={ICONS.pin} className="w-5 h-5 flex-shrink-0" style={{ color: COLOR }} />
-              <p className="font-bold text-cafe text-sm">Área de influencia:</p>
+              <p className="font-bold text-cafe text-sm">{t('pilot.areaLabel')}</p>
               {['Victoria', 'Yoro', 'Yorito'].map(m => (
                 <span key={m} className="text-xs font-semibold px-3 py-1.5 rounded-full border"
                       style={{ borderColor: COLOR, color: COLOR }}>
@@ -100,7 +104,7 @@ export default function IncentivoCondicional() {
                 </span>
               ))}
               <p className="text-cafe-light text-xs ml-auto italic max-w-xs text-right">
-                "Acelerando la transición de agricultura convencional a agricultura regenerativa y resiliente"
+                "{t('pilot.quote')}"
               </p>
             </div>
           </motion.div>
@@ -112,9 +116,9 @@ export default function IncentivoCondicional() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Avance 2026
+              {t('goals.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Cumplimiento de metas</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('goals.title')}</h2>
           </motion.div>
 
           <div className="max-w-2xl space-y-4">
@@ -163,19 +167,17 @@ export default function IncentivoCondicional() {
             <motion.div {...fadeUp}>
               <div className="mb-4">
                 <img src="/imagenes/logos/Logos Generales/LOGO ECOLLUVIA COLOR.webp"
-                     alt="Ecolluvía" className="h-20 w-auto object-contain drop-shadow-sm" />
+                     alt={t('ecolluvia.logoAlt')} className="h-20 w-auto object-contain drop-shadow-sm" />
               </div>
-              <h2 className="text-4xl font-black text-cafe mb-4">Sistema Ecolluvía</h2>
+              <h2 className="text-4xl font-black text-cafe mb-4">{t('ecolluvia.title')}</h2>
               <p className="text-cafe-light leading-relaxed mb-6">
-                Proyecto para elevar la calidad de vida de los productores mediante la instalación
-                de sistemas de captura y aprovechamiento de agua de lluvia para diversas aplicaciones
-                agrícolas y domésticas.
+                {t('ecolluvia.description')}
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[
-                  { value: '28',       label: 'Unidades recolectoras instaladas',  sub: '25 en Yoro · 3 en Comayagua' },
-                  { value: '+223,400', label: 'Galones recolectados por año',       sub: 'por las 28 unidades' },
+                  { value: '28',       label: t('ecolluvia.stats.unidades.label'), sub: t('ecolluvia.stats.unidades.sub') },
+                  { value: '+223,400', label: t('ecolluvia.stats.galones.label'),  sub: t('ecolluvia.stats.galones.sub') },
                 ].map((s, i) => (
                   <div key={i} className="bg-white rounded-2xl p-5 shadow-sm">
                     <p className="text-3xl font-black mb-1" style={{ color: COLOR }}>{s.value}</p>
@@ -186,13 +188,9 @@ export default function IncentivoCondicional() {
               </div>
 
               <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <p className="text-cafe font-bold text-sm mb-3">Próximos pasos</p>
+                <p className="text-cafe font-bold text-sm mb-3">{t('ecolluvia.nextStepsTitle')}</p>
                 <ul className="space-y-2">
-                  {[
-                    'Seguimiento técnico para asegurar funcionalidad',
-                    'Expansión a más productores del área',
-                    'Monitoreo de impacto en productividad',
-                  ].map((step, i) => (
+                  {t('ecolluvia.nextSteps', { returnObjects: true }).map((step, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                            style={{ backgroundColor: `${COLOR}20` }}>
@@ -218,7 +216,7 @@ export default function IncentivoCondicional() {
                 <div className="rounded-2xl overflow-hidden aspect-square shadow-md">
                   <img
                     src="/imagenes/proyectos/incentivo-condicional/Ecolluvia.webp"
-                    alt="Sistema Ecolluvía"
+                    alt={t('ecolluvia.mainAlt')}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -226,7 +224,7 @@ export default function IncentivoCondicional() {
                 <div className="rounded-2xl overflow-hidden shadow-md" style={{ aspectRatio: '5/6' }}>
                   <img
                     src="/imagenes/proyectos/incentivo-condicional/Ecolluvia_2.webp"
-                    alt="Sistema Ecolluvía instalación"
+                    alt={t('ecolluvia.installAlt')}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -236,17 +234,17 @@ export default function IncentivoCondicional() {
               <div className="bg-white rounded-2xl p-5 shadow-sm flex justify-between items-center">
                 <div className="text-center flex-1">
                   <p className="text-2xl font-black" style={{ color: COLOR }}>25</p>
-                  <p className="text-cafe-light text-xs mt-0.5">unidades en Yoro</p>
+                  <p className="text-cafe-light text-xs mt-0.5">{t('ecolluvia.miniStats.yoro')}</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center flex-1">
                   <p className="text-2xl font-black" style={{ color: COLOR }}>3</p>
-                  <p className="text-cafe-light text-xs mt-0.5">unidades en Comayagua</p>
+                  <p className="text-cafe-light text-xs mt-0.5">{t('ecolluvia.miniStats.comayagua')}</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />
                 <div className="text-center flex-1">
                   <p className="text-2xl font-black" style={{ color: COLOR }}>28</p>
-                  <p className="text-cafe-light text-xs mt-0.5">total instaladas</p>
+                  <p className="text-cafe-light text-xs mt-0.5">{t('ecolluvia.miniStats.total')}</p>
                 </div>
               </div>
             </motion.div>
@@ -262,15 +260,13 @@ export default function IncentivoCondicional() {
           <motion.div {...fadeUp} className="mb-14">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
               <div>
-                <h2 className="text-4xl font-black text-cafe">Apicultura Sostenible</h2>
-                <p className="text-cafe-light mt-2 max-w-xl leading-relaxed">
-                  Protección de las abejas <em>Apis mellifera</em> amenazadas por agroquímicos,
-                  diversificando ingresos y mejorando la polinización del café.
-                </p>
+                <h2 className="text-4xl font-black text-cafe">{t('apiculture.title')}</h2>
+                <p className="text-cafe-light mt-2 max-w-xl leading-relaxed"
+                   dangerouslySetInnerHTML={{ __html: t('apiculture.description') }} />
               </div>
               <img
                 src="/imagenes/logos/Logos Generales/LOGOS GENERAL APICULTURA.webp"
-                alt="Apicultura"
+                alt={t('apiculture.logoAlt')}
                 className="h-16 w-auto object-contain flex-shrink-0 self-center sm:self-end"
               />
             </div>
@@ -279,9 +275,9 @@ export default function IncentivoCondicional() {
           {/* Estadísticas */}
           <div className="grid grid-cols-3 gap-4 mb-12">
             {[
-              { v: '47',    label: 'Colmenas activas',              icon: ICONS.bee },
-              { v: '826',   label: 'Botellas de miel producidas',   icon: ICONS.leaf },
-              { v: '+102%', label: 'Incremento en cosecha 2024 vs 2023', icon: ICONS.sparkle },
+              { v: '47',    label: t('apiculture.stats.colmenas'),    icon: ICONS.bee },
+              { v: '826',   label: t('apiculture.stats.botellas'),    icon: ICONS.leaf },
+              { v: '+102%', label: t('apiculture.stats.incremento'),  icon: ICONS.sparkle },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -314,12 +310,12 @@ export default function IncentivoCondicional() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
                   <img src="/imagenes/proyectos/incentivo-condicional/apicultura_01.webp"
-                       alt="Apicultura 1"
+                       alt={`${t('apiculture.galleryAlt')} 1`}
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
                   <img src="/imagenes/proyectos/incentivo-condicional/apicultura_02.webp"
-                       alt="Apicultura 2"
+                       alt={`${t('apiculture.galleryAlt')} 2`}
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
@@ -327,12 +323,12 @@ export default function IncentivoCondicional() {
               <div className="grid grid-cols-5 gap-3">
                 <div className="col-span-2 rounded-2xl overflow-hidden aspect-square">
                   <img src="/imagenes/proyectos/incentivo-condicional/apicultura_03.webp"
-                       alt="Apicultura 3"
+                       alt={`${t('apiculture.galleryAlt')} 3`}
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="col-span-3 rounded-2xl overflow-hidden" style={{ aspectRatio: '3/2' }}>
                   <img src="/imagenes/proyectos/incentivo-condicional/apicultura_04.webp"
-                       alt="Apicultura 4"
+                       alt={`${t('apiculture.galleryAlt')} 4`}
                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
@@ -344,14 +340,10 @@ export default function IncentivoCondicional() {
               <div className="bg-[#F2EDE4] rounded-2xl p-6 flex-1">
                 <p className="font-bold text-cafe text-sm mb-4 flex items-center gap-2">
                   <Icon d={ICONS.check} className="w-4 h-4" style={{ color: COLOR }} />
-                  Metas del proyecto
+                  {t('apiculture.goalsTitle')}
                 </p>
                 <ul className="space-y-3">
-                  {[
-                    '40 colmenas entregadas a 9 productores',
-                    'Seguimiento técnico calendarizado 2023–2024',
-                    'Recopilación de datos de cosecha',
-                  ].map((item, i) => (
+                  {t('apiculture.goals', { returnObjects: true }).map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: COLOR }} />
                       <span className="text-cafe-light text-sm leading-snug">{item}</span>
@@ -363,10 +355,10 @@ export default function IncentivoCondicional() {
               <div className="bg-[#F2EDE4] rounded-2xl p-6 flex-1">
                 <p className="font-bold text-cafe text-sm mb-4 flex items-center gap-2">
                   <Icon d={ICONS.sparkle} className="w-4 h-4" style={{ color: COLOR }} />
-                  Innovación en desarrollo
+                  {t('apiculture.innovationTitle')}
                 </p>
                 <div className="grid grid-cols-2 gap-2">
-                  {['Propóleo', 'Polen', 'Reinas', 'Subproductos'].map((item, i) => (
+                  {t('apiculture.innovationItems', { returnObjects: true }).map((item, i) => (
                     <div key={i} className="bg-white rounded-xl px-3 py-2.5 text-center">
                       <span className="text-cafe text-sm font-semibold">{item}</span>
                     </div>
@@ -376,10 +368,10 @@ export default function IncentivoCondicional() {
 
               <div className="rounded-2xl p-5 border-2" style={{ borderColor: `${COLOR}30` }}>
                 <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: COLOR }}>
-                  Área de influencia
+                  {t('apiculture.areaTitle')}
                 </p>
                 <div className="flex gap-2 flex-wrap">
-                  {['Santa Bárbara', 'Comayagua'].map(z => (
+                  {t('apiculture.areaZones', { returnObjects: true }).map(z => (
                     <span key={z} className="text-sm font-semibold px-4 py-2 rounded-full text-white"
                           style={{ backgroundColor: COLOR }}>
                       {z}
@@ -397,8 +389,8 @@ export default function IncentivoCondicional() {
       <section className="py-20 bg-[#F2EDE4] text-center">
         <motion.div {...fadeUp} className="max-w-2xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Todos los proyectos</Link>
-            <Link to="/proyectos/nespresso-aaa" className="btn-dark">Siguiente: Nespresso AAA →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/nespresso-aaa" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

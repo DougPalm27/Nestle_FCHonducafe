@@ -1,0 +1,80 @@
+{
+  "captions": ["Honduras 2026", "Safe Spaces", "Communities", "Training", "Childhood", "RS GOLD", "In the field", "Coffee-growing families"],
+  "hero": {
+    "title": "Human Rights and Child Protection",
+    "subtitle": "Strengthening rights in the coffee-growing chain",
+    "description": "Strengthen the respect, protection and guarantee of human rights with an emphasis on preventing child labor in Honduras' RS GOLD chain.",
+    "tag": "Human Rights"
+  },
+  "stats": {
+    "items": {
+      "personas": { "label": "People to be trained", "sub": "in Human Rights and Child Labor" },
+      "kits": { "label": "School kits", "sub": "for children" },
+      "espacios": { "label": "Safe Spaces", "sub": "Comayagua, Sta. Bárbara, Yoro" },
+      "departamentos": { "label": "Departments", "sub": "of intervention in Honduras" }
+    }
+  },
+  "timeline": {
+    "eyebrow": "2026 Commitments",
+    "title": "Program action plan",
+    "description": "Six work areas covering prevention, monitoring, remediation and capacity building in coffee-growing communities in Honduras.",
+    "items": {
+      "espaciosSeguros": {
+        "title": "3 Safe Spaces",
+        "desc": "Implementation in Comayagua, Santa Bárbara and Yoro — protected environments for coffee-growing children and youth during harvest.",
+        "status": "Completed"
+      },
+      "monitoreo": {
+        "title": "Child Labor Monitoring",
+        "desc": "1 active monitoring system. 100% of identified cases receive at least 2 documented follow-up visits.",
+        "status": "Active"
+      },
+      "capacitados": {
+        "title": "450 People Trained",
+        "desc": "Training in Human Rights and Child Labor aimed at technical teams, producers, workers, families, youth and children.",
+        "status": "In progress"
+      },
+      "kits": {
+        "title": "86 School Kits",
+        "desc": "Educational materials to strengthen the right to education for children in intervention areas.",
+        "status": "Completed"
+      },
+      "protocolo": {
+        "title": "Protection Protocol",
+        "desc": "1 child protection and remediation protocol developed and shared with the entire RS GOLD producer community.",
+        "status": "In development"
+      },
+      "articulacion": {
+        "title": "Interinstitutional Coordination",
+        "desc": "Work with government institutions and CSOs to ensure response to identified cases.",
+        "status": "Active"
+      }
+    }
+  },
+  "map": {
+    "eyebrow": "Territorial reach",
+    "title": "Intervention departments",
+    "description": "The program operates in the main coffee-growing departments of Honduras where the RS GOLD chain develops, prioritizing communities with the highest vulnerability and risk of child labor.",
+    "legend": {
+      "intervened": "Departments intervened",
+      "other": "Other departments"
+    },
+    "objectiveTitle": "Program objective",
+    "objectiveText": "Strengthen the respect, protection and guarantee of human rights, with an emphasis on preventing child labor and improving working conditions in the RS GOLD value chain, through comprehensive prevention, monitoring and remediation actions.",
+    "miniStats": {
+      "coordinadora": "Coordinator",
+      "departamentos": "Departments",
+      "meta": "Training goal"
+    }
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Program moments",
+    "description": "Images of fieldwork with communities, children and coffee-growing families in Honduras.",
+    "dragHint": "Drag the photos to rearrange them"
+  },
+  "cta": {
+    "btnAll": "← All projects",
+    "btnNext": "Next: Conditional Incentive →"
+  }
+}

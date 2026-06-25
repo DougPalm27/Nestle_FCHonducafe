@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export default function ProjectHero({
   title,
@@ -15,6 +16,7 @@ export default function ProjectHero({
   logo,
   logo2,
 }) {
+  const { t } = useTranslation('projectHero')
   const imgRef = useRef(null)
 
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function ProjectHero({
                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Volver al inicio
+            {t('backHome')}
           </Link>
         </motion.div>
 
@@ -159,7 +161,7 @@ export default function ProjectHero({
                 <path strokeLinecap="round" strokeLinejoin="round"
                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span className="text-white text-sm font-semibold">{collaborators} colaboradores</span>
+              <span className="text-white text-sm font-semibold">{collaborators} {t('collaborators')}</span>
             </div>
           )}
           <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-full
@@ -169,7 +171,7 @@ export default function ProjectHero({
               <path strokeLinecap="round" strokeLinejoin="round"
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span className="text-white text-sm font-semibold">Reporte 2026</span>
+            <span className="text-white text-sm font-semibold">{t('report2026')}</span>
           </div>
         </motion.div>
       </div>

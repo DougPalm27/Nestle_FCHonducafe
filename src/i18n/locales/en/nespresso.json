@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "backHome": "Back to home",
+    "badge": "AAA™ Program",
+    "title1": "Nespresso Cluster",
+    "title2": "Cohonducafé",
+    "subtitle": "Nespresso's AAA™ Sustainable Quality Program",
+    "description": "Through the implementation of Nespresso's AAA Program, the strategic pillars of Inclusiveness, Regenerative Agriculture and Quality are developed with <strong class=\"text-white font-bold\">421 producers</strong> from the departments of Copán and Ocotepeque.",
+    "ctaReport": "View 2026 report",
+    "ctaProgram": "Learn about the program",
+    "chips": {
+      "collaborators": "5 collaborators",
+      "report": "2026 Report"
+    }
+  },
+  "ejes": {
+    "eyebrow": "Program structure",
+    "title": "AAA Program",
+    "ejeLabel": "Pillar",
+    "inclusividad": {
+      "title": "Inclusiveness",
+      "items": {
+        "diversificacion": { "title": "Income Diversification", "detail": "32 AAA female producers served in 2025, expanding to 45 more by 2026 in Copán and Ocotepeque." },
+        "diligencia": { "title": "Human Rights Due Diligence", "detail": "Review and adaptation of policies throughout the COHONDUCAFÉ Cluster's supply chain." },
+        "cosechaFeliz": { "title": "Happy Harvest Project", "detail": "Child labor prevention through safe spaces since 2023. 47 children served during the 25–26 harvest." },
+        "agua": { "title": "Access to Drinking Water", "detail": "Delivery of 265 water filters to coffee growers and their workers." },
+        "seguro": { "title": "Parametric Insurance", "detail": "Coverage for 309 AAA coffee growers during flowering, fruit filling and harvest." }
+      }
+    },
+    "productividad": {
+      "title": "Productivity",
+      "items": [
+        "Soil nutrition based on laboratory analysis.",
+        "Crop nutrition and tissue management.",
+        "Integrated Pest and Disease Management.",
+        "2026 Model Farms.",
+        "EUDR compliance within the COHONDUCAFÉ Cluster by AAA producers.",
+        "Development of TASQ Assessments: Regenerative, Inclusiveness, Productivity and Quality."
+      ]
+    },
+    "calidad": {
+      "title": "Quality",
+      "items": [
+        "Fruit classification at harvest — selection at origin",
+        "Improved wet processing",
+        "Optimal storage and conservation",
+        "Transparent Traceability Implementation — Open SC",
+        "2024–2025 Harvest AAA Award delivery"
+      ]
+    }
+  },
+  "especiales": {
+    "eyebrow": "Complementary initiatives",
+    "title": "Special projects",
+    "items": {
+      "espaciosSeguros": { "title": "Safe Spaces", "detail": "47 boys and girls served during harvest. 60% girls and 40% boys. COAEDCAL & APROCASAM cooperatives, 25–26 period." },
+      "diversificacion": { "title": "Income Diversification", "detail": "32 female producers with laying hens. 97% allocate production to sale, 23 producers allocate more than 50% to sale." },
+      "seguroParametrico": { "title": "Parametric Insurance", "detail": "309 AAA producers covered by Parametric Insurance, for farm coverage against climate risks throughout the coffee growing stages annually." },
+      "trazabilidad": { "title": "Open SC Traceability", "detail": "Transparent traceability system implemented throughout the COHONDUCAFÉ cluster's value chain." },
+      "premio": { "title": "AAA Award", "detail": "Awards and incentives given to producers recognized for quality and sustainability in the COHONDUCAFÉ Cluster." }
+    }
+  },
+  "water": {
+    "eyebrow": "Access to drinking water",
+    "label1": "water filters",
+    "label2": "installed",
+    "description": "Access to drinking water for producing families in the COHONDUCAFÉ cluster, improving the health and quality of life of the communities.",
+    "imageAlt": "Installed water filters",
+    "badge": "EcoFilters"
+  },
+  "cta": {
+    "btnAll": "← All projects",
+    "btnNext": "Next: Young Coffee Growers →"
+  }
+}

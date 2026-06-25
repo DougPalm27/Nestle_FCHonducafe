@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "Jeunes Caféiculteurs",
+    "subtitle": "Initiative pour les Jeunes Caféiculteurs",
+    "description": "Améliore la qualité de vie des jeunes caféiculteurs grâce à l'orientation, la formation et l'agro-entrepreneuriat. Elle prévient la migration hors du pays.",
+    "tag": "Éducation & Développement"
+  },
+  "ribbon": {
+    "liveHours": "heures en direct",
+    "peopleTrained": "personnes formées",
+    "countriesReached": "pays atteints",
+    "dataConsumed": "données consommées",
+    "youngBaristas": "jeunes baristas"
+  },
+  "tabs": {
+    "eyebrow": "Deux modalités de formation",
+    "title": "Le programme en action",
+    "virtual": "Cours en Ligne",
+    "aula": "Classe Mobile"
+  },
+  "virtual": {
+    "platformTitle": "Plateforme Virtuelle",
+    "platformSubtitle": "44 373 personnes · 23 pays",
+    "rows": {
+      "trained": "Personnes formées",
+      "liveHours": "Heures de diffusion en direct",
+      "data": "Données consommées",
+      "countries": "Pays atteints"
+    },
+    "genderTitle": "Participation par genre",
+    "gender": {
+      "women": "Jeunes femmes",
+      "men": "Jeunes hommes"
+    },
+    "galleryAlt": "Cours en ligne"
+  },
+  "aula": {
+    "badge": "Classe Mobile · Honduras",
+    "title": "Classe Mobile",
+    "subtitle": "Unité éducative itinérante",
+    "rows": {
+      "students": "Étudiants formés",
+      "baristas": "Jeunes baristas formés",
+      "humanRights": "Jeunes en Droits Humains",
+      "total": "Total du programme"
+    },
+    "modulesTitle": "Modules de la Classe Mobile",
+    "modules": {
+      "barismo": { "label": "Formation professionnelle de barista", "sub": "80 jeunes certifiés" },
+      "derechos": { "label": "Droits Humains", "sub": "61 jeunes leaders" },
+      "tecnica": { "label": "Formation technique caféière", "sub": "Fermes rurales" }
+    },
+    "mainAlt": "Classe Mobile principale",
+    "galleryAlt": "Classe mobile"
+  },
+  "countries": {
+    "eyebrow": "Portée internationale",
+    "title1": "Personnes formées",
+    "title2": "par pays",
+    "more": "+ 13 autres pays (Espagne, USA, Chili, Haïti, Argentine, Brésil, Italie, Cuba…)",
+    "names": {
+      "HN": "Honduras",
+      "NI": "Nicaragua",
+      "GT": "Guatemala",
+      "SV": "Salvador",
+      "PA": "Panama",
+      "CO": "Colombie",
+      "CR": "Costa Rica",
+      "PE": "Pérou",
+      "BO": "Bolivie",
+      "MX": "Mexique"
+    },
+    "statCard": { "label": "pays atteints", "sub": "en Amérique latine et dans les Caraïbes" },
+    "miniStats": {
+      "trained": "Personnes formées",
+      "liveHours": "Heures en direct"
+    }
+  },
+  "achievements": {
+    "eyebrow": "Résultats 2025",
+    "title": "Objectifs atteints",
+    "items": {
+      "aulaMovil": { "label": "Classe Mobile", "sub": "3 543 / 3 300 personnes" },
+      "cursos": { "label": "Cours dispensés", "sub": "15 sur 15 cours" },
+      "graduados": { "label": "Diplômés virtuels", "sub": "8 168 / 8 100 personnes" }
+    }
+  },
+  "goals2026": {
+    "eyebrow": "Avancement 2026",
+    "title": "Objectifs de l'année en cours",
+    "note": "*Données partielles à fin mai 2026",
+    "items": {
+      "cursosVirtuales": "Cours en ligne réalisés",
+      "capacitadasVirtual": "Personnes formées (en ligne)",
+      "capacitadasAula": "Personnes formées (Classe Mobile)",
+      "horasClases": "Heures de cours dispensées"
+    }
+  },
+  "methodology": {
+    "title": "Méthodologie du programme",
+    "steps": {
+      "virtual": { "title": "Cours en Ligne", "desc": "Plateforme numérique dans 23 pays avec plus de 1 600 heures en direct et +300 To consommés." },
+      "aula": { "title": "Classe Mobile", "desc": "Unité éducative itinérante qui apporte une formation technique directement aux communautés rurales." },
+      "barismo": { "title": "Formation de Barista", "desc": "80 jeunes certifiés baristas, ouvrant des portes dans le secteur du café de spécialité." },
+      "liderazgo": { "title": "Leadership, entrepreneuriat et innovation dans la chaîne de valeur du café", "desc": "250 jeunes leaders en gouvernance, entrepreneuriat et innovation au sein de la chaîne de valeur du café." }
+    }
+  },
+  "cta": {
+    "title": "Vous voulez en savoir plus ?",
+    "subtitle": "Explorez le reste de nos projets ou contactez-nous pour plus d'informations.",
+    "btnAll": "← Voir tous les projets",
+    "btnNext": "Suivant : Forêts de Demain →"
+  }
+}

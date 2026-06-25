@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -17,24 +19,134 @@ const I = {
   star:      'M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z',
 }
 
-const AREAS = [
-  { area: 'Dirección General',       color: '#C0392B', icon: I.building,  roles: ['Director Ejecutivo', 'Coordinadora Administrativa'] },
-  { area: 'Jóvenes Caficultores',    color: '#2E7D32', icon: I.graduate,  colabs: 8,  roles: ['Coordinador del Programa', 'Facilitadores Virtuales (x4)', 'Equipo Aula Móvil (x2)', 'Coordinadora DDHH Jóvenes'] },
-  { area: 'Bosques del Mañana',      color: '#1B5E20', icon: I.tree,      colabs: 57, roles: ['Coordinador de Campo', 'Técnicos Agroforestales (x20)', 'Promotores Comunitarios (x30)', 'Equipo Monitoreo (x5)', 'Administración'] },
-  { area: 'RS GOLD — Nescafé',       color: '#C0392B', icon: I.coffee,    colabs: 7,  roles: ['Coordinador RS GOLD', 'Técnicos de Campo (x4)', 'Especialista 4C', 'Coordinadora Logística'] },
-  { area: 'Derechos Humanos y Niñez',color: '#1565C0', icon: I.scale,     colabs: 1,  roles: ['Coordinadora Derechos Humanos y Protección Infantil'] },
-  { area: 'Incentivo Condicional',   color: '#E65100', icon: I.leaf,      colabs: 3,  roles: ['Coordinador Incentivo Condicional', 'Técnico Agronómico', 'Promotor Ecolluvía & Apicultura'] },
-  { area: 'Nespresso AAA',           color: '#F57F17', icon: I.star,      colabs: 5,  roles: ['Coordinadora Nespresso AAA', 'Técnicos de Campo (x2)', 'Facilitadora Espacios Seguros', 'Especialista Calidad'] },
+const HERO_PHOTOS = [
+  '/imagenes/proyectos/bosques-del-manana/bosques_01.webp',
+  '/imagenes/proyectos/jovenes-caficultores/aulaMovil/galeria-01.webp',
+  '/imagenes/proyectos/rs-gold/hero.webp',
+  '/imagenes/proyectos/incentivo-condicional/apicultura_01.webp',
+  '/imagenes/proyectos/derechos-humanos/_EAA4513.webp',
+  '/imagenes/proyectos/nespresso-aaa/AsistenciasTecnicas/AsistenciasTecnicas.webp',
 ]
 
+const AREAS_BASE = [
+  { key: 'ghg',                  color: '#C0392B', icon: I.coffee,   colabs: 7 },
+  { key: 'pilotoYoro',           color: '#E65100', icon: I.leaf,     colabs: 3 },
+  { key: 'jovenesCaficultores',  color: '#2E7D32', icon: I.graduate, colabs: 5 },
+  { key: 'recursosHumanos',      color: '#5D4037', icon: I.building, colabs: null },
+  { key: 'bosquesDelManana',     color: '#1B5E20', icon: I.tree,     colabs: 60 },
+  { key: 'derechosHumanos',      color: '#1565C0', icon: I.scale,    colabs: 1 },
+  { key: 'nespresso',            color: '#F57F17', icon: I.star,     colabs: 5 },
+]
+
+/* Nodo principal del organigrama: colapsado solo muestra el nombre; al hacer click despliega los roles */
+function OrgNode({ area, t, expanded, onToggle }) {
+  const flat = area.groups.length === 1 && !area.groups[0].title
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className="bg-white border-2 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300
+                 w-[210px] text-left overflow-hidden"
+      style={{ borderColor: area.color }}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full flex items-center gap-2.5 px-4 py-3 cursor-pointer"
+      >
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+             style={{ backgroundColor: area.color }}>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.8}>
+            <path strokeLinecap="round" strokeLinejoin="round" d={area.icon} />
+          </svg>
+        </div>
+        <div className="flex-1">
+          <h3 className="font-black text-cafe text-sm leading-snug">{area.area}</h3>
+          {area.colabs && (
+            <p className="text-cafe-light text-[11px] mt-0.5">{area.colabs} {t('colaboradoresLabel')}</p>
+          )}
+        </div>
+        <svg
+          className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+          fill="none" viewBox="0 0 24 24" stroke={area.color} strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
+
+      {/* Si el área no tiene subgrupos, los roles van directo en el nodo (solo si está expandido) */}
+      <AnimatePresence>
+        {flat && expanded && (
+          <motion.ul
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="px-4 pb-3 space-y-1 border-t pt-2 mx-4 border-cafe/10 overflow-hidden"
+          >
+            {area.groups[0].items.map(item => (
+              <li key={item} className="flex items-start gap-1.5">
+                <span className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: area.color }} />
+                <span className="text-cafe-light text-[11px] leading-snug">{item}</span>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+/* Sub-nodo de un grupo (Área Técnica, Apoyo compartido, etc.) */
+function OrgSubNode({ group, color }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className="bg-[#F2EDE4] border rounded-xl px-3.5 py-2.5 w-[180px] text-left"
+      style={{ borderColor: `${color}40` }}
+    >
+      {group.title && (
+        <p className="text-[10px] font-bold uppercase tracking-wide mb-1.5" style={{ color }}>
+          {group.title}
+        </p>
+      )}
+      <ul className="space-y-1">
+        {group.items.map(item => (
+          <li key={item} className="flex items-start gap-1.5">
+            <span className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: color }} />
+            <span className="text-cafe-light text-[11px] leading-snug">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  )
+}
+
 export default function Equipo() {
+  const { t } = useTranslation('equipo')
+  const AREAS = AREAS_BASE.map(a => ({
+    ...a,
+    area: t(`areas.${a.key}.name`),
+    groups: t(`areas.${a.key}.groups`, { returnObjects: true }),
+  }))
+
+  const [expandedAreas, setExpandedAreas] = useState({})
+  const toggleArea = key => setExpandedAreas(prev => ({ ...prev, [key]: !prev[key] }))
+  const [heroPhoto] = useState(() => HERO_PHOTOS[Math.floor(Math.random() * HERO_PHOTOS.length)])
+
   return (
     <div className="page-enter">
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden bg-[#3E2723]">
         <div className="absolute inset-0 overflow-hidden">
-          <img src="https://picsum.photos/seed/teamhero/1600/600" alt=""
-               className="w-full h-full object-cover ken-burns-img opacity-20" />
+          <img src={heroPhoto} alt=""
+               className="w-full h-full object-cover ken-burns-img opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723] to-transparent" />
         </div>
         <div className="absolute top-10 right-10 w-64 h-64 bg-white/5 blob-morph" />
@@ -46,7 +158,7 @@ export default function Equipo() {
             className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold
                        uppercase tracking-widest px-4 py-2 rounded-full mb-4"
           >
-            Nuestro equipo
+            {t('badge')}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -54,7 +166,7 @@ export default function Equipo() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-5xl md:text-7xl font-black text-white leading-tight"
           >
-            El equipo<br/>COHONDUCAFÉ
+            {t('title1')}<br/>{t('title2')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,8 +174,7 @@ export default function Equipo() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-4 text-white/70 text-xl max-w-2xl"
           >
-            81 colaboradores dedicados a transformar comunidades caficultoras
-            con compromiso, técnica y vocación de servicio.
+            {t('subtitle')}
           </motion.p>
         </div>
         <div className="absolute bottom-0 left-0 right-0">
@@ -76,26 +187,30 @@ export default function Equipo() {
       {/* Summary */}
       <section className="py-16 bg-[#F2EDE4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { val: '81', label: 'Colaboradores totales',      d: I.graduate },
-              { val: '6',  label: 'Áreas de trabajo',            d: I.building },
-              { val: '5',  label: 'Departamentos de Honduras',   d: 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z' },
-              { val: '2',  label: 'Países de operación directa', d: 'M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418' },
+              { val: '82', label: t('summary.colaboradores'), color: '#C0392B', d: I.graduate },
+              { val: '7',  label: t('summary.areas'),          color: '#1B5E20', d: I.building },
+              { val: '5',  label: t('summary.departamentos'), color: '#1565C0', d: 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z' },
             ].map((s, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 text-center shadow-sm">
-                <div className="w-12 h-12 rounded-2xl bg-[#C0392B]/10 flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#C0392B" strokeWidth={1.5}>
+                className="relative bg-white rounded-3xl p-8 text-center shadow-sm border border-cafe/5
+                           overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <div className="absolute top-0 left-0 right-0 h-1.5" style={{ backgroundColor: s.color }} />
+                <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full opacity-[0.06]" style={{ backgroundColor: s.color }} />
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 relative"
+                     style={{ backgroundColor: `${s.color}15` }}>
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke={s.color} strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={s.d} />
                   </svg>
                 </div>
-                <p className="font-black text-cafe text-3xl">{s.val}</p>
-                <p className="text-cafe-light text-xs mt-1">{s.label}</p>
+                <p className="font-black text-cafe text-4xl">{s.val}</p>
+                <p className="text-cafe-light text-sm mt-1.5">{s.label}</p>
               </motion.div>
             ))}
           </div>
@@ -104,53 +219,69 @@ export default function Equipo() {
 
       {/* Organigrama */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp} className="mb-12">
-            <span className="text-terracota font-bold text-sm uppercase tracking-widest">Organigrama</span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Estructura del equipo</h2>
+        <div className="px-4 sm:px-6 lg:px-10">
+          <motion.div {...fadeUp} className="mb-12 max-w-7xl mx-auto">
+            <span className="text-terracota font-bold text-sm uppercase tracking-widest">{t('org.eyebrow')}</span>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('org.title')}</h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {AREAS.map((area, i) => (
-              <motion.div
-                key={area.area}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-[#F2EDE4] rounded-3xl overflow-hidden hover:shadow-xl
-                           transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Header */}
-                <div className="p-5 text-white flex items-center gap-3"
-                     style={{ backgroundColor: area.color }}>
-                  <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={area.icon} />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-black text-base leading-snug">{area.area}</h3>
-                    {area.colabs && (
-                      <p className="text-white/80 text-xs mt-0.5">{area.colabs} colaboradores</p>
-                    )}
-                  </div>
-                </div>
+          {/* Organigrama real con conectores, sin tarjetas, a todo el ancho */}
+          <div className="overflow-x-auto pb-4">
+            <ul className="org-tree min-w-fit w-full">
+              <li>
+                {/* Raíz: Fundación × Nestlé (mismos logos que el top nav) */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-cafe rounded-2xl px-9 py-5 shadow-md inline-flex items-center gap-5"
+                >
+                  <img
+                    src="/imagenes/logos/Logos Generales/LOGO FUNDACIÓN COHONDUCAFÉ NEGATIVO.webp"
+                    alt="Fundación COHONDUCAFÉ"
+                    className="h-16 w-auto object-contain"
+                  />
+                  <span
+                    className="select-none flex-shrink-0"
+                    style={{ fontFamily: '"Great Vibes", cursive', fontSize: '2.25rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1 }}
+                  >
+                    x
+                  </span>
+                  <img
+                    src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
+                    alt="Nestlé"
+                    className="h-12 w-auto object-contain"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                </motion.div>
 
-                {/* Roles */}
-                <div className="p-5">
-                  <ul className="space-y-2">
-                    {area.roles.map(role => (
-                      <li key={role} className="flex items-center gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                              style={{ backgroundColor: area.color }} />
-                        <span className="text-cafe text-sm">{role}</span>
+                <ul>
+                  {AREAS.map(area => {
+                    const hasSubgroups = area.groups.length > 1 || area.groups[0].title
+                    const isExpanded = !!expandedAreas[area.key]
+                    return (
+                      <li key={area.area}>
+                        <OrgNode
+                          area={area}
+                          t={t}
+                          expanded={isExpanded}
+                          onToggle={() => toggleArea(area.key)}
+                        />
+                        {hasSubgroups && isExpanded && (
+                          <ul>
+                            {area.groups.map((group, gi) => (
+                              <li key={gi}>
+                                <OrgSubNode group={group} color={area.color} />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+                    )
+                  })}
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

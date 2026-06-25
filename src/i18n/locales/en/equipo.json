@@ -1,0 +1,63 @@
+{
+  "badge": "Our team",
+  "title1": "The COHONDUCAFÉ",
+  "title2": "team",
+  "subtitle": "82 collaborators dedicated to transforming coffee-growing communities with commitment, technical skill and a service mindset.",
+  "summary": {
+    "colaboradores": "Total collaborators",
+    "areas": "Work areas",
+    "departamentos": "Departments of Honduras",
+    "paises": "Countries of direct operation"
+  },
+  "org": {
+    "eyebrow": "Org chart",
+    "title": "Team structure"
+  },
+  "colaboradoresLabel": "collaborators",
+  "areas": {
+    "ghg": {
+      "name": "GHG",
+      "groups": [
+        { "items": ["Administrative Assistant: GM", "6 contracted technicians"] }
+      ]
+    },
+    "pilotoYoro": {
+      "name": "Resilient Regenerative Agriculture (Yoro Pilot)",
+      "groups": [
+        { "items": ["Field technicians (3)"] }
+      ]
+    },
+    "jovenesCaficultores": {
+      "name": "Youth Initiative",
+      "groups": [
+        { "items": ["Coordinator: JH", "M&E Specialist: EM", "Technology Transfer Specialist (1): JC", "Mobile Classroom Instructor (1)", "Mobile Classroom Driver (1)"] },
+        { "title": "Shared support", "items": ["Data Analyst (50%): JC"] }
+      ]
+    },
+    "recursosHumanos": {
+      "name": "Human Resources",
+      "groups": [
+        { "items": ["Human Resources Manager: DP", "Fleet Manager: CJ", "Data Analyst (50%)"] }
+      ]
+    },
+    "bosquesDelManana": {
+      "name": "Forests of Tomorrow",
+      "groups": [
+        { "title": "Technical Area", "items": ["Technical Coordinator: EU", "Environmental Specialist: MO", "M&E Specialist: AC", "Field Supervisors (2)", "Field Technicians (20) to be hired (1)", "Nursery growers (28)"] },
+        { "title": "Administrative Area", "items": ["Administrative Coordinator: MS", "Project Accountant: HH", "Payments Officer: DC"] }
+      ]
+    },
+    "derechosHumanos": {
+      "name": "Human Rights and Child Protection",
+      "groups": [
+        { "items": ["Coordinator: WG"] }
+      ]
+    },
+    "nespresso": {
+      "name": "Nespresso",
+      "groups": [
+        { "items": ["Coordinator: MC", "Departmental Managers (1): TL", "Assistant: RP", "Field Technicians (2)"] }
+      ]
+    }
+  }
+}

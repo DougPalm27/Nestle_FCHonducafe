@@ -49,6 +49,7 @@ export default {
         'ken-burns': 'kenBurns 20s ease-in-out infinite alternate',
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 14s ease infinite',
       },
       keyframes: {
         blob: {
@@ -64,6 +65,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         },
       },
       backdropBlur: {

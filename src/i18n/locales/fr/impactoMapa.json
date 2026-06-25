@@ -1,0 +1,43 @@
+{
+  "countries": {
+    "HN": { "name": "Honduras", "note": "Siège principal · 6 projets actifs" },
+    "NI": { "name": "Nicaragua", "note": "Cours en ligne" },
+    "GT": { "name": "Guatemala", "note": "Cours en ligne" },
+    "SV": { "name": "Salvador", "note": "Cours en ligne" },
+    "PA": { "name": "Panama", "note": "Cours en ligne" },
+    "CO": { "name": "Colombie", "note": "Cours en ligne" },
+    "CR": { "name": "Costa Rica", "note": "Cours en ligne" },
+    "PE": { "name": "Pérou", "note": "Cours en ligne" },
+    "BO": { "name": "Bolivie", "note": "Cours en ligne" },
+    "VE": { "name": "Venezuela", "note": "Cours en ligne" },
+    "MX": { "name": "Mexique", "note": "Cours en ligne" },
+    "BR": { "name": "Brésil", "note": "Cours en ligne" },
+    "EC": { "name": "Équateur", "note": "Cours en ligne" },
+    "DO": { "name": "Rép. Dominicaine", "note": "Cours en ligne" },
+    "CU": { "name": "Cuba", "note": "Cours en ligne" },
+    "PY": { "name": "Paraguay", "note": "Cours en ligne" },
+    "UY": { "name": "Uruguay", "note": "Cours en ligne" },
+    "CL": { "name": "Chili", "note": "Cours en ligne" },
+    "AR": { "name": "Argentine", "note": "Cours en ligne" },
+    "HT": { "name": "Haïti", "note": "Cours en ligne" },
+    "JM": { "name": "Jamaïque", "note": "Cours en ligne" },
+    "PR": { "name": "Porto Rico", "note": "Cours en ligne" },
+    "CA": { "name": "Canada", "note": "Cours en ligne" }
+  },
+  "sedePrincipal": "Siège principal",
+  "legend": {
+    "hq": "Honduras — Siège principal",
+    "virtual": "Pays avec portée virtuelle",
+    "drag": "Glisser · Zoom avec la molette"
+  },
+  "statsStrip": {
+    "countries": "Pays touchés",
+    "viewList": "Voir la liste →",
+    "activeProjects": "Projets actifs",
+    "region": "Région d'impact"
+  },
+  "modal": {
+    "title": "Pays touchés",
+    "subtitle": "23 pays · cours en ligne"
+  }
+}

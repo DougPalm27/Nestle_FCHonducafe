@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
+import { useTranslation } from 'react-i18next'
 
 export default function ProgressBar({
   label,
@@ -10,6 +11,7 @@ export default function ProgressBar({
   unit = '',
   className = '',
 }) {
+  const { t } = useTranslation('progressBar')
   const pct = percentOverride !== undefined
     ? percentOverride
     : Math.min(Math.round((current / total) * 100), 100)
@@ -38,8 +40,8 @@ export default function ProgressBar({
       {/* Numbers below label */}
       {current !== undefined && total !== undefined && (
         <div className="flex justify-between text-xs text-cafe-light mb-2">
-          <span>{formatNum(current)}{unit} alcanzado</span>
-          <span>Meta: {formatNum(total)}{unit}</span>
+          <span>{formatNum(current)}{unit} {t('achieved')}</span>
+          <span>{t('goal')} {formatNum(total)}{unit}</span>
         </div>
       )}
 

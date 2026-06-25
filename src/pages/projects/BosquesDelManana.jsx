@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ProjectHero from '../../components/ProjectHero'
 import BosquesMap from '../../components/BosquesMap'
 import CounterStat from '../../components/CounterStat'
@@ -140,6 +141,7 @@ const BENEFICIOS = [
 ]
 
 export default function BosquesDelManana() {
+  const { t } = useTranslation('bosquesDelManana')
   const containerRef = useRef(null)
 
   return (
@@ -147,10 +149,10 @@ export default function BosquesDelManana() {
 
       {/* ── HERO ───────────────────────────────────────────── */}
       <ProjectHero
-        title="GRP-Bosques del Mañana"
+        title={t('hero.title')}
         logo="/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp"
-        subtitle="Árboles que restauran la tierra y generan oportunidades."
-        description="Más de 4 millones de árboles plantados en sistemas agroforestales en asocio con café, cercas vivas, y plantaciones puras, generando empleos, ingresos y mejorando la Biodiversidad en Honduras."
+        subtitle={t('hero.subtitle')}
+        description={t('hero.description')}
         color={COLOR}
         imageSrc={IMG.hero}
         collaborators={57}
@@ -181,7 +183,7 @@ export default function BosquesDelManana() {
                 className="text-sm font-bold uppercase tracking-widest mb-4"
                 style={{ color: COLOR }}
               >
-                Acumulado 2022–2025
+                {t('central.accumulated')}
               </motion.p>
 
               <div className="flex items-end gap-2 justify-center lg:justify-start">
@@ -198,17 +200,17 @@ export default function BosquesDelManana() {
               </div>
 
               <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.4 }}>
-                <p className="text-3xl font-black text-cafe mt-2">árboles plantados</p>
+                <p className="text-3xl font-black text-cafe mt-2">{t('central.treesPlanted')}</p>
                 <p className="text-cafe-light mt-3 text-lg leading-relaxed">
-                  en sistemas agroforestales integrados al cultivo del café
+                  {t('central.subtitle')}
                 </p>
               </motion.div>
 
               {/* Mini stats */}
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
-                  { icon: ICONS.map,   v: '+19,683 ha', l: 'Hectáreas intervenidas' },
-                  { icon: ICONS.users, v: '+2,718',     l: 'Productores beneficiados' },
+                  { icon: ICONS.map,   v: '+19,683 ha', l: t('central.hectares') },
+                  { icon: ICONS.users, v: '+2,718',     l: t('central.producers') },
                 ].map((s, i) => (
                   <motion.div
                     key={i}
@@ -246,12 +248,12 @@ export default function BosquesDelManana() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, type: 'spring' }}
               >
-                <img src={IMG.num} alt="Bosques" className="w-full h-full object-cover" />
+                <img src={IMG.num} alt={t('central.imageAlt')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0"
                      style={{ background: `linear-gradient(to top, ${COLOR}99 0%, transparent 50%)` }} />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-white font-black text-xl drop-shadow">5,000,000</p>
-                  <p className="text-white/80 text-sm">árboles — meta 2026</p>
+                  <p className="text-white/80 text-sm">{t('central.goalLabel')}</p>
                 </div>
               </motion.div>
             </div>
@@ -270,10 +272,10 @@ export default function BosquesDelManana() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-16 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Composición de la plantación
+              {t('types.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">
-              Distribución de tipo de planta
+              {t('types.title')}
             </h2>
           </motion.div>
 
@@ -282,28 +284,28 @@ export default function BosquesDelManana() {
               {
                 img:   IMG.mad,
                 icon:  ICONS.tree,
-                label: 'Árboles maderables totales',
+                label: t('types.items.maderables.label'),
                 value: '3,639,139',
                 pct:   91,
-                desc:  'Especies forestales de alto valor comercial y ecológico integradas en fincas cafetaleras.',
+                desc:  t('types.items.maderables.desc'),
                 badge: '91%',
               },
               {
                 img:   IMG.fru,
                 icon:  ICONS.leaf,
-                label: 'Árboles frutales totales',
+                label: t('types.items.frutales.label'),
                 value: '371,223',
                 pct:   9,
-                desc:  'Diversificación de ingresos y nutrición local con frutales nativos y comerciales.',
+                desc:  t('types.items.frutales.desc'),
                 badge: '9%',
               },
               {
                 img:   IMG.cer,
                 icon:  ICONS.map,
-                label: 'Árboles totales',
+                label: t('types.items.total.label'),
                 value: '4,010,362',
                 pct:   null,
-                desc:  'Total acumulado 2022–2025 entre maderables y frutales en sistemas agroforestales.',
+                desc:  t('types.items.total.desc'),
                 badge: 'TOTAL',
               },
             ].map((item, i) => (
@@ -363,9 +365,9 @@ export default function BosquesDelManana() {
 
           <motion.div {...fadeUp} className="mb-10 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Resultados acumulados
+              {t('numbers.eyebrow')}
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">Impacto en números</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-cafe mt-2">{t('numbers.title')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-5 items-stretch">
@@ -373,9 +375,9 @@ export default function BosquesDelManana() {
             {/* ── COLUMNA IZQUIERDA ── */}
             <div className="flex flex-row lg:flex-col gap-4">
               {[
-                { img: IMG.num,  valor: '4,010,362', label: 'Árboles plantados' },
-                { img: IMG.mad,  valor: '+16,000',   label: 'AT proporcionadas' },
-                { img: IMG.fru,  valor: '+2,700',    label: 'Productores atendidos' },
+                { img: IMG.num,  valor: '4,010,362', label: t('numbers.left.trees') },
+                { img: IMG.mad,  valor: '+16,000',   label: t('numbers.left.at') },
+                { img: IMG.fru,  valor: '+2,700',    label: t('numbers.left.producers') },
               ].map((c, i) => (
                 <motion.div
                   key={i}
@@ -430,7 +432,7 @@ export default function BosquesDelManana() {
 
               {/* Subtítulo mapa */}
               <p className="text-center text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 pt-3 pb-1 px-4">
-                General Location Map of Farms · Project Bosques del Mañana · Honduras 2025
+                {t('numbers.mapCaption')}
               </p>
 
               {/* Mapa */}
@@ -446,8 +448,8 @@ export default function BosquesDelManana() {
 
                 {/* Género */}
                 {[
-                  { valor: '449',   label: 'Mujeres productoras', color: '#C2185B', bg: '#FCE4EC' },
-                  { valor: '2,269', label: 'Hombres productores', color: COLOR,     bg: '#E8F5E9' },
+                  { valor: '449',   label: t('numbers.gender.women'), color: '#C2185B', bg: '#FCE4EC' },
+                  { valor: '2,269', label: t('numbers.gender.men'),   color: COLOR,     bg: '#E8F5E9' },
                 ].map((c, i) => (
                   <motion.div
                     key={i}
@@ -471,11 +473,11 @@ export default function BosquesDelManana() {
 
                 {/* USD stats */}
                 {[
-                  { valor: '+USD 930,000', label: 'Por establecimiento', icon: ICONS.leaf },
-                  { valor: '+USD 980,000', label: 'Por mantenimiento',   icon: ICONS.leaf },
-                  { valor: '+USD 87,000',  label: 'Por sobrevivencia',   icon: ICONS.leaf },
-                  { valor: '+20',          label: 'Viveristas',          icon: ICONS.tree },
-                  { valor: '+19,000 ha',   label: 'Intervenidas',        icon: ICONS.map  },
+                  { valor: '+USD 930,000', label: t('numbers.usd.establecimiento'), icon: ICONS.leaf },
+                  { valor: '+USD 980,000', label: t('numbers.usd.mantenimiento'),   icon: ICONS.leaf },
+                  { valor: '+USD 87,000',  label: t('numbers.usd.sobrevivencia'),   icon: ICONS.leaf },
+                  { valor: '+20',          label: t('numbers.usd.viveristas'),       icon: ICONS.tree },
+                  { valor: '+19,000 ha',   label: t('numbers.usd.intervenidas'),    icon: ICONS.map  },
                 ].map((c, i) => (
                   <motion.div
                     key={i}
@@ -501,9 +503,9 @@ export default function BosquesDelManana() {
             {/* ── COLUMNA DERECHA ── */}
             <div className="flex flex-row lg:flex-col gap-4">
               {[
-                { img: IMG.cer,   valor: '+20',      label: 'Técnicos en Campo' },
-                { img: IMG.g1,    valor: '+15,000',  label: 'Kits entregados' },
-                { img: IMG.audit, valor: '🌱',        label: 'Voluntariado Nestlé' },
+                { img: IMG.cer,   valor: '+20',      label: t('numbers.right.tecnicos') },
+                { img: IMG.g1,    valor: '+15,000',  label: t('numbers.right.kits') },
+                { img: IMG.audit, valor: '🌱',        label: t('numbers.right.voluntariado') },
               ].map((c, i) => (
                 <motion.div
                   key={i}
@@ -542,7 +544,7 @@ export default function BosquesDelManana() {
       <section className="relative py-32 overflow-hidden">
         {/* Imagen de fondo con overlay */}
         <div className="absolute inset-0">
-          <img src={IMG.audit} alt="Auditoría" className="w-full h-full object-cover" />
+          <img src={IMG.audit} alt={t('audit.title')} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/65" />
           <div className="absolute inset-0"
                style={{ background: `linear-gradient(135deg, ${COLOR}cc 0%, transparent 60%)` }} />
@@ -560,23 +562,23 @@ export default function BosquesDelManana() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-white/60 text-sm font-bold uppercase tracking-widest">
-                Sostenibilidad ambiental
+                {t('audit.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-white mt-2 mb-6">
-                Auditoría de Carbono 2026
+                {t('audit.title')}
               </h2>
               <p className="text-white/80 leading-relaxed mb-8 text-lg">
-                En 2026 se ejecutó satisfactoriamente la primera auditoría de carbono donde un equipo especializado realizó la verificación de datos dasométricos para comprobar el crecimiento y desarrollo de las plantas.
+                {t('audit.description').split('\n\n')[0]}
                 <br /><br />
-                Se reconoció el excelente equipo de trabajo en campo, el seguimiento a cada productor y el robusto manejo de la información.
+                {t('audit.description').split('\n\n')[1]}
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: ICONS.recycle, label: 'Captura de carbono verificada' },
-                  { icon: ICONS.shield,  label: 'Estándares internacionales' },
-                  { icon: ICONS.chart,   label: 'Monitoreo y evaluación' },
-                  { icon: ICONS.tree,    label: 'Sistemas agroforestales' },
+                  { icon: ICONS.recycle, label: t('audit.features.carbon') },
+                  { icon: ICONS.shield,  label: t('audit.features.standards') },
+                  { icon: ICONS.chart,   label: t('audit.features.monitoring') },
+                  { icon: ICONS.tree,    label: t('audit.features.agroforestry') },
                 ].map((s, i) => (
                   <motion.div
                     key={i}
@@ -633,7 +635,7 @@ export default function BosquesDelManana() {
                   transition={{ delay: 0.3 }}
                   className="text-white/60 text-xs font-bold uppercase tracking-widest mb-3"
                 >
-                  Nuestra meta
+                  {t('audit.goalLabel')}
                 </motion.p>
 
                 {/* Número animado grande */}
@@ -661,7 +663,7 @@ export default function BosquesDelManana() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  tCO₂e capturadas
+                  {t('audit.tco2e')}
                 </motion.p>
                 <motion.p
                   className="text-white/50 text-sm"
@@ -670,7 +672,7 @@ export default function BosquesDelManana() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
                 >
-                  en un período de 20 años
+                  {t('audit.period')}
                 </motion.p>
 
                 {/* Barra de progreso decorativa */}
@@ -684,7 +686,7 @@ export default function BosquesDelManana() {
                     transition={{ duration: 1.5, delay: 0.7, ease: 'easeOut' }}
                   />
                 </div>
-                <p className="text-white/40 text-xs mt-2">Progreso hacia la meta</p>
+                <p className="text-white/40 text-xs mt-2">{t('audit.progress')}</p>
               </div>
 
               {/* Conclusiones del auditor */}
@@ -696,16 +698,10 @@ export default function BosquesDelManana() {
                 className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20"
               >
                 <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">
-                  Conclusiones preliminares del auditor
+                  {t('audit.conclusionsTitle')}
                 </p>
                 <div className="space-y-3">
-                  {[
-                    'Fuerte coordinación en campo que permitió resultados sólidos.',
-                    'Colaboración efectiva con agricultores, partes interesadas y equipo técnico.',
-                    'Estructura del proyecto robusta a nivel técnico, social y operativo.',
-                    'Infraestructura que supera los requerimientos mínimos del proyecto.',
-                    'Equipo técnico con alta preparación y experiencia.',
-                  ].map((item, i) => (
+                  {t('audit.conclusions', { returnObjects: true }).map((item, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, x: 20 }}
@@ -737,9 +733,9 @@ export default function BosquesDelManana() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              El programa en imágenes
+              {t('gallery.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Galería de campo</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('gallery.title')}</h2>
           </motion.div>
 
           {/* Grid masonry uniforme — 3 columnas */}
@@ -756,7 +752,7 @@ export default function BosquesDelManana() {
               >
                 <img
                   src={src}
-                  alt={`Bosques del Mañana ${i + 1}`}
+                  alt={`${t('gallery.imageAlt')} ${i + 1}`}
                   className="w-full object-contain group-hover:scale-105 transition-transform duration-700"
                 />
               </motion.div>
@@ -773,9 +769,9 @@ export default function BosquesDelManana() {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <div className="flex-1">
-              <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Hito 2026</p>
+              <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">{t('gallery.milestone')}</p>
               <p className="text-6xl font-black mb-1">5M</p>
-              <p className="text-white/80 text-lg">árboles — meta acumulada</p>
+              <p className="text-white/80 text-lg">{t('gallery.milestoneLabel')}</p>
             </div>
             <svg width="120" height="120" viewBox="0 0 120 120" fill="none" className="opacity-25 flex-shrink-0">
               <path d="M60 10 L90 70 H70 L80 110 H40 L50 70 H30 Z" fill="white" />
@@ -790,11 +786,11 @@ export default function BosquesDelManana() {
       <section className="py-20 bg-white text-center relative overflow-hidden">
         <LiquidBlob color={COLOR} opacity={0.06} size={400} className="-bottom-20 left-1/2 -translate-x-1/2" />
         <motion.div {...fadeUp} className="relative max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-black text-cafe mb-4">Conoce otros proyectos</h2>
-          <p className="text-cafe-light mb-8">Cada programa transforma vidas en las comunidades caficultoras de Honduras.</p>
+          <h2 className="text-3xl font-black text-cafe mb-4">{t('cta.title')}</h2>
+          <p className="text-cafe-light mb-8">{t('cta.subtitle')}</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Todos los proyectos</Link>
-            <Link to="/proyectos/rs-gold" className="btn-dark">Siguiente: RS GOLD →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/rs-gold" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

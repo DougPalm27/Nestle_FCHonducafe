@@ -1,0 +1,63 @@
+{
+  "badge": "Nossa equipe",
+  "title1": "A equipe",
+  "title2": "COHONDUCAFÉ",
+  "subtitle": "82 colaboradores dedicados a transformar comunidades cafeicultoras com compromisso, técnica e vocação de serviço.",
+  "summary": {
+    "colaboradores": "Colaboradores totais",
+    "areas": "Áreas de trabalho",
+    "departamentos": "Departamentos de Honduras",
+    "paises": "Países de operação direta"
+  },
+  "org": {
+    "eyebrow": "Organograma",
+    "title": "Estrutura da equipe"
+  },
+  "colaboradoresLabel": "colaboradores",
+  "areas": {
+    "ghg": {
+      "name": "GHG",
+      "groups": [
+        { "items": ["Assistente Administrativo: GM", "6 técnicos contratados"] }
+      ]
+    },
+    "pilotoYoro": {
+      "name": "Agricultura Regenerativa Resiliente (Piloto de Yoro)",
+      "groups": [
+        { "items": ["Técnicos de campo (3)"] }
+      ]
+    },
+    "jovenesCaficultores": {
+      "name": "Iniciativa pelos Jovens",
+      "groups": [
+        { "items": ["Coordenador: JH", "Especialista em M&A: EM", "Especialista em Transferência de Tecnologia (1): JC", "Instrutor da Sala de Aula Móvel (1)", "Motorista da Sala de Aula Móvel (1)"] },
+        { "title": "Apoio compartilhado", "items": ["Analista de Dados (50%): JC"] }
+      ]
+    },
+    "recursosHumanos": {
+      "name": "Recursos Humanos",
+      "groups": [
+        { "items": ["Gerente de Recursos Humanos: DP", "Encarregado de Frota: CJ", "Analista de Dados (50%)"] }
+      ]
+    },
+    "bosquesDelManana": {
+      "name": "Florestas do Amanhã",
+      "groups": [
+        { "title": "Área Técnica", "items": ["Coordenador Técnico: EU", "Especialista Ambiental: MO", "Especialista em M&A: AC", "Supervisores de Campo (2)", "Técnicos de Campo (20) a contratar (1)", "Viveiristas (28)"] },
+        { "title": "Área Administrativa", "items": ["Coordenador Administrativo: MS", "Contador do Projeto: HH", "Oficial de Pagamentos: DC"] }
+      ]
+    },
+    "derechosHumanos": {
+      "name": "Direitos Humanos e Proteção da Infância",
+      "groups": [
+        { "items": ["Coordenadora: WG"] }
+      ]
+    },
+    "nespresso": {
+      "name": "Nespresso",
+      "groups": [
+        { "items": ["Coordenadora: MC", "Gerentes Departamentais (1): TL", "Assistente: RP", "Técnicos de Campo (2)"] }
+      ]
+    }
+  }
+}

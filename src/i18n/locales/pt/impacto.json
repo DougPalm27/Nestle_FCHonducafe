@@ -1,0 +1,28 @@
+{
+  "badge": "Relatório de impacto 2026",
+  "title": "Impacto Global",
+  "subtitle": "Resultados concretos que transformam comunidades cafeicultoras de Honduras e toda a América Central.",
+  "statsTitle": "Nosso impacto em números",
+  "stats": {
+    "colaboradores": "Colaboradores",
+    "proyectosActivos": "Projetos ativos",
+    "personasCapacitadas": "Pessoas capacitadas",
+    "arbolesPlantados": "Árvores plantadas"
+  },
+  "byProjectTitle": "Impacto por projeto",
+  "projects": {
+    "jovenesCaficultores": "Jovens Cafeicultores",
+    "bosquesDelManana": "Florestas do Amanhã",
+    "rsGold": "RS GOLD",
+    "derechosHumanos": "Direitos Humanos",
+    "incentivoCondicional": "Incentivo Condicional",
+    "nespresso": "Nespresso AAA"
+  },
+  "labels": {
+    "personasCapacitadas": "pessoas capacitadas",
+    "arboles": "árvores",
+    "colabs": "colabs."
+  },
+  "countriesTitle": "Presença na América Central e além",
+  "countriesSubtitle": "23 países alcançados pelos cursos virtuais do programa"
+}

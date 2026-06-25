@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ProjectHero from '../../components/ProjectHero'
 import CounterStat from '../../components/CounterStat'
 
@@ -26,14 +27,14 @@ const ICONS = {
   dollar:   'M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
 }
 
-const METAS = [
-  { label: 'Entrega de incentivos',                          pct: 100, done: true  },
-  { label: 'Actualización anual de unidades 4C',             pct: 100, done: true  },
-  { label: '1,620 fincas georeferenciadas',                  pct: 100, done: true  },
-  { label: 'Capacitar 1,620 productores',                    pct: 35,  done: false },
-  { label: 'Proveer 8,000 ton de café verde/año',            pct: 19,  done: false },
-  { label: 'Manejo nutricional basado en análisis de suelo', pct: 0,   done: false },
-  { label: 'Descarbonización y Ag. Regenerativa (M&E 2025)', pct: 0,   done: false },
+const METAS_BASE = [
+  { key: 'incentivos',        pct: 100, done: true  },
+  { key: 'actualizacion4c',   pct: 100, done: true  },
+  { key: 'fincasGeoref',      pct: 100, done: true  },
+  { key: 'capacitar',         pct: 35,  done: false },
+  { key: 'ton',                pct: 19,  done: false },
+  { key: 'nutricional',       pct: 0,   done: false },
+  { key: 'descarbonizacion',  pct: 0,   done: false },
 ]
 
 const fadeUp = {
@@ -44,15 +45,19 @@ const fadeUp = {
 }
 
 export default function RsGold() {
+  const { t } = useTranslation('rsGold')
+  const METAS = METAS_BASE.map(m => ({ ...m, label: t(`goals.items.${m.key}`) }))
+  const departments = t('coverage.departments', { returnObjects: true })
+
   return (
     <div className="page-enter">
       <ProjectHero
-        title="GHG, Agricultura Regenerativa y Proyectos de Captura de Carbono Unidad RS Gold"
-        subtitle="Nescafé Responsible Sourced Gold"
-        description="Garantiza a la cadena de suministro RS Gold, café responsable bajo agricultura regenerativa y resiliente. 1,620 caficultores hacia la sostenibilidad certificada."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        description={t('hero.description')}
         color={COLOR}
         imageSrc="/imagenes/proyectos/rs-gold/hero.webp"
-        tag="Cadena de Suministro"
+        tag={t('hero.tag')}
         collaborators={7}
       />
 
@@ -61,17 +66,17 @@ export default function RsGold() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Indicadores clave del proyecto
+              {t('kpi.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Impacto en la cadena</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('kpi.title')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: ICONS.family, value: 1620,  suffix: '',  label: 'Familias productoras',          sub: 'en la cadena 4C RS-GOLD' },
-              { icon: ICONS.chart,  value: 30,    suffix: '%', label: 'Meta aumento productividad',    sub: 'en fincas para 2028' },
-              { icon: ICONS.recycle,value: 17152, suffix: '',  label: 'TCO₂e a reducir',               sub: 'emisiones de carbono' },
-              { icon: ICONS.coffee, value: 8000,  suffix: '',  label: 'Ton café verde/año',             sub: 'meta de producción' },
+              { icon: ICONS.family, value: 1620,  suffix: '',  label: t('kpi.items.familias.label'),       sub: t('kpi.items.familias.sub') },
+              { icon: ICONS.chart,  value: 30,    suffix: '%', label: t('kpi.items.productividad.label'),  sub: t('kpi.items.productividad.sub') },
+              { icon: ICONS.recycle,value: 17152, suffix: '',  label: t('kpi.items.tco2e.label'),          sub: t('kpi.items.tco2e.sub') },
+              { icon: ICONS.coffee, value: 8000,  suffix: '',  label: t('kpi.items.cafe.label'),           sub: t('kpi.items.cafe.sub') },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -100,16 +105,15 @@ export default function RsGold() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp}>
               <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-                Cobertura geográfica
+                {t('coverage.eyebrow')}
               </span>
-              <h2 className="text-4xl font-black text-cafe mt-2 mb-3">Departamentos de influencia</h2>
+              <h2 className="text-4xl font-black text-cafe mt-2 mb-3">{t('coverage.title')}</h2>
               <p className="text-cafe-light mb-8 leading-relaxed">
-                El programa opera en los principales departamentos cafeteros de Honduras,
-                cubriendo a 1,620 familias productoras integradas en la cadena RS GOLD.
+                {t('coverage.description')}
               </p>
 
               <div className="space-y-3">
-                {['Copán', 'Lempira', 'Comayagua', 'Yoro', 'Santa Bárbara'].map((d, i) => (
+                {departments.map((d, i) => (
                   <motion.div
                     key={d}
                     initial={{ opacity: 0, x: -20 }}
@@ -137,18 +141,18 @@ export default function RsGold() {
               {[
                 {
                   icon: ICONS.shield,
-                  title: 'Certificación 4C',
-                  desc: 'Código Común de la Comunidad Cafetera — estándar base de sostenibilidad para caficultura responsable.',
+                  title: t('coverage.certifications.c4.title'),
+                  desc: t('coverage.certifications.c4.desc'),
                 },
                 {
                   icon: ICONS.recycle,
-                  title: 'Agricultura Regenerativa',
-                  desc: 'Prácticas que restauran la salud del suelo, aumentan la biodiversidad y reducen 17,152 TCO₂e de emisiones.',
+                  title: t('coverage.certifications.regenerative.title'),
+                  desc: t('coverage.certifications.regenerative.desc'),
                 },
                 {
                   icon: ICONS.globe,
-                  title: 'Trazabilidad completa',
-                  desc: '1,620 fincas georeferenciadas para garantizar transparencia total en la cadena de suministro de Nestlé.',
+                  title: t('coverage.certifications.trace.title'),
+                  desc: t('coverage.certifications.trace.desc'),
                 },
               ].map((c, i) => (
                 <div key={i}
@@ -174,9 +178,9 @@ export default function RsGold() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Avance 2026
+              {t('goals.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Cumplimiento de metas</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('goals.title')}</h2>
           </motion.div>
 
           <div className="space-y-3 max-w-3xl">
@@ -225,22 +229,19 @@ export default function RsGold() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div {...fadeUp}>
               <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-                Investigación & Innovación
+                {t('mlt.eyebrow')}
               </span>
               <h2 className="text-4xl font-black text-cafe mt-2 mb-4">
-                Variedades MLT
+                {t('mlt.title')}
               </h2>
-              <p className="text-cafe-light leading-relaxed mb-6">
-                El Proyecto de Evaluación de Variedades de Café — <strong>Multi-Location Trials</strong> —
-                es un esfuerzo conjunto entre Nestlé y Fundación COHONDUCAFÉ para generar información
-                confiable sobre nuevos híbridos de café bajo condiciones reales de producción en Honduras.
-              </p>
+              <p className="text-cafe-light leading-relaxed mb-6"
+                 dangerouslySetInnerHTML={{ __html: t('mlt.description') }} />
               <div className="space-y-4">
                 {[
-                  { icon: ICONS.beaker, label: 'Caracterizar el crecimiento vegetativo de los materiales' },
-                  { icon: ICONS.shield, label: 'Evaluar tolerancia a las principales enfermedades' },
-                  { icon: ICONS.chart,  label: 'Registrar respuesta productiva durante todo el ciclo' },
-                  { icon: ICONS.globe,  label: 'Analizar adaptación y estabilidad según la altitud' },
+                  { icon: ICONS.beaker, label: t('mlt.objectives.crecimiento') },
+                  { icon: ICONS.shield, label: t('mlt.objectives.tolerancia') },
+                  { icon: ICONS.chart,  label: t('mlt.objectives.respuesta') },
+                  { icon: ICONS.globe,  label: t('mlt.objectives.adaptacion') },
                 ].map((obj, i) => (
                   <motion.div
                     key={i}
@@ -273,7 +274,7 @@ export default function RsGold() {
                   <div key={n} className="rounded-2xl overflow-hidden aspect-square shadow-md hover:shadow-xl transition-shadow duration-300">
                     <img
                       src={`/imagenes/proyectos/rs-gold/Variedades_MLT_${n}.webp`}
-                      alt={`Variedad MLT ${n}`}
+                      alt={`${t('mlt.galleryAlt')} ${n}`}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -283,14 +284,14 @@ export default function RsGold() {
               <div className="rounded-3xl p-8 text-white"
                    style={{ background: `linear-gradient(135deg, ${COLOR}, ${ACCENT})` }}>
                 <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-6">
-                  Pilares RS GOLD
+                  {t('mlt.pillarsTitle')}
                 </p>
                 <div className="space-y-6">
                   {[
-                    { icon: ICONS.recycle, title: 'Agricultura Regenerativa', desc: 'Restauración del suelo, biodiversidad y reducción de emisiones de carbono.' },
-                    { icon: ICONS.globe,   title: 'Trazabilidad',              desc: '1,620 fincas georeferenciadas con transparencia total en la cadena.' },
-                    { icon: ICONS.dollar,  title: 'Incentivos condicionales',  desc: 'Recompensa el cumplimiento de buenas prácticas agrícolas y 4C.' },
-                    { icon: ICONS.shield,  title: 'Evaluación de riesgos',     desc: 'Trabajo infantil, derechos humanos e inclusión social auditados.' },
+                    { icon: ICONS.recycle, title: t('mlt.pillars.regenerative.title'), desc: t('mlt.pillars.regenerative.desc') },
+                    { icon: ICONS.globe,   title: t('mlt.pillars.trace.title'),         desc: t('mlt.pillars.trace.desc') },
+                    { icon: ICONS.dollar,  title: t('mlt.pillars.incentives.title'),    desc: t('mlt.pillars.incentives.desc') },
+                    { icon: ICONS.shield,  title: t('mlt.pillars.risk.title'),          desc: t('mlt.pillars.risk.desc') },
                   ].map((p, i) => (
                     <div key={i} className="flex gap-4">
                       <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
@@ -313,8 +314,8 @@ export default function RsGold() {
       <section className="py-20 bg-[#F2EDE4] text-center">
         <motion.div {...fadeUp} className="max-w-2xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Todos los proyectos</Link>
-            <Link to="/proyectos/derechos-humanos" className="btn-dark">Siguiente: Derechos Humanos →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/derechos-humanos" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

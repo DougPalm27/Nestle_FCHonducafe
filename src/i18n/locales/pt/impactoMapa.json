@@ -1,0 +1,43 @@
+{
+  "countries": {
+    "HN": { "name": "Honduras", "note": "Sede principal · 6 projetos ativos" },
+    "NI": { "name": "Nicarágua", "note": "Cursos virtuais" },
+    "GT": { "name": "Guatemala", "note": "Cursos virtuais" },
+    "SV": { "name": "El Salvador", "note": "Cursos virtuais" },
+    "PA": { "name": "Panamá", "note": "Cursos virtuais" },
+    "CO": { "name": "Colômbia", "note": "Cursos virtuais" },
+    "CR": { "name": "Costa Rica", "note": "Cursos virtuais" },
+    "PE": { "name": "Peru", "note": "Cursos virtuais" },
+    "BO": { "name": "Bolívia", "note": "Cursos virtuais" },
+    "VE": { "name": "Venezuela", "note": "Cursos virtuais" },
+    "MX": { "name": "México", "note": "Cursos virtuais" },
+    "BR": { "name": "Brasil", "note": "Cursos virtuais" },
+    "EC": { "name": "Equador", "note": "Cursos virtuais" },
+    "DO": { "name": "Rep. Dominicana", "note": "Cursos virtuais" },
+    "CU": { "name": "Cuba", "note": "Cursos virtuais" },
+    "PY": { "name": "Paraguai", "note": "Cursos virtuais" },
+    "UY": { "name": "Uruguai", "note": "Cursos virtuais" },
+    "CL": { "name": "Chile", "note": "Cursos virtuais" },
+    "AR": { "name": "Argentina", "note": "Cursos virtuais" },
+    "HT": { "name": "Haiti", "note": "Cursos virtuais" },
+    "JM": { "name": "Jamaica", "note": "Cursos virtuais" },
+    "PR": { "name": "Porto Rico", "note": "Cursos virtuais" },
+    "CA": { "name": "Canadá", "note": "Cursos virtuais" }
+  },
+  "sedePrincipal": "Sede principal",
+  "legend": {
+    "hq": "Honduras — Sede principal",
+    "virtual": "Países com alcance virtual",
+    "drag": "Arraste · Zoom com a roda"
+  },
+  "statsStrip": {
+    "countries": "Países alcançados",
+    "viewList": "Ver lista →",
+    "activeProjects": "Projetos ativos",
+    "region": "Região de impacto"
+  },
+  "modal": {
+    "title": "Países alcançados",
+    "subtitle": "23 países · cursos virtuais"
+  }
+}

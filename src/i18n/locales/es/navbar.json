@@ -1,0 +1,17 @@
+{
+  "inicio": "Inicio",
+  "proyectos": "Proyectos",
+  "impacto": "Impacto",
+  "staff": "Staff",
+  "contacto": "Contacto",
+  "contactanos": "Contáctanos",
+  "menu": "Menú",
+  "projects": {
+    "jovenesCaficultores": "Jóvenes Caficultores",
+    "bosquesDelManana": "Bosques del Mañana",
+    "rsGold": "RS GOLD",
+    "espaciosSeguros": "Espacios Seguros",
+    "incentivoCondicional": "Incentivo Condicional",
+    "nespresso": "Clúster Nespresso - COHONDUCAFÉ"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "GRP-Forests of Tomorrow",
+    "subtitle": "Trees that restore the land and create opportunities.",
+    "description": "More than 4 million trees planted in agroforestry systems associated with coffee, living fences, and pure plantations, generating jobs, income and improving Biodiversity in Honduras."
+  },
+  "central": {
+    "accumulated": "Accumulated 2022–2025",
+    "treesPlanted": "trees planted",
+    "subtitle": "in agroforestry systems integrated with coffee cultivation",
+    "hectares": "Hectares intervened",
+    "producers": "Producers benefited",
+    "imageAlt": "Forests",
+    "goalLabel": "trees — 2026 goal"
+  },
+  "types": {
+    "eyebrow": "Plantation composition",
+    "title": "Plant type distribution",
+    "items": {
+      "maderables": { "label": "Total timber trees", "desc": "Forest species of high commercial and ecological value integrated into coffee farms." },
+      "frutales": { "label": "Total fruit trees", "desc": "Income diversification and local nutrition with native and commercial fruit trees." },
+      "total": { "label": "Total trees", "desc": "Accumulated total 2022–2025 between timber and fruit trees in agroforestry systems." }
+    }
+  },
+  "numbers": {
+    "eyebrow": "Accumulated results",
+    "title": "Impact in numbers",
+    "left": {
+      "trees": "Trees planted",
+      "at": "TA provided",
+      "producers": "Producers served"
+    },
+    "mapCaption": "General Location Map of Farms · Forests of Tomorrow Project · Honduras 2025",
+    "gender": {
+      "women": "Women producers",
+      "men": "Men producers"
+    },
+    "usd": {
+      "establecimiento": "For establishment",
+      "mantenimiento": "For maintenance",
+      "sobrevivencia": "For survival",
+      "viveristas": "Nursery growers",
+      "intervenidas": "Intervened"
+    },
+    "right": {
+      "tecnicos": "Field technicians",
+      "kits": "Kits delivered",
+      "voluntariado": "Nestlé volunteering"
+    }
+  },
+  "audit": {
+    "eyebrow": "Environmental sustainability",
+    "title": "2026 Carbon Audit",
+    "description": "In 2026 the first carbon audit was successfully carried out, where a specialized team verified dasometric data to confirm the growth and development of the plants.\n\nThe excellent field team, the follow-up with each producer and the robust information management were recognized.",
+    "features": {
+      "carbon": "Verified carbon capture",
+      "standards": "International standards",
+      "monitoring": "Monitoring and evaluation",
+      "agroforestry": "Agroforestry systems"
+    },
+    "goalLabel": "Our goal",
+    "tco2e": "tCO₂e captured",
+    "period": "over a 20-year period",
+    "progress": "Progress toward the goal",
+    "conclusionsTitle": "Auditor's preliminary conclusions",
+    "conclusions": [
+      "Strong field coordination that led to solid results.",
+      "Effective collaboration with farmers, stakeholders and the technical team.",
+      "Robust project structure at the technical, social and operational level.",
+      "Infrastructure that exceeds the project's minimum requirements.",
+      "Highly prepared and experienced technical team."
+    ]
+  },
+  "gallery": {
+    "eyebrow": "The program in pictures",
+    "title": "Field gallery",
+    "imageAlt": "Forests of Tomorrow",
+    "milestone": "2026 Milestone",
+    "milestoneLabel": "trees — cumulative goal"
+  },
+  "cta": {
+    "title": "Discover other projects",
+    "subtitle": "Every program transforms lives in coffee-growing communities in Honduras.",
+    "btnAll": "← All projects",
+    "btnNext": "Next: RS GOLD →"
+  }
+}

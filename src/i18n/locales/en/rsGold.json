@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "title": "GHG, Regenerative Agriculture and Carbon Capture Projects RS Gold Unit",
+    "subtitle": "Nescafé Responsible Sourced Gold",
+    "description": "Guarantees the RS Gold supply chain responsible coffee under regenerative and resilient agriculture. 1,620 coffee growers moving toward certified sustainability.",
+    "tag": "Supply Chain"
+  },
+  "kpi": {
+    "eyebrow": "Key project indicators",
+    "title": "Impact on the chain",
+    "items": {
+      "familias": { "label": "Producing families", "sub": "in the 4C RS-GOLD chain" },
+      "productividad": { "label": "Productivity increase goal", "sub": "on farms by 2028" },
+      "tco2e": { "label": "TCO₂e to reduce", "sub": "carbon emissions" },
+      "cafe": { "label": "Tons green coffee/year", "sub": "production goal" }
+    }
+  },
+  "coverage": {
+    "eyebrow": "Geographic coverage",
+    "title": "Departments of influence",
+    "description": "The program operates in the main coffee-growing departments of Honduras, covering 1,620 producing families integrated into the RS GOLD chain.",
+    "departments": ["Copán", "Lempira", "Comayagua", "Yoro", "Santa Bárbara"],
+    "certifications": {
+      "c4": { "title": "4C Certification", "desc": "Common Code for the Coffee Community — baseline sustainability standard for responsible coffee growing." },
+      "regenerative": { "title": "Regenerative Agriculture", "desc": "Practices that restore soil health, increase biodiversity and reduce 17,152 TCO₂e of emissions." },
+      "trace": { "title": "Full traceability", "desc": "1,620 georeferenced farms to guarantee total transparency in Nestlé's supply chain." }
+    }
+  },
+  "goals": {
+    "eyebrow": "2026 Progress",
+    "title": "Goal compliance",
+    "items": {
+      "incentivos": "Incentive delivery",
+      "actualizacion4c": "Annual 4C unit update",
+      "fincasGeoref": "1,620 georeferenced farms",
+      "capacitar": "Train 1,620 producers",
+      "ton": "Provide 8,000 tons of green coffee/year",
+      "nutricional": "Nutritional management based on soil analysis",
+      "descarbonizacion": "Decarbonization and Regenerative Agriculture (M&E 2025)"
+    }
+  },
+  "mlt": {
+    "eyebrow": "Research & Innovation",
+    "title": "MLT Varieties",
+    "description": "The Coffee Variety Evaluation Project — <strong>Multi-Location Trials</strong> — is a joint effort between Nestlé and Fundación COHONDUCAFÉ to generate reliable information on new coffee hybrids under real production conditions in Honduras.",
+    "objectives": {
+      "crecimiento": "Characterize the vegetative growth of the materials",
+      "tolerancia": "Evaluate tolerance to major diseases",
+      "respuesta": "Record productive response throughout the cycle",
+      "adaptacion": "Analyze adaptation and stability according to altitude"
+    },
+    "galleryAlt": "MLT Variety",
+    "pillarsTitle": "RS GOLD Pillars",
+    "pillars": {
+      "regenerative": { "title": "Regenerative Agriculture", "desc": "Soil restoration, biodiversity and reduction of carbon emissions." },
+      "trace": { "title": "Traceability", "desc": "1,620 georeferenced farms with full transparency in the chain." },
+      "incentives": { "title": "Conditional incentives", "desc": "Rewards compliance with good agricultural practices and 4C." },
+      "risk": { "title": "Risk assessment", "desc": "Child labor, human rights and social inclusion audited." }
+    }
+  },
+  "cta": {
+    "btnAll": "← All projects",
+    "btnNext": "Next: Human Rights →"
+  }
+}

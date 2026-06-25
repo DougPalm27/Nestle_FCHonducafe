@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import LanguageGate from './components/LanguageGate'
 
 // Pages
 import Home from './pages/Home'
@@ -69,7 +70,9 @@ function NotFound() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <LanguageGate>
+        <AppRoutes />
+      </LanguageGate>
     </BrowserRouter>
   )
 }

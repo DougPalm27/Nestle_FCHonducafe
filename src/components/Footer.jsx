@@ -1,22 +1,25 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
-const quickLinks = [
-  { label: 'Inicio',    to: '/' },
-  { label: 'Impacto',   to: '/impacto' },
-  { label: 'Equipo',    to: '/equipo' },
-  { label: 'Contacto',  to: '/contacto' },
+const quickLinkKeys = [
+  { key: 'inicio',    to: '/' },
+  { key: 'impacto',   to: '/impacto' },
+  { key: 'equipo',    to: '/equipo' },
+  { key: 'contacto',  to: '/contacto' },
 ]
 
-const projectLinks = [
-  { label: 'Jóvenes Caficultores',   to: '/proyectos/jovenes-caficultores' },
-  { label: 'Bosques del Mañana',     to: '/proyectos/bosques-del-manana' },
-  { label: 'RS GOLD',                to: '/proyectos/rs-gold' },
-  { label: 'Derechos Humanos',          to: '/proyectos/derechos-humanos' },
-  { label: 'Incentivo Condicional',   to: '/proyectos/piloto-yoro' },
-  { label: 'Nespresso AAA',          to: '/proyectos/nespresso-aaa' },
+const projectLinkKeys = [
+  { key: 'jovenesCaficultores',   to: '/proyectos/jovenes-caficultores' },
+  { key: 'bosquesDelManana',      to: '/proyectos/bosques-del-manana' },
+  { key: 'rsGold',                to: '/proyectos/rs-gold' },
+  { key: 'derechosHumanos',       to: '/proyectos/derechos-humanos' },
+  { key: 'incentivoCondicional',  to: '/proyectos/piloto-yoro' },
+  { key: 'nespresso',             to: '/proyectos/nespresso-aaa' },
 ]
 
 export default function Footer() {
+  const { t } = useTranslation('footer')
+
   return (
     <footer className="bg-[#3E2723] text-white">
       {/* Top wave */}
@@ -39,11 +42,10 @@ export default function Footer() {
               />
             </div>
             <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-              Transformando comunidades caficultoras de Honduras y Centroamérica a través de
-              programas de sostenibilidad, educación y desarrollo rural.
+              {t('tagline')}
             </p>
             <div className="mt-6 flex items-center gap-3 flex-wrap">
-              <span className="text-white/50 text-xs">En alianza con</span>
+              <span className="text-white/50 text-xs">{t('alliance')}</span>
               <img
                 src="/imagenes/logos/Logos Generales/LOGO NESTLÉ POSITIVO.webp"
                 alt="Nestlé"
@@ -60,15 +62,15 @@ export default function Footer() {
           {/* Quick links */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-widest text-white/50 mb-4">
-              Navegación
+              {t('navigation')}
             </h3>
             <ul className="flex flex-col gap-2">
-              {quickLinks.map(l => (
+              {quickLinkKeys.map(l => (
                 <li key={l.to}>
                   <Link to={l.to}
                     className="text-white/80 hover:text-white text-sm transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-terracota opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {l.label}
+                    {t(`links.${l.key}`)}
                   </Link>
                 </li>
               ))}
@@ -78,15 +80,15 @@ export default function Footer() {
           {/* Projects links */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-widest text-white/50 mb-4">
-              Proyectos
+              {t('projects')}
             </h3>
             <ul className="flex flex-col gap-2">
-              {projectLinks.map(l => (
+              {projectLinkKeys.map(l => (
                 <li key={l.to}>
                   <Link to={l.to}
                     className="text-white/80 hover:text-white text-sm transition-colors duration-150 flex items-center gap-2 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-terracota opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {l.label}
+                    {t(`projectLinks.${l.key}`)}
                   </Link>
                 </li>
               ))}
@@ -97,10 +99,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm">
-            © 2026 Fundación COHONDUCAFÉ. Todos los derechos reservados.
+            {t('rights')}
           </p>
           <p className="text-white/40 text-sm">
-            Proyectos con <span className="text-white/60 font-semibold">Nestlé</span> — Honduras
+            {t('withNestle')} <span className="text-white/60 font-semibold">Nestlé</span> — {t('honduras')}
           </p>
         </div>
       </div>

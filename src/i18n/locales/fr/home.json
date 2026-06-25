@@ -1,0 +1,84 @@
+{
+  "title1": "Projets",
+  "title2": "avec Nestlé",
+  "viewProject": "Voir le projet",
+  "globalImpact": "Impact global",
+  "contactUs": "Contactez-nous",
+  "changePalette": "Changer de palette",
+  "palettes": {
+    "cafe": "Café Profond",
+    "selva": "Jungle Nocturne",
+    "pizarra": "Ardoise & Or",
+    "marina": "Nuit Marine",
+    "ceniza": "Cendre Volcanique",
+    "brasa": "Braise & Indigo",
+    "crema": "Crème de Café",
+    "lino": "Lin & Vert",
+    "niebla": "Brume Andine",
+    "pergamino": "Parchemin",
+    "amanecer": "Aube Caféière",
+    "menta": "Cacao & Menthe"
+  },
+  "projects": {
+    "jovenesCaficultores": {
+      "name": "Jeunes Caféiculteurs",
+      "tag": "Éducation & Jeunesse",
+      "desc": "Orientation professionnelle, formation technique et agro-entrepreneuriat pour les jeunes des communautés caféicultrices. Nous prévenons la migration en créant de réelles opportunités à la campagne.",
+      "impact": [
+        { "label": "Jeunes formés", "value": "4 771+" },
+        { "label": "Pays atteints", "value": "23" },
+        { "label": "Heures en direct", "value": "1 600+" }
+      ]
+    },
+    "bosquesDelManana": {
+      "name": "Forêts de Demain",
+      "tag": "Reforestation",
+      "desc": "Reforestation stratégique avec plus de 4 millions d'arbres intégrés à des systèmes agroforestiers aux côtés de la culture du café. Nous restaurons les écosystèmes et renforçons la résilience climatique.",
+      "impact": [
+        { "label": "Arbres plantés", "value": "4M+" },
+        { "label": "Familles bénéficiaires", "value": "800+" },
+        { "label": "Hectares", "value": "2 100" }
+      ]
+    },
+    "rsGold": {
+      "name": "GHG & RS GOLD",
+      "tag": "Agriculture Régénérative",
+      "desc": "Nous garantissons un café responsable issu d'une agriculture régénérative et résiliente dans la chaîne RS Gold de Nescafé. Captation de carbone, traçabilité totale et certification 4C pour 1 620 caféiculteurs.",
+      "impact": [
+        { "label": "Caféiculteurs", "value": "1 620" },
+        { "label": "Fermes géoréf.", "value": "1 620" },
+        { "label": "Norme", "value": "4C" }
+      ]
+    },
+    "derechosHumanos": {
+      "name": "Espaces Sûrs",
+      "tag": "Impact Social",
+      "desc": "Nous renforçons les droits humains et prévenons le travail des enfants dans les communautés caféicultrices du Honduras. Nous formons des leaders communautaires et améliorons la gouvernance locale.",
+      "impact": [
+        { "label": "Communautés", "value": "12+" },
+        { "label": "Leaders formés", "value": "61" },
+        { "label": "Enfants protégés", "value": "200+" }
+      ]
+    },
+    "incentivoCondicional": {
+      "name": "Incitation Conditionnelle",
+      "tag": "Yoro, Honduras",
+      "desc": "Programme pilote à Yoro qui incite conditionnellement les producteurs vulnérables à adopter des pratiques d'agriculture régénérative, améliorant les sols et les moyens de subsistance.",
+      "impact": [
+        { "label": "Producteurs", "value": "120+" },
+        { "label": "Municipalités", "value": "3" },
+        { "label": "Année de lancement", "value": "2024" }
+      ]
+    },
+    "nespresso": {
+      "name": "Nespresso AAA",
+      "tag": "Durabilité AAA",
+      "desc": "Programme de durabilité AAA au sein du Cluster COHONDUCAFÉ axé sur l'inclusivité, la productivité et la qualité de vie. Connecte 421 producteurs de Copán et Ocotepeque au marché premium.",
+      "impact": [
+        { "label": "Producteurs AAA", "value": "421" },
+        { "label": "Régions", "value": "2" },
+        { "label": "Orientation", "value": "Premium" }
+      ]
+    }
+  }
+}

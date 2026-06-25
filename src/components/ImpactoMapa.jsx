@@ -4,6 +4,8 @@ import * as am5 from '@amcharts/amcharts5'
 import * as am5map from '@amcharts/amcharts5/map'
 import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow'
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
+import { useTranslation } from 'react-i18next'
+import i18n from '../i18n'
 
 // ISO2 codes for the Americas (North, Central, South + Caribbean)
 const AMERICAS = new Set([
@@ -13,30 +15,31 @@ const AMERICAS = new Set([
   'TC','KY','VG','VI','AW','CW','SX','MQ','GP','GF',
 ])
 
+/* Los nombres/notas visibles (tooltip, lista) viven en i18n/locales/<lang>/impactoMapa.json */
 const COUNTRIES = [
-  { id: 'HN', name: 'Honduras',        note: 'Sede principal · 6 proyectos activos', highlight: true  },
-  { id: 'NI', name: 'Nicaragua',        note: 'Cursos virtuales',                     highlight: false },
-  { id: 'GT', name: 'Guatemala',        note: 'Cursos virtuales',                     highlight: false },
-  { id: 'SV', name: 'El Salvador',      note: 'Cursos virtuales',                     highlight: false },
-  { id: 'PA', name: 'Panamá',           note: 'Cursos virtuales',                     highlight: false },
-  { id: 'CO', name: 'Colombia',         note: 'Cursos virtuales',                     highlight: false },
-  { id: 'CR', name: 'Costa Rica',       note: 'Cursos virtuales',                     highlight: false },
-  { id: 'PE', name: 'Perú',            note: 'Cursos virtuales',                     highlight: false },
-  { id: 'BO', name: 'Bolivia',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'VE', name: 'Venezuela',        note: 'Cursos virtuales',                     highlight: false },
-  { id: 'MX', name: 'México',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'BR', name: 'Brasil',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'EC', name: 'Ecuador',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'DO', name: 'Rep. Dominicana',  note: 'Cursos virtuales',                     highlight: false },
-  { id: 'CU', name: 'Cuba',            note: 'Cursos virtuales',                     highlight: false },
-  { id: 'PY', name: 'Paraguay',         note: 'Cursos virtuales',                     highlight: false },
-  { id: 'UY', name: 'Uruguay',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'CL', name: 'Chile',           note: 'Cursos virtuales',                     highlight: false },
-  { id: 'AR', name: 'Argentina',        note: 'Cursos virtuales',                     highlight: false },
-  { id: 'HT', name: 'Haití',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'JM', name: 'Jamaica',          note: 'Cursos virtuales',                     highlight: false },
-  { id: 'PR', name: 'Puerto Rico',      note: 'Cursos virtuales',                     highlight: false },
-  { id: 'CA', name: 'Canadá',         note: 'Cursos virtuales',                     highlight: false },
+  { id: 'HN', highlight: true  },
+  { id: 'NI', highlight: false },
+  { id: 'GT', highlight: false },
+  { id: 'SV', highlight: false },
+  { id: 'PA', highlight: false },
+  { id: 'CO', highlight: false },
+  { id: 'CR', highlight: false },
+  { id: 'PE', highlight: false },
+  { id: 'BO', highlight: false },
+  { id: 'VE', highlight: false },
+  { id: 'MX', highlight: false },
+  { id: 'BR', highlight: false },
+  { id: 'EC', highlight: false },
+  { id: 'DO', highlight: false },
+  { id: 'CU', highlight: false },
+  { id: 'PY', highlight: false },
+  { id: 'UY', highlight: false },
+  { id: 'CL', highlight: false },
+  { id: 'AR', highlight: false },
+  { id: 'HT', highlight: false },
+  { id: 'JM', highlight: false },
+  { id: 'PR', highlight: false },
+  { id: 'CA', highlight: false },
 ]
 
 // Filter geodata to Americas only
@@ -46,32 +49,33 @@ const americasGeoJSON = {
 }
 
 const PAISES_LIST = [
-  { id: 'HN', name: 'Honduras',        flag: '🇭🇳', sede: true  },
-  { id: 'MX', name: 'México',          flag: '🇲🇽' },
-  { id: 'GT', name: 'Guatemala',       flag: '🇬🇹' },
-  { id: 'SV', name: 'El Salvador',     flag: '🇸🇻' },
-  { id: 'NI', name: 'Nicaragua',       flag: '🇳🇮' },
-  { id: 'CR', name: 'Costa Rica',      flag: '🇨🇷' },
-  { id: 'PA', name: 'Panamá',          flag: '🇵🇦' },
-  { id: 'CU', name: 'Cuba',            flag: '🇨🇺' },
-  { id: 'DO', name: 'Rep. Dominicana', flag: '🇩🇴' },
-  { id: 'HT', name: 'Haití',          flag: '🇭🇹' },
-  { id: 'JM', name: 'Jamaica',         flag: '🇯🇲' },
-  { id: 'PR', name: 'Puerto Rico',     flag: '🇵🇷' },
-  { id: 'CO', name: 'Colombia',        flag: '🇨🇴' },
-  { id: 'VE', name: 'Venezuela',       flag: '🇻🇪' },
-  { id: 'EC', name: 'Ecuador',         flag: '🇪🇨' },
-  { id: 'PE', name: 'Perú',           flag: '🇵🇪' },
-  { id: 'BO', name: 'Bolivia',         flag: '🇧🇴' },
-  { id: 'BR', name: 'Brasil',         flag: '🇧🇷' },
-  { id: 'PY', name: 'Paraguay',        flag: '🇵🇾' },
-  { id: 'UY', name: 'Uruguay',         flag: '🇺🇾' },
-  { id: 'AR', name: 'Argentina',       flag: '🇦🇷' },
-  { id: 'CL', name: 'Chile',          flag: '🇨🇱' },
-  { id: 'CA', name: 'Canadá',        flag: '🇨🇦' },
+  { id: 'HN', flag: '🇭🇳', sede: true  },
+  { id: 'MX', flag: '🇲🇽' },
+  { id: 'GT', flag: '🇬🇹' },
+  { id: 'SV', flag: '🇸🇻' },
+  { id: 'NI', flag: '🇳🇮' },
+  { id: 'CR', flag: '🇨🇷' },
+  { id: 'PA', flag: '🇵🇦' },
+  { id: 'CU', flag: '🇨🇺' },
+  { id: 'DO', flag: '🇩🇴' },
+  { id: 'HT', flag: '🇭🇹' },
+  { id: 'JM', flag: '🇯🇲' },
+  { id: 'PR', flag: '🇵🇷' },
+  { id: 'CO', flag: '🇨🇴' },
+  { id: 'VE', flag: '🇻🇪' },
+  { id: 'EC', flag: '🇪🇨' },
+  { id: 'PE', flag: '🇵🇪' },
+  { id: 'BO', flag: '🇧🇴' },
+  { id: 'BR', flag: '🇧🇷' },
+  { id: 'PY', flag: '🇵🇾' },
+  { id: 'UY', flag: '🇺🇾' },
+  { id: 'AR', flag: '🇦🇷' },
+  { id: 'CL', flag: '🇨🇱' },
+  { id: 'CA', flag: '🇨🇦' },
 ]
 
 export default function ImpactoMapa() {
+  const { t } = useTranslation('impactoMapa')
   const chartDivRef = useRef(null)
   const rootRef = useRef(null)
   const [tooltip, setTooltip] = useState(null)
@@ -127,7 +131,12 @@ export default function ImpactoMapa() {
           polygon.set('cursorOverStyle', 'pointer')
 
           polygon.events.on('pointerover', (ev) => {
-            setTooltip({ name: country.name, note: country.note, x: ev.point.x, y: ev.point.y })
+            setTooltip({
+              name: i18n.t(`countries.${country.id}.name`, { ns: 'impactoMapa' }),
+              note: i18n.t(`countries.${country.id}.note`, { ns: 'impactoMapa' }),
+              x: ev.point.x,
+              y: ev.point.y,
+            })
           })
           polygon.events.on('pointerout', () => setTooltip(null))
         }
@@ -198,17 +207,17 @@ export default function ImpactoMapa() {
       <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-cafe">
         <div className="flex items-center gap-2">
           <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#1B5E20' }} />
-          <span className="font-semibold">Honduras — Sede principal</span>
+          <span className="font-semibold">{t('legend.hq')}</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#4CAF50' }} />
-          <span>Países con alcance virtual</span>
+          <span>{t('legend.virtual')}</span>
         </div>
         <div className="flex items-center gap-2 text-cafe-light">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
           </svg>
-          <span>Arrastra · Zoom con rueda</span>
+          <span>{t('legend.drag')}</span>
         </div>
       </div>
 
@@ -220,18 +229,18 @@ export default function ImpactoMapa() {
           className="bg-white rounded-2xl py-4 px-3 shadow-sm hover:shadow-md hover:ring-2 hover:ring-[#1B5E20]/30 transition-all duration-200 cursor-pointer group"
         >
           <p className="text-2xl font-black text-[#1B5E20]">23</p>
-          <p className="text-xs text-cafe-light mt-1">Países alcanzados</p>
-          <p className="text-[10px] text-[#1B5E20] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Ver lista →</p>
+          <p className="text-xs text-cafe-light mt-1">{t('statsStrip.countries')}</p>
+          <p className="text-[10px] text-[#1B5E20] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{t('statsStrip.viewList')}</p>
         </button>
 
         <div className="bg-white rounded-2xl py-4 px-3 shadow-sm">
           <p className="text-2xl font-black text-[#1B5E20]">6</p>
-          <p className="text-xs text-cafe-light mt-1">Proyectos activos</p>
+          <p className="text-xs text-cafe-light mt-1">{t('statsStrip.activeProjects')}</p>
         </div>
 
         <div className="bg-white rounded-2xl py-4 px-3 shadow-sm">
           <p className="text-2xl font-black text-[#1B5E20]">CA+LATAM</p>
-          <p className="text-xs text-cafe-light mt-1">Región de impacto</p>
+          <p className="text-xs text-cafe-light mt-1">{t('statsStrip.region')}</p>
         </div>
       </div>
 
@@ -249,8 +258,8 @@ export default function ImpactoMapa() {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-black/8">
               <div>
-                <h3 className="text-xl font-black text-cafe">Países alcanzados</h3>
-                <p className="text-xs text-cafe-light mt-0.5">23 países · cursos virtuales</p>
+                <h3 className="text-xl font-black text-cafe">{t('modal.title')}</h3>
+                <p className="text-xs text-cafe-light mt-0.5">{t('modal.subtitle')}</p>
               </div>
               <button
                 onClick={() => setShowPaises(false)}
@@ -273,8 +282,8 @@ export default function ImpactoMapa() {
                 >
                   <span className="text-2xl leading-none">{p.flag}</span>
                   <div className="flex-1">
-                    <p className="font-semibold text-sm">{p.name}</p>
-                    {p.sede && <p className="text-xs text-white/70">Sede principal</p>}
+                    <p className="font-semibold text-sm">{t(`countries.${p.id}.name`)}</p>
+                    {p.sede && <p className="text-xs text-white/70">{t('sedePrincipal')}</p>}
                   </div>
                   <span className={`text-xs font-black px-2 py-0.5 rounded-full ${
                     p.sede ? 'bg-white/20 text-white' : 'bg-[#1B5E20]/10 text-[#1B5E20]'

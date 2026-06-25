@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 /* ── Color por página interior ───────────────────────── */
 const interiorColors = {
@@ -10,40 +12,40 @@ const interiorColors = {
 }
 
 /* ── Mapa de proyectos ────────────────────────────────── */
-const projects = [
+const projectsBase = [
   {
-    label: 'Jóvenes Caficultores',
+    key:   'jovenesCaficultores',
     to:    '/proyectos/jovenes-caficultores',
     color: '#2E7D32',
     logo:  '/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES NEGATIVO.webp',
   },
   {
-    label: 'Bosques del Mañana',
+    key:   'bosquesDelManana',
     to:    '/proyectos/bosques-del-manana',
     color: '#1B5E20',
     logo:  '/imagenes/logos/Logos Generales/LOGO BOSQUES DEL MAÑANA NEGATIVO.webp',
   },
   {
-    label: 'RS GOLD',
+    key:   'rsGold',
     to:    '/proyectos/rs-gold',
     color: '#C0392B',
     logo:  null,
   },
   {
-    label: 'Espacios Seguros',
+    key:   'espaciosSeguros',
     to:    '/proyectos/derechos-humanos',
     color: '#1565C0',
     logo:  '/imagenes/logos/Logos Generales/Logo_EspaciosSeguros.webp',
     logoWhite: true,
   },
   {
-    label: 'Incentivo Condicional',
+    key:   'incentivoCondicional',
     to:    '/proyectos/piloto-yoro',
     color: '#E65100',
     logo:  null,
   },
   {
-    label: 'Clúster Nespresso - COHONDUCAFÉ',
+    key:   'nespresso',
     to:    '/proyectos/nespresso-aaa',
     color: '#1A0E08',
     logo:  '/imagenes/logos/Logos Generales/LogoAAA_Since2003_White_RGB.webp',
@@ -68,10 +70,13 @@ function SeparadorX() {
 }
 
 export default function Navbar() {
+  const { t } = useTranslation('navbar')
   const [scrolled,     setScrolled]     = useState(false)
   const [mobileOpen,   setMobileOpen]   = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const location = useLocation()
+
+  const projects = projectsBase.map(p => ({ ...p, label: t(`projects.${p.key}`) }))
 
   /* Detectar proyecto activo */
   const activeProject = projects.find(p => location.pathname.startsWith(p.to)) ?? null
@@ -189,7 +194,7 @@ export default function Navbar() {
 
           {/* ── Nav links (desktop) ────────────────────── */}
           <div className="hidden md:flex items-center gap-8">
-            <NavLink to="/" end className={linkClass}>Inicio</NavLink>
+            <NavLink to="/" end className={linkClass}>{t('inicio')}</NavLink>
 
             {/* Dropdown proyectos */}
             <div
@@ -202,7 +207,7 @@ export default function Navbar() {
                            flex items-center gap-1.5"
                 onClick={() => setDropdownOpen(v => !v)}
               >
-                Proyectos
+                {t('proyectos')}
                 <motion.svg
                   className="w-4 h-4"
                   fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
@@ -249,16 +254,17 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <NavLink to="/impacto"   className={linkClass}>Impacto</NavLink>
-            <NavLink to="/equipo"    className={linkClass}>Staff</NavLink>
-            <NavLink to="/contacto"  className={linkClass}>Contacto</NavLink>
+            <NavLink to="/impacto"   className={linkClass}>{t('impacto')}</NavLink>
+            <NavLink to="/equipo"    className={linkClass}>{t('staff')}</NavLink>
+            <NavLink to="/contacto"  className={linkClass}>{t('contacto')}</NavLink>
           </div>
 
           {/* ── CTA + hamburger ───────────────────────── */}
           <div className="flex items-center gap-3">
+            <LanguageSwitcher className="hidden md:block" />
             <div className="hidden md:block">
               <Link to="/contacto" className={ctaBtnClass} style={ctaBtnStyle}>
-                Contáctanos
+                {t('contactanos')}
               </Link>
             </div>
 
@@ -266,7 +272,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(v => !v)}
               className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-              aria-label="Menú"
+              aria-label={t('menu')}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 {mobileOpen
@@ -320,9 +326,11 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
+              <LanguageSwitcher className="self-start mb-3" />
+
               <NavLink to="/" end
                 className="text-white font-semibold py-3 px-3 rounded-xl hover:bg-white/10 transition-colors">
-                Inicio
+                {t('inicio')}
               </NavLink>
 
               <div>
@@ -331,7 +339,7 @@ export default function Navbar() {
                   className="w-full text-left text-white font-semibold py-3 px-3 rounded-xl
                              hover:bg-white/10 transition-colors flex items-center justify-between"
                 >
-                  Proyectos
+                  {t('proyectos')}
                   <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`}
                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -362,15 +370,15 @@ export default function Navbar() {
 
               <NavLink to="/impacto"
                 className="text-white font-semibold py-3 px-3 rounded-xl hover:bg-white/10 transition-colors">
-                Impacto
+                {t('impacto')}
               </NavLink>
               <NavLink to="/equipo"
                 className="text-white font-semibold py-3 px-3 rounded-xl hover:bg-white/10 transition-colors">
-                Staff
+                {t('staff')}
               </NavLink>
               <NavLink to="/contacto"
                 className="text-white font-semibold py-3 px-3 rounded-xl hover:bg-white/10 transition-colors">
-                Contacto
+                {t('contacto')}
               </NavLink>
             </div>
           </motion.div>

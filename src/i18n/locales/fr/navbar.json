@@ -1,0 +1,17 @@
+{
+  "inicio": "Accueil",
+  "proyectos": "Projets",
+  "impacto": "Impact",
+  "staff": "Équipe",
+  "contacto": "Contact",
+  "contactanos": "Contactez-nous",
+  "menu": "Menu",
+  "projects": {
+    "jovenesCaficultores": "Jeunes Caféiculteurs",
+    "bosquesDelManana": "Forêts de Demain",
+    "rsGold": "RS GOLD",
+    "espaciosSeguros": "Espaces Sûrs",
+    "incentivoCondicional": "Incitation Conditionnelle",
+    "nespresso": "Cluster Nespresso - COHONDUCAFÉ"
+  }
+}

@@ -1,6 +1,7 @@
 import { useState, useLayoutEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import ProjectHero from '../../components/ProjectHero'
 import CounterStat from '../../components/CounterStat'
 import * as am5 from '@amcharts/amcharts5'
@@ -43,10 +44,6 @@ const GALLERY = [
 ]
 
 const ROTATIONS = [-4, 2, -6, 3, -2, 5, -3, 4, -5, 2, 6, -4, 3, -2, 5, -6, 4, -3]
-const CAPTIONS  = [
-  'Honduras 2026', 'Espacios Seguros', 'Comunidades', 'Formación',
-  'Niñez', 'RS GOLD', 'En campo', 'Familias caficultoras',
-]
 
 const Icon = ({ d, d2, className = 'w-6 h-6', style }) => (
   <svg className={className} style={style} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -69,55 +66,13 @@ const ICONS = {
   close:   'M6 18L18 6M6 6l12 12',
 }
 
-const COMPROMISOS = [
-  {
-    icon: ICONS.home,
-    title: '3 Espacios Seguros',
-    desc: 'Implementación en Comayagua, Santa Bárbara y Yoro — entornos protegidos para la niñez y juventud cafetera durante la cosecha.',
-    status: 'Completado',
-    pct: 100,
-    img: `${COMP}/_EAA4948.webp`,
-  },
-  {
-    icon: ICONS.eye,
-    title: 'Monitoreo de Trabajo Infantil',
-    desc: '1 sistema de monitoreo activo. 100% de los casos identificados reciben al menos 2 visitas de seguimiento documentadas.',
-    status: 'Activo',
-    pct: 100,
-    img: `${COMP}/_EAA4968.webp`,
-  },
-  {
-    icon: ICONS.users,
-    title: '450 Personas Capacitadas',
-    desc: 'Formación en DDHH y Trabajo Infantil dirigida a equipos técnicos, productores, trabajadores, familias, jóvenes y NNA.',
-    status: 'En ejecución',
-    pct: 60,
-    img: `${COMP}/LineaTiempo1.webp`,
-  },
-  {
-    icon: ICONS.backpack,
-    title: '86 Kits Escolares',
-    desc: 'Materiales educativos para fortalecer el derecho a la educación de niños y niñas en zonas de intervención.',
-    status: 'Completado',
-    pct: 100,
-    img: `${COMP}/galeria_20.webp`,
-  },
-  {
-    icon: ICONS.clip,
-    title: 'Protocolo de Protección',
-    desc: '1 protocolo de protección infantil y remediación elaborado y socializado con toda la comunidad de productores RS GOLD.',
-    status: 'En desarrollo',
-    pct: 40,
-    img: `${COMP}/niños_comiendo_merienda.webp`,
-  },
-  {
-    icon: ICONS.hands,
-    title: 'Articulación Interinstitucional',
-    desc: 'Trabajo con instituciones gubernamentales y OSC para garantizar respuesta a casos identificados.',
-    status: 'Activo',
-    pct: 85,
-    img: `${COMP}/_EAA4560.webp`,
-  },
+const COMPROMISOS_BASE = [
+  { key: 'espaciosSeguros', icon: ICONS.home,     pct: 100, img: `${COMP}/_EAA4948.webp` },
+  { key: 'monitoreo',       icon: ICONS.eye,      pct: 100, img: `${COMP}/_EAA4968.webp` },
+  { key: 'capacitados',     icon: ICONS.users,    pct: 60,  img: `${COMP}/LineaTiempo1.webp` },
+  { key: 'kits',            icon: ICONS.backpack, pct: 100, img: `${COMP}/galeria_20.webp` },
+  { key: 'protocolo',       icon: ICONS.clip,     pct: 40,  img: `${COMP}/niños_comiendo_merienda.webp` },
+  { key: 'articulacion',    icon: ICONS.hands,    pct: 85,  img: `${COMP}/_EAA4560.webp` },
 ]
 
 const fadeUp = {
@@ -131,6 +86,7 @@ const fadeUp = {
 const HIGHLIGHTED = ['HN-SB', 'HN-YO', 'HN-CM']
 
 function HondurasMap({ color = '#0D47A1' }) {
+  const { t } = useTranslation('derechosHumanos')
   const chartRef = useRef(null)
 
   useLayoutEffect(() => {
@@ -190,11 +146,11 @@ function HondurasMap({ color = '#0D47A1' }) {
       <div className="mt-4 flex gap-5 justify-center flex-wrap">
         <div className="flex items-center gap-2">
           <div className="w-4 h-3 rounded" style={{ backgroundColor: color }} />
-          <span className="text-xs text-cafe-light font-medium">Departamentos intervenidos</span>
+          <span className="text-xs text-cafe-light font-medium">{t('map.legend.intervened')}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-3 rounded bg-blue-300" />
-          <span className="text-xs text-cafe-light font-medium">Otros departamentos</span>
+          <span className="text-xs text-cafe-light font-medium">{t('map.legend.other')}</span>
         </div>
       </div>
     </div>
@@ -248,9 +204,18 @@ function Lightbox({ src, onClose, onPrev, onNext }) {
 }
 
 export default function DerechosHumanos() {
+  const { t } = useTranslation('derechosHumanos')
   const [lightbox,    setLightbox]    = useState(null)
   const [draggingIdx, setDraggingIdx] = useState(null)
   const boardRef = useRef(null)
+
+  const CAPTIONS = t('captions', { returnObjects: true })
+  const COMPROMISOS = COMPROMISOS_BASE.map(c => ({
+    ...c,
+    title:  t(`timeline.items.${c.key}.title`),
+    desc:   t(`timeline.items.${c.key}.desc`),
+    status: t(`timeline.items.${c.key}.status`),
+  }))
 
   const openLightbox = (idx) => setLightbox(idx)
   const closeLightbox = () => setLightbox(null)
@@ -260,13 +225,13 @@ export default function DerechosHumanos() {
   return (
     <div className="page-enter">
       <ProjectHero
-        title="Derechos Humanos y Protección de la Niñez"
-        subtitle="Fortalecimiento de derechos en la cadena caficultora"
-        description="Fortalecer el respeto, la protección y la garantía de los derechos humanos con énfasis en la prevención del trabajo infantil en la cadena RS GOLD de Honduras."
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        description={t('hero.description')}
         color={COLOR}
         imageSrc={HERO_IMG}
         imagePosition="center 25%"
-        tag="Derechos Humanos"
+        tag={t('hero.tag')}
         collaborators={1}
       />
 
@@ -275,10 +240,10 @@ export default function DerechosHumanos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-3xl overflow-hidden">
             {[
-              { value: 450,  label: 'Personas a capacitar',   sub: 'en DDHH y Trabajo Infantil' },
-              { value: 86,   label: 'Kits escolares',          sub: 'para niños y niñas' },
-              { value: 3,    label: 'Espacios Seguros',        sub: 'Comayagua, Sta. Bárbara, Yoro' },
-              { value: 3,    label: 'Departamentos',           sub: 'de intervención en Honduras' },
+              { value: 450,  label: t('stats.items.personas.label'),       sub: t('stats.items.personas.sub') },
+              { value: 86,   label: t('stats.items.kits.label'),           sub: t('stats.items.kits.sub') },
+              { value: 3,    label: t('stats.items.espacios.label'),       sub: t('stats.items.espacios.sub') },
+              { value: 3,    label: t('stats.items.departamentos.label'), sub: t('stats.items.departamentos.sub') },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -302,12 +267,11 @@ export default function DerechosHumanos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-16">
             <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-              Compromisos 2026
+              {t('timeline.eyebrow')}
             </span>
-            <h2 className="text-4xl font-black text-cafe mt-2">Línea de acción del programa</h2>
+            <h2 className="text-4xl font-black text-cafe mt-2">{t('timeline.title')}</h2>
             <p className="text-cafe-light mt-3 max-w-xl leading-relaxed">
-              Seis ejes de trabajo que cubren prevención, monitoreo, remediación y fortalecimiento
-              de capacidades en comunidades cafeteras de Honduras.
+              {t('timeline.description')}
             </p>
           </motion.div>
 
@@ -385,15 +349,13 @@ export default function DerechosHumanos() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp}>
               <span className="text-sm font-bold uppercase tracking-widest" style={{ color: COLOR }}>
-                Alcance territorial
+                {t('map.eyebrow')}
               </span>
               <h2 className="text-4xl font-black text-cafe mt-2 mb-6">
-                Departamentos de intervención
+                {t('map.title')}
               </h2>
               <p className="text-cafe-light mb-8 leading-relaxed">
-                El programa opera en los principales departamentos cafeteros de Honduras
-                donde se desarrolla la cadena RS GOLD, priorizando comunidades con mayor
-                vulnerabilidad y riesgo de trabajo infantil.
+                {t('map.description')}
               </p>
 
               <motion.div
@@ -415,25 +377,22 @@ export default function DerechosHumanos() {
               <div className="rounded-3xl p-8 text-white"
                    style={{ background: `linear-gradient(150deg, ${COLOR}, ${ACCENT})` }}>
                 <Icon d={ICONS.shield} className="w-12 h-12 mb-6 opacity-80" />
-                <h3 className="text-2xl font-black mb-4">Objetivo del programa</h3>
+                <h3 className="text-2xl font-black mb-4">{t('map.objectiveTitle')}</h3>
                 <p className="text-white/80 leading-relaxed mb-6 text-sm">
-                  Fortalecer el respeto, la protección y la garantía de los derechos humanos,
-                  con énfasis en la prevención del trabajo infantil y la mejora de las condiciones
-                  laborales en la cadena de valor de RS GOLD, mediante acciones integrales de
-                  prevención, monitoreo y remediación.
+                  {t('map.objectiveText')}
                 </p>
                 <div className="grid grid-cols-3 gap-3 border-t border-white/20 pt-6">
                   <div className="text-center">
                     <p className="text-3xl font-black">1</p>
-                    <p className="text-white/70 text-xs mt-0.5">Coordinadora</p>
+                    <p className="text-white/70 text-xs mt-0.5">{t('map.miniStats.coordinadora')}</p>
                   </div>
                   <div className="text-center border-x border-white/20">
                     <p className="text-3xl font-black">3</p>
-                    <p className="text-white/70 text-xs mt-0.5">Departamentos</p>
+                    <p className="text-white/70 text-xs mt-0.5">{t('map.miniStats.departamentos')}</p>
                   </div>
                   <div className="text-center">
                     <p className="text-3xl font-black">450</p>
-                    <p className="text-white/70 text-xs mt-0.5">Meta capacitados</p>
+                    <p className="text-white/70 text-xs mt-0.5">{t('map.miniStats.meta')}</p>
                   </div>
                 </div>
               </div>
@@ -455,11 +414,11 @@ export default function DerechosHumanos() {
           <motion.div {...fadeUp} className="mb-14 text-center">
             <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-bold
                              uppercase tracking-widest px-4 py-2 rounded-full border border-white/30 mb-4">
-              Galería
+              {t('gallery.badge')}
             </span>
-            <h2 className="text-4xl font-black text-white">Momentos del programa</h2>
+            <h2 className="text-4xl font-black text-white">{t('gallery.title')}</h2>
             <p className="text-white/60 mt-3 max-w-xl mx-auto leading-relaxed">
-              Imágenes del trabajo en campo con comunidades, niñez y familias caficultoras de Honduras.
+              {t('gallery.description')}
             </p>
             <p className="text-white/40 mt-2 text-sm flex items-center justify-center gap-1.5">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -467,7 +426,7 @@ export default function DerechosHumanos() {
                   d="M3.75 9A2.25 2.25 0 016 6.75h12A2.25 2.25 0 0120.25 9v7.5A2.25 2.25 0 0118 18.75H6A2.25 2.25 0 013.75 16.5V9z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75V5.25a.75.75 0 01.75-.75h6a.75.75 0 01.75.75v1.5" />
               </svg>
-              Arrastra las fotos para reordenarlas
+              {t('gallery.dragHint')}
             </p>
           </motion.div>
 
@@ -573,8 +532,8 @@ export default function DerechosHumanos() {
       <section className="py-20 bg-white text-center">
         <motion.div {...fadeUp} className="max-w-2xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/" className="btn-primary">← Todos los proyectos</Link>
-            <Link to="/proyectos/piloto-yoro" className="btn-dark">Siguiente: Incentivo Condicional →</Link>
+            <Link to="/" className="btn-primary">{t('cta.btnAll')}</Link>
+            <Link to="/proyectos/piloto-yoro" className="btn-dark">{t('cta.btnNext')}</Link>
           </div>
         </motion.div>
       </section>

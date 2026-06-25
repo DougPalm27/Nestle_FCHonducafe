@@ -1,0 +1,10 @@
+{
+  "languageGate": {
+    "title": "Escolha seu idioma",
+    "subtitle": "Selecione o idioma em que deseja ver o site",
+    "continue": "Continuar"
+  },
+  "languageSwitcher": {
+    "label": "Idioma"
+  }
+}
