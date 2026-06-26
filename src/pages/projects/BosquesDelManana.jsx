@@ -509,7 +509,7 @@ export default function BosquesDelManana() {
             {/* ── COLUMNA DERECHA ── */}
             <div className="flex flex-row lg:flex-col gap-4">
               {[
-                { img: IMG.tecnicos,     valor: '+20',      label: t('numbers.right.tecnicos') },
+                { img: IMG.tecnicos,     valor: '+20',      label: t('numbers.right.tecnicos'), objectPosition: 'right center' },
                 { img: IMG.kits,         valor: '+15,000',  label: t('numbers.right.kits') },
                 { img: IMG.voluntariado, valor: '🌱',        label: t('numbers.right.voluntariado') },
               ].map((c, i) => (
@@ -529,7 +529,8 @@ export default function BosquesDelManana() {
                   style={{ minHeight: '220px' }}
                 >
                   <img src={c.img} alt={c.label}
-                       className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
+                       className="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-700"
+                       style={{ objectPosition: c.objectPosition || 'center' }} />
                   <div className="absolute inset-0"
                        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)' }} />
                   <div className="absolute right-0 top-0 bottom-0 w-1 rounded-r-3xl" style={{ backgroundColor: LIGHT }} />
