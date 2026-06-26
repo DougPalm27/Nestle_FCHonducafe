@@ -132,7 +132,7 @@ export default function JovenesCaficultores() {
         imageSrc="/imagenes/proyectos/jovenes-caficultores/aulaMovil/hero.webp"
         logo="/imagenes/logos/Logos Generales/LOGO JÓVENES CAFICULTORES NEGATIVO.webp"
         tag={t('hero.tag')}
-        collaborators={8}
+        collaborators={4}
       />
 
       {/* ── STAT RIBBON animado ────────────────────────────── */}

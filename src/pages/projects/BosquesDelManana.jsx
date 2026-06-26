@@ -13,16 +13,22 @@ const LIGHT = '#4CAF50'
 /* ── Imágenes ─────────────────────────────────────────── */
 const IMG = {
   hero:   '/imagenes/proyectos/bosques-del-manana/bosques_01.webp',
-  num:    '/imagenes/proyectos/bosques-del-manana/Bosques1.webp',
+  num:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/arbolesplantadoscifra1.jpeg',
   mad:    '/imagenes/proyectos/bosques-del-manana/bosques_02.webp',
-  fru:    '/imagenes/proyectos/bosques-del-manana/bosques_03.webp',
-  cer:    '/imagenes/proyectos/bosques-del-manana/bosques_04.webp',
+  fru:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ArbolesFrutales.png',
+  cer:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/totalArboles.png',
   meta:   '/imagenes/proyectos/bosques-del-manana/Bosques2.webp',
   audit:  '/imagenes/proyectos/bosques-del-manana/bosques_05.webp',
   fin:    '/imagenes/proyectos/bosques-del-manana/Bosques3.webp',
   g1:     '/imagenes/proyectos/bosques-del-manana/bosques5.webp',
   g2:     '/imagenes/proyectos/bosques-del-manana/bosques6.webp',
   g3:     '/imagenes/proyectos/bosques-del-manana/bosques7.webp',
+  at:           '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ImagenIncialAcumulada.png',
+  atStat:       '/imagenes/proyectos/bosques-del-manana/bosques_04.webp',
+  productores:  '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/productoresatentidosencifra.jpeg',
+  tecnicos:     '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/tecnicosencampocifras.png',
+  kits:         '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/KitEntregados.png',
+  voluntariado: '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/Voluntariado.png',
 }
 
 /* ── Icon helper ──────────────────────────────────────── */
@@ -248,7 +254,7 @@ export default function BosquesDelManana() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.9, type: 'spring' }}
               >
-                <img src={IMG.num} alt={t('central.imageAlt')} className="w-full h-full object-cover" />
+                <img src={IMG.at} alt={t('central.imageAlt')} className="w-full h-full object-cover" />
                 <div className="absolute inset-0"
                      style={{ background: `linear-gradient(to top, ${COLOR}99 0%, transparent 50%)` }} />
                 <div className="absolute bottom-6 left-6 right-6">
@@ -375,9 +381,9 @@ export default function BosquesDelManana() {
             {/* ── COLUMNA IZQUIERDA ── */}
             <div className="flex flex-row lg:flex-col gap-4">
               {[
-                { img: IMG.num,  valor: '4,010,362', label: t('numbers.left.trees') },
-                { img: IMG.mad,  valor: '+16,000',   label: t('numbers.left.at') },
-                { img: IMG.fru,  valor: '+2,700',    label: t('numbers.left.producers') },
+                { img: IMG.num,         valor: '4,010,362', label: t('numbers.left.trees') },
+                { img: IMG.atStat,      valor: '+16,000',   label: t('numbers.left.at') },
+                { img: IMG.productores, valor: '+2,700',    label: t('numbers.left.producers') },
               ].map((c, i) => (
                 <motion.div
                   key={i}
@@ -503,9 +509,9 @@ export default function BosquesDelManana() {
             {/* ── COLUMNA DERECHA ── */}
             <div className="flex flex-row lg:flex-col gap-4">
               {[
-                { img: IMG.cer,   valor: '+20',      label: t('numbers.right.tecnicos') },
-                { img: IMG.g1,    valor: '+15,000',  label: t('numbers.right.kits') },
-                { img: IMG.audit, valor: '🌱',        label: t('numbers.right.voluntariado') },
+                { img: IMG.tecnicos,     valor: '+20',      label: t('numbers.right.tecnicos') },
+                { img: IMG.kits,         valor: '+15,000',  label: t('numbers.right.kits') },
+                { img: IMG.voluntariado, valor: '🌱',        label: t('numbers.right.voluntariado') },
               ].map((c, i) => (
                 <motion.div
                   key={i}

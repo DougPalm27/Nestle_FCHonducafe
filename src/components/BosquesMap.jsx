@@ -15,8 +15,6 @@ const HEAT_DATA_BASE = [
   { id: 'HN-OC', value: 75  },
   { id: 'HN-SB', value: 55  },
   { id: 'HN-IN', value: 30  },
-  { id: 'HN-CR', value: 15  },
-  { id: 'HN-LP', value: 5   },
 ]
 
 const ACTIVE_IDS = HEAT_DATA_BASE.map(d => d.id)

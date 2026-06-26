@@ -15,11 +15,11 @@
   },
   "types": {
     "eyebrow": "Composition de la plantation",
-    "title": "Répartition par type de plante",
+    "title": "Répartition par espèce de plante",
     "items": {
-      "maderables": { "label": "Total des arbres d'œuvre", "desc": "Espèces forestières de grande valeur commerciale et écologique intégrées dans les fermes caféières." },
-      "frutales": { "label": "Total des arbres fruitiers", "desc": "Diversification des revenus et nutrition locale avec des arbres fruitiers indigènes et commerciaux." },
-      "total": { "label": "Total des arbres", "desc": "Total cumulé 2022–2025 entre arbres d'œuvre et fruitiers dans les systèmes agroforestiers." }
+      "maderables": { "label": "Total espèces d'œuvre", "desc": "Espèces forestières de grande valeur commerciale et écologique intégrées dans les fermes caféières." },
+      "frutales": { "label": "Total espèces fruitières", "desc": "Diversification des revenus et nutrition locale avec des arbres fruitiers indigènes et commerciaux." },
+      "total": { "label": "Total espèces plantées", "desc": "Total cumulé 2022–2025 entre arbres d'œuvre et fruitiers dans les systèmes agroforestiers." }
     }
   },
   "numbers": {

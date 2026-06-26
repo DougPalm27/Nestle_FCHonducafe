@@ -15,11 +15,11 @@
   },
   "types": {
     "eyebrow": "Composición de la plantación",
-    "title": "Distribución de tipo de planta",
+    "title": "Distribución por especie de planta",
     "items": {
-      "maderables": { "label": "Árboles maderables totales", "desc": "Especies forestales de alto valor comercial y ecológico integradas en fincas cafetaleras." },
-      "frutales": { "label": "Árboles frutales totales", "desc": "Diversificación de ingresos y nutrición local con frutales nativos y comerciales." },
-      "total": { "label": "Árboles totales", "desc": "Total acumulado 2022–2025 entre maderables y frutales en sistemas agroforestales." }
+      "maderables": { "label": "Especies Maderables totales", "desc": "Especies forestales de alto valor comercial y ecológico integradas en fincas cafetaleras." },
+      "frutales": { "label": "Especies Frutales totales", "desc": "Diversificación de ingresos y nutrición local con frutales nativos y comerciales." },
+      "total": { "label": "Total especies plantadas", "desc": "Total acumulado 2022–2025 entre maderables y frutales en sistemas agroforestales." }
     }
   },
   "numbers": {

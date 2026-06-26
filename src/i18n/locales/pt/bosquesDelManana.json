@@ -15,11 +15,11 @@
   },
   "types": {
     "eyebrow": "Composição da plantação",
-    "title": "Distribuição por tipo de planta",
+    "title": "Distribuição por espécie de planta",
     "items": {
-      "maderables": { "label": "Árvores madeireiras totais", "desc": "Espécies florestais de alto valor comercial e ecológico integradas em fazendas cafeeiras." },
-      "frutales": { "label": "Árvores frutíferas totais", "desc": "Diversificação de renda e nutrição local com frutíferas nativas e comerciais." },
-      "total": { "label": "Árvores totais", "desc": "Total acumulado 2022–2025 entre madeireiras e frutíferas em sistemas agroflorestais." }
+      "maderables": { "label": "Total Espécies Madeireiras", "desc": "Espécies florestais de alto valor comercial e ecológico integradas em fazendas cafeeiras." },
+      "frutales": { "label": "Total Espécies Frutíferas", "desc": "Diversificação de renda e nutrição local com frutíferas nativas e comerciais." },
+      "total": { "label": "Total Espécies Plantadas", "desc": "Total acumulado 2022–2025 entre madeireiras e frutíferas em sistemas agroflorestais." }
     }
   },
   "numbers": {

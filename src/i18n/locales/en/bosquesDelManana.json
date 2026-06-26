@@ -15,11 +15,11 @@
   },
   "types": {
     "eyebrow": "Plantation composition",
-    "title": "Plant type distribution",
+    "title": "Distribution by plant species",
     "items": {
-      "maderables": { "label": "Total timber trees", "desc": "Forest species of high commercial and ecological value integrated into coffee farms." },
-      "frutales": { "label": "Total fruit trees", "desc": "Income diversification and local nutrition with native and commercial fruit trees." },
-      "total": { "label": "Total trees", "desc": "Accumulated total 2022–2025 between timber and fruit trees in agroforestry systems." }
+      "maderables": { "label": "Total Timber Species", "desc": "Forest species of high commercial and ecological value integrated into coffee farms." },
+      "frutales": { "label": "Total Fruit Species", "desc": "Income diversification and local nutrition with native and commercial fruit trees." },
+      "total": { "label": "Total Species Planted", "desc": "Accumulated total 2022–2025 between timber and fruit trees in agroforestry systems." }
     }
   },
   "numbers": {
