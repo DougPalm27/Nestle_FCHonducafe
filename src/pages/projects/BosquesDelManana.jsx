@@ -13,22 +13,22 @@ const LIGHT = '#4CAF50'
 /* ── Imágenes ─────────────────────────────────────────── */
 const IMG = {
   hero:   '/imagenes/proyectos/bosques-del-manana/bosques_01.webp',
-  num:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/arbolesplantadoscifra1.jpeg',
+  num:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/arbolesplantadoscifra1.webp',
   mad:    '/imagenes/proyectos/bosques-del-manana/bosques_02.webp',
-  fru:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ArbolesFrutales.png',
-  cer:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/totalArboles.png',
+  fru:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ArbolesFrutales.webp',
+  cer:    '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/totalArboles.webp',
   meta:   '/imagenes/proyectos/bosques-del-manana/Bosques2.webp',
   audit:  '/imagenes/proyectos/bosques-del-manana/bosques_05.webp',
   fin:    '/imagenes/proyectos/bosques-del-manana/Bosques3.webp',
   g1:     '/imagenes/proyectos/bosques-del-manana/bosques5.webp',
   g2:     '/imagenes/proyectos/bosques-del-manana/bosques6.webp',
   g3:     '/imagenes/proyectos/bosques-del-manana/bosques7.webp',
-  at:           '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ImagenIncialAcumulada.png',
+  at:           '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/ImagenIncialAcumulada.webp',
   atStat:       '/imagenes/proyectos/bosques-del-manana/bosques_04.webp',
-  productores:  '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/productoresatentidosencifra.jpeg',
-  tecnicos:     '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/tecnicosencampocifras.png',
-  kits:         '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/KitEntregados.png',
-  voluntariado: '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/Voluntariado.png',
+  productores:  '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/productoresatentidosencifra.webp',
+  tecnicos:     '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/tecnicosencampocifras.webp',
+  kits:         '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/KitEntregados.webp',
+  voluntariado: '/imagenes/proyectos/bosques-del-manana/actualizacionBosques/Voluntariado.webp',
 }
 
 /* ── Icon helper ──────────────────────────────────────── */
